@@ -1,0 +1,495 @@
+        :root{
+  --amarelo-logo:#d6d000;
+  --amarelo-quente:#e29322;
+  --preto-logo:#171111;
+  --branco-logo:#e6fc6e;
+  --vidro:rgba(10,10,10,.62);
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family:Arial, sans-serif;
+  color:#ffffff;
+
+  background:
+  linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.85)),
+  url("img/fundo.png") center/cover fixed no-repeat;
+
+  overflow-x:hidden;
+}
+
+/* NAVBAR */
+
+/* NAVBAR EX5 */
+
+.navbar{
+  position:absolute;
+  top:24px;
+  left:50%;
+  transform:translateX(-50%);
+
+  width:92%;
+
+  padding:0 34px;
+
+  
+ 
+}
+
+/* brilho interno da barra */
+.navbar::before{
+  content:"";
+  position:absolute;
+  inset:0;
+
+  background:
+    radial-gradient(circle at 18% 50%, rgba(214,208,0,.14), transparent 26%),
+    radial-gradient(circle at 82% 50%, rgba(214,208,0,.08), transparent 24%);
+
+  pointer-events:none;
+}
+
+/* reflexo na borda */
+/* NAVBAR COM IMAGEM */
+
+.navbar{
+  position:absolute;
+
+  top:10px;
+  left:50%;
+
+  transform:translateX(-50%);
+
+  width:92%;
+  aspect-ratio:1920 / 220;
+
+  background:
+  url("img/menufundoBARRA.png")
+  center center / 100% auto no-repeat;
+
+  z-index:999;
+}
+
+nav{
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+
+  display:flex;
+  gap:6vw;
+
+}
+
+nav a{
+  color:#fff;
+  text-decoration:none;
+
+  font-size:15px;
+  font-weight:800;
+  letter-spacing:2px;
+  text-transform:uppercase;
+
+  transition:.3s;
+}
+
+nav a:hover{
+  color:var(--amarelo-logo);
+  text-shadow:0 0 12px rgba(214,208,0,.7);
+}
+/* TEXTO DIREITA */
+
+.brand-text{
+  position:relative;
+  z-index:2;
+
+  justify-self:end;
+
+  display:flex;
+  flex-direction:column;
+  align-items:flex-end;
+}
+
+.brand-text strong{
+  font-family:'Bebas Neue', sans-serif;
+  font-size:48px;
+  line-height:.8;
+  letter-spacing:3px;
+  color:var(--amarelo-logo);
+}
+
+.brand-text span{
+  margin-top:6px;
+  color:#fff;
+  opacity:.72;
+  font-size:13px;
+  letter-spacing:5px;
+  text-transform:uppercase;
+}
+
+/* HERO */
+
+.hero{
+  position:relative;
+
+  overflow:hidden;
+
+  min-height:100vh;
+
+  padding:80px 8%;
+
+  display:flex;
+
+  flex-direction:column;
+
+  justify-content:center;
+}
+
+.hero h1{
+  font-family:'Bebas Neue', sans-serif;
+
+  font-size:90px;
+
+  line-height:.9;
+
+  color:#dfe222;
+
+  max-width:700px;
+
+  z-index:2;
+}
+
+.hero p{
+  margin-top:25px;
+
+  font-size:28px;
+
+  max-width:500px;
+
+  z-index:2;
+}
+
+/* BOTÃO */
+
+.scroll-btn{
+  margin-top:40px;
+
+  width:max-content;
+
+  padding:15px 28px;
+
+  background:#dfe222;
+
+  color:#2b1a0f;
+
+  text-decoration:none;
+
+  border-radius:999px;
+
+  font-weight:bold;
+
+  transition:.3s;
+
+  z-index:2;
+}
+
+.scroll-btn:hover{
+  transform:translateY(-3px);
+}
+
+/* GLOW MASCOTE */
+
+.mascote-glow{
+  position:absolute;
+
+  right:8%;
+  bottom:80px;
+
+  width:520px;
+  height:420px;
+
+  background:
+  radial-gradient(
+    rgba(214,208,0,.18),
+    transparent 68%
+  );
+
+  filter:blur(18px);
+
+  z-index:1;
+
+  pointer-events:none;
+}
+
+/* MASCOTE */
+
+.mascote{
+  position:absolute;
+
+  right:5%;
+  bottom:200px;
+
+  width:520px;
+
+  max-width:38vw;
+
+  z-index:2;
+
+  cursor:pointer;
+
+  transition:
+  transform .45s ease,
+  filter .45s ease;
+
+  filter:
+  brightness(.88)
+  saturate(.85)
+  drop-shadow(0 0 35px rgba(214,208,0,.22));
+}
+
+.mascote:hover{
+  transform:
+  translateY(-8px)
+  scale(1.015);
+}
+
+/* TIMELINE */
+
+.timeline{
+  position:relative;
+
+  padding:120px 8%;
+}
+
+/* LINHA */
+
+.timeline::before{
+  content:"";
+
+  position:absolute;
+
+  left:50%;
+  top:0;
+
+  transform:translateX(-50%);
+
+  width:5px;
+
+  height:100%;
+
+  background:
+  linear-gradient(
+    to bottom,
+    transparent,
+    #ddff00,
+    transparent
+  );
+
+  opacity:1;
+}
+
+/* ITEMS */
+
+.timeline-item{
+  position:relative;
+
+  display:flex;
+
+align-items:flex-start;
+
+  margin-bottom:70px;
+}
+
+/* BOLINHA */
+
+.timeline-item::before{
+  content:"";
+
+  position:absolute;
+
+  left:50%;
+  top:50%;
+
+  transform:translate(-50%,-50%);
+
+  width:18px;
+  height:18px;
+
+  border-radius:50%;
+
+  background:#dfe222;
+
+  box-shadow:
+  0 0 20px #dfe222;
+}
+
+/* LEFT */
+
+.timeline-item.left{
+  justify-content:flex-start;
+}
+
+.timeline-item.left .card{
+  margin-left:80px;
+  margin-top:-40px;
+}
+
+/* RIGHT */
+
+.timeline-item.right{
+  justify-content:flex-end;
+}
+
+.timeline-item.right .year{
+  order:2;
+}
+
+.timeline-item.right .card{
+  order:1;
+
+  margin-right:80px;
+
+  text-align:right;
+
+  margin-top:-40px;
+}
+
+/* ANO */
+
+.year{
+  font-size:76px;
+
+  font-weight:900;
+
+  color:#dfe222;
+
+  min-width:180px;
+}
+
+/* CARD */
+
+.card{
+  width:320px;
+
+  padding:18px;
+
+  border-radius:14px;
+
+  background:rgba(20,20,20,.72);
+
+  border:1px solid rgba(255,255,255,.08);
+
+  backdrop-filter:blur(10px);
+
+  color:#fff;
+
+  box-shadow:0 20px 60px rgba(0,0,0,.65);
+
+  transform:translateY(-100px);
+}
+
+.card h2{
+  margin-bottom:15px;
+
+  font-size:20px;
+}
+
+.card p{
+  line-height:1.7;
+
+  font-size:18px;
+
+  opacity:.9;
+}
+
+.card img{
+  width:100%;
+
+  margin-top:20px;
+
+  border-radius:10px;
+
+  display:block;
+}
+
+/* POSTER */
+
+.poster{
+  cursor:pointer;
+
+  transition:.3s;
+}
+
+.poster:hover{
+  transform:scale(1.02);
+}
+
+/* MODAL */
+
+.modal{
+  position:fixed;
+
+  inset:0;
+
+  background:rgba(0,0,0,.82);
+
+  backdrop-filter:blur(10px);
+
+  display:none;
+
+  align-items:center;
+  justify-content:center;
+
+  z-index:9999;
+}
+
+.modal.active{
+  display:flex;
+}
+
+.modal-img{
+  max-width:78%;
+
+  max-height:82vh;
+
+  border-radius:12px;
+
+  box-shadow:
+  0 20px 80px rgba(0,0,0,.8);
+}
+
+.close{
+  position:absolute;
+
+  top:30px;
+  right:40px;
+
+  font-size:50px;
+
+  color:white;
+
+  cursor:pointer;
+}
+.raposa-chat{
+  width:250px;
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  z-index:9999;
+  cursor:pointer;
+  transition:.3s;
+}
+
+.raposa-chat:hover{
+  transform:scale(1.05);
+  filter: drop-shadow(0 8px 15px rgba(0,0,0,.35));
+}
