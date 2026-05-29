@@ -31,7 +31,7 @@ body {
 
 body.home-page {
   background:
-    linear-gradient(rgba(0, 0, 0, 0.58), rgba(49, 41, 2, 0.14), rgba(0, 0, 0, 0.62)),
+    linear-gradient(rgba(252, 250, 250, 0.255), rgba(255, 252, 252, 0.03), rgba(255, 255, 255, 0.34)),
     url("img/CAR00.png?v=20260528a") center/cover fixed no-repeat;
 }
 
@@ -905,49 +905,136 @@ body.contato-page {
     font-size: 14px;
   }
 }
-#intro{
-  position:fixed;
-  inset:0;
 
-  background:#000;
+/* Intro V8 */
 
-  display:flex;
-  justify-content:center;
-  align-items:center;
-
-  z-index:99999;
-
-  transition:1s;
+#intro {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  padding: 28px 20px;
+  background:
+    radial-gradient(circle, rgba(223, 226, 34, 0.12), transparent 35%),
+    #000;
+  z-index: 999999;
+  transition: opacity 1s ease, visibility 1s ease;
 }
 
-#intro.sumir{
-  opacity:0;
-  visibility:hidden;
+#intro.hide {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
 }
 
-.intro-logo img{
-  width:320px;
-  max-width:70vw;
-  height:auto;
+.intro-logo {
+  width: 320px;
+  max-width: 75vw;
+  animation: logoEntrada 1.2s ease;
+}
 
-  opacity:0;
-  transform:scale(.82);
-
-  animation:logoEntrada 1.4s ease forwards;
-
+.intro-logo img {
+  display: block;
+  width: 100%;
+  height: auto;
   filter:
-    drop-shadow(0 0 18px rgba(223,226,34,.45))
-    drop-shadow(0 12px 28px rgba(0,0,0,.8));
+    drop-shadow(0 0 18px rgba(223, 226, 34, 0.45))
+    drop-shadow(0 12px 28px rgba(0, 0, 0, 0.8));
 }
 
-@keyframes logoEntrada{
-  to{
-    opacity:1;
-    transform:scale(1);
+@keyframes logoEntrada {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
   }
 }
-#intro{
-  background:
-    radial-gradient(circle, rgba(223,226,34,.12), transparent 35%),
-    #000;
+
+#motorV8 {
+  width: min(500px, 82vw);
+  height: min(300px, 40vh);
+  min-height: 180px;
+  border-radius: 14px;
+  background: rgba(17, 17, 17, 0.92);
+}
+
+#entrarBtn {
+  padding: 14px 40px;
+  border: 3px solid #dfe222;
+  border-radius: 8px;
+  background: #171111;
+  color: #dfe222;
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 26px;
+  letter-spacing: 2px;
+  cursor: pointer;
+  transition:
+    transform 0.3s ease,
+    background 0.3s ease,
+    color 0.3s ease;
+}
+
+#entrarBtn:hover {
+  background: #dfe222;
+  color: #171111;
+  transform: translateY(-3px);
+}
+
+#entrarBtn:disabled {
+  opacity: 0.72;
+  cursor: default;
+  transform: none;
+}
+
+@media (max-width: 760px) {
+  #intro {
+    gap: 22px;
+    padding: 24px 16px;
+  }
+
+  .intro-logo {
+    width: min(250px, 72vw);
+  }
+
+  #motorV8 {
+    width: min(88vw, 430px);
+    height: min(240px, 32vh);
+    min-height: 150px;
+  }
+
+  #entrarBtn {
+    width: min(270px, 82vw);
+    padding: 13px 24px;
+    font-size: 21px;
+    text-align: center;
+  }
+}
+
+@media (max-width: 390px) {
+  #intro {
+    gap: 18px;
+  }
+
+  .intro-logo {
+    width: min(220px, 72vw);
+  }
+
+  #motorV8 {
+    width: 88vw;
+    height: min(210px, 28vh);
+    min-height: 130px;
+  }
+
+  #entrarBtn {
+    width: 82vw;
+    font-size: 18px;
+    letter-spacing: 1.5px;
+  }
 }

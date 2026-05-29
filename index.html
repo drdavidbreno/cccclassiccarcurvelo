@@ -6,8 +6,25 @@
   <title>In&iacute;cio</title>
   <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
 </head>
 <body class="home-page">
+  <div id="intro" aria-label="Introdu&ccedil;&atilde;o V8">
+    <div class="intro-logo">
+      <img src="img/logo.png" alt="CCC Car">
+    </div>
+
+    <model-viewer
+      id="motorV8"
+      src="modelos/motor.glb"
+      camera-controls
+      auto-rotate
+      autoplay>
+    </model-viewer>
+
+    <button id="entrarBtn" type="button">LIGAR O V8</button>
+  </div>
+
   <header class="navbar">
     <nav aria-label="Menu principal">
       <a href="index.html" class="active">In&iacute;cio</a>
@@ -21,9 +38,8 @@
   <main class="home">
     <section class="home-intro">
       <h1>CCC<br>Classiccar<br>curevelo</h1>
-     
     </section>
-
+  </main>
 
   <section class="chat-panel" id="chat-panel" aria-label="Atendente virtual CCC Car">
     <div class="chat-header">
@@ -71,6 +87,10 @@
     <source src="video/raposa_sem_sombra.webm" type="video/webm">
   </video>
 
+  <audio id="v8Sound" preload="auto">
+    <source src="audio/v8.mp3" type="audio/mpeg">
+  </audio>
+
   <script>
     const chatPanel = document.getElementById("chat-panel");
     const chatBody = document.getElementById("chat-body");
@@ -78,6 +98,9 @@
     const chatInput = document.getElementById("chat-input");
     const chatClose = document.querySelector(".chat-close");
     const raposaChat = document.querySelector(".raposa-chat");
+    const btn = document.getElementById("entrarBtn");
+    const intro = document.getElementById("intro");
+    const audio = document.getElementById("v8Sound");
 
     const chatAnswers = {
       historia: "O CCC Car nasceu para reunir apaixonados por carros antigos em Curvelo. A linha do tempo mostra essa jornada de 2016 at\\u00E9 2026, com encontros, mem\\u00F3rias e tradi\\u00E7\\u00E3o.",
@@ -140,32 +163,18 @@
       chatInput.value = "";
       addChatMessage("Recebi sua mensagem! Para um retorno mais certeiro, fale pelo menu Contato ou conte aqui se voc\\u00EA quer saber sobre hist\\u00F3ria, eventos ou participa\\u00E7\\u00E3o.");
     });
+
+    btn.addEventListener("click", () => {
+      btn.disabled = true;
+      btn.textContent = "LIGANDO...";
+
+      audio.currentTime = 0;
+      audio.play().catch(() => {});
+
+      setTimeout(() => {
+        intro.classList.add("hide");
+      }, 6000);
+    });
   </script>
-  <audio id="v8Sound" preload="auto">
-  <source src="audio/v8.mp3" type="audio/mpeg">
-</audio>
-
-<div id="intro">
-  <div class="intro-logo">
-  <img src="img/logo.png" alt="CCC ClassicCar Curvelo">
-</div>
-</div>
-
-<script>
-window.addEventListener("load", () => {
-
-  const intro = document.getElementById("intro");
-  const audio = document.getElementById("v8Sound");
-
-  audio.volume = 0.7;
-
-  audio.play().catch(() => {});
-
-  setTimeout(() => {
-    intro.classList.add("sumir");
-  }, 6000);
-
-});
-</script>
 </body>
 </html>
