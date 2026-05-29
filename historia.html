@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>História</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="navbar">
+    <nav>
+      <a href="inicio.html">Início</a>
+      <a href="historia.html" class="active">História</a>
+      <a href="sobre.html">Sobre</a>
+      <a href="eventos.html">Eventos</a>
+      <a href="contato.html">Contato</a>
+    </nav>
+  </header>
+
+  <section class="home-intro">
+    <h1>CCC CAR<br>CLASSIC<br>CURVELO</h1>
+    <p>
+      Desde 2016 preservando histórias,
+      cultivando amizades e mantendo viva
+      a paixão pelos veículos clássicos.
+    </p>
+    <img src="img/mascote.png" class="mascote" alt="">
+  </section>
+
+  <section class="timeline" id="timeline">
+    <div class="timeline-item left">
+      <div class="year">2016</div>
+      <div class="card">
+        <h2>A PRIMEIRA FAÍSCA</h2>
+        <p>Nasce a ideia de unir apaixonados por carros antigos em Curvelo.</p>
+        <img src="img/2016.png" alt="2016" class="poster">
+      </div>
+    </div>
+
+    <div class="timeline-item right">
+      <div class="year">2017</div>
+      <div class="card">
+        <h2>O ENCONTRO GANHA FORÇA</h2>
+        <p>Mais amigos chegam, mais histórias aparecem e a paixão cresce.</p>
+        <img src="img/2017.png" alt="2017" class="poster">
+      </div>
+    </div>
+
+    <div class="timeline-item left">
+      <div class="year">2018</div>
+      <div class="card">
+        <h2>MEMÓRIAS SOBRE RODAS</h2>
+        <p>Os encontros começam a virar tradição entre famílias e colecionadores.</p>
+        <img src="img/2018.jpeg" alt="2018" class="poster">
+      </div>
+    </div>
+
+    <div class="timeline-item right">
+      <div class="year">2019</div>
+      <div class="card">
+        <h2>UMA FAMÍLIA MAIOR</h2>
+        <p>O clube cresce e reúne cada vez mais apaixonados pelo antigomobilismo.</p>
+        <img src="img/2019.png" alt="2019" class="poster">
+      </div>
+    </div>
+
+    <div class="timeline-item left">
+      <div class="year">2020</div>
+      <div class="card">
+        <h2>PAUSA NAS ESTRADAS</h2>
+        <p>Mesmo distantes, a paixão pelos clássicos continuou viva.</p>
+        <img src="img/2020.png" alt="2020" class="poster">
+      </div>
+    </div>
+
+    <div class="timeline-item right">
+      <div class="year">2021</div>
+      <div class="card">
+        <h2>O RETORNO</h2>
+        <p>O ronco dos motores volta a ecoar nos encontros.</p>
+        <img src="img/2021.png" alt="2021" class="poster">
+      </div>
+    </div>
+
+    <div class="timeline-item left">
+      <div class="year">2022</div>
+      <div class="card">
+        <h2>TRADIÇÃO FORTALECIDA</h2>
+        <p>O clube ganha ainda mais força e reconhecimento regional.</p>
+        <img src="img/2022.jpeg" alt="2022" class="poster">
+      </div>
+    </div>
+
+    <div class="timeline-item right">
+      <div class="year">2023</div>
+      <div class="card">
+        <h2>IDENTIDADE PRÓPRIA</h2>
+        <p>O grupo fortalece sua marca, sua união e sua presença.</p>
+        <img src="img/2023.png" alt="2023" class="poster">
+      </div>
+    </div>
+
+    <div class="timeline-item left">
+      <div class="year">2024</div>
+      <div class="card">
+        <h2>CURVELO EM DESTAQUE</h2>
+        <p>Participantes de várias cidades passam a fazer parte dos encontros.</p>
+        <img src="img/2024.jpeg" alt="2024" class="poster">
+      </div>
+    </div>
+
+    <div class="timeline-item right">
+      <div class="year">2025</div>
+      <div class="card">
+        <h2>UMA HISTÓRIA EM MOVIMENTO</h2>
+        <p>Novas memórias continuam sendo construídas a cada encontro.</p>
+        <img src="img/2025.png" alt="2025" class="poster">
+      </div>
+    </div>
+
+    <div class="timeline-item left">
+      <div class="year">2026</div>
+      <div class="card">
+        <h2>O FUTURO CONTINUA</h2>
+        <p>Aguarde o próximo encontro, onde o ronco dos motores e a paixão pelos clássicos voltam a reunir gerações!</p>
+        <img src="img/2026.png" alt="2026" class="poster">
+      </div>
+    </div>
+  </section>
+
+  <div class="modal" id="modal">
+    <span class="close">&times;</span>
+    <img class="modal-img" id="modal-img" alt="">
+  </div>
+
+  <script>
+    const posters = document.querySelectorAll('.poster');
+    const modal = document.getElementById('modal');
+    const modalImg = document.getElementById('modal-img');
+    const closeBtn = document.querySelector('.close');
+
+    posters.forEach((poster) => {
+      const removeBrokenPoster = () => {
+        poster.remove();
+      };
+
+      poster.addEventListener('error', removeBrokenPoster);
+
+      if (poster.complete && poster.naturalWidth === 0) {
+        removeBrokenPoster();
+        return;
+      }
+
+      poster.addEventListener('click', () => {
+        modal.classList.add('active');
+        modalImg.src = poster.src;
+        modalImg.alt = poster.alt;
+      });
+    });
+
+    closeBtn.addEventListener('click', () => {
+      modal.classList.remove('active');
+    });
+
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        modal.classList.remove('active');
+      }
+    });
+  </script>
+</body>
+</html>
