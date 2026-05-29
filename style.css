@@ -22,7 +22,7 @@ html {
 
 body {
   min-height: 100vh;
-  overflow-x: hidden;
+  overflow-x: hidden;   
   font-family: Arial, sans-serif;
   color: #ffffff;
 }
@@ -30,46 +30,58 @@ body {
 /* Backgrounds das paginas */
 
 body.home-page {
-  background:
-    linear-gradient(rgba(252, 250, 250, 0.255), rgba(255, 252, 252, 0.03), rgba(255, 255, 255, 0.34)),
-    url("img/CAR00.png?v=20260528a") center/cover fixed no-repeat;
+  background: url("img/CAR00.png?v=20260528a") center/cover fixed no-repeat;
 }
 
 body.historia-page {
-  background:
-    radial-gradient(circle at 50% 0%, rgba(58, 45, 6, 0.35), rgba(0, 0, 0, 0.96) 58%),
-    #030303;
+  position: relative;
+  background: none;
+  isolation: isolate;
+}
+
+body.historia-page::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("img/asfaltonovo.png?v=20260529-4") center top / 100% 100% no-repeat;
+  filter: blur(2px);
+  transform: scale(1.012);
+  transform-origin: center top;
+  z-index: -1;
+  pointer-events: none;
 }
 
 body.sobre-page {
-  background:
-    linear-gradient(rgba(0, 0, 0, 0.28), rgba(0, 0, 0, 0.55)),
-    url("img/car19.png") center/cover fixed no-repeat;
+  background: url("img/car19.png") center/cover fixed no-repeat;
 }
 
 body.eventos-page {
-  background:
-    linear-gradient(rgba(0, 0, 0, 0.28), rgba(0, 0, 0, 0.55)),
-    url("img/car7.png") center/cover fixed no-repeat;
+  background: url("img/car7.png") center/cover fixed no-repeat;
 }
 
 body.contato-page {
-  background:
-    linear-gradient(rgba(0, 0, 0, 0.28), rgba(0, 0, 0, 0.55)),
-    url("img/car95.png") center/cover fixed no-repeat;
+  background: url("img/car95.png") center/cover fixed no-repeat;
 }
 
 /* Navbar */
 
 .navbar {
+  --navbar-peek: 42px;
   position: fixed;
   top: 0;
   left: 50%;
   width: 92%;
   aspect-ratio: 1480 / 182;
-  transform: translateX(-50%);
+  transform: translateX(-50%) translateY(calc(-100% + var(--navbar-peek)));
   background: url("img/menufundoBARRA.png?v=20260528b") center -18px / contain no-repeat;
+  transition: transform 0.38s ease;
+  will-change: transform;
   z-index: 999;
+}
+
+.navbar:hover,
+.navbar:focus-within {
+  transform: translateX(-50%) translateY(0);
 }
 
 .navbar nav {
@@ -129,6 +141,10 @@ body.contato-page {
 
 .home-intro {
   justify-content: flex-start;
+}
+
+.historia-page .hero {
+  padding-top: 40px;
 }
 
 .home-intro h1,
@@ -194,6 +210,29 @@ body.contato-page {
   transform: translateY(-3px);
 }
 
+.back-button {
+  position: absolute;
+  top: 22px;
+  left: 22px;
+  padding: 8px 14px;
+  border: 1px solid rgba(223, 226, 34, 0.5);
+  border-radius: 999px;
+  background: rgba(10, 10, 10, 0.56);
+  color: #ffffff;
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 18px;
+  letter-spacing: 1.5px;
+  text-decoration: none;
+  text-transform: uppercase;
+  z-index: 3;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.28);
+}
+
+.back-button:hover {
+  background: rgba(223, 226, 34, 0.14);
+}
+
 .mascote {
   position: absolute;
   right: 18%;
@@ -213,6 +252,19 @@ body.contato-page {
 
 .mascote:hover {
   transform: translateY(-8px) scale(1.015);
+}
+
+.historia-page .mascote {
+  right: 4%;
+  bottom: 260px;
+  width: 780px;
+  max-width: 82vw;
+  z-index: 1;
+  opacity: 0.92;
+  filter:
+    brightness(0.82)
+    saturate(0.8)
+    drop-shadow(0 0 24px rgba(214, 208, 0, 0.16));
 }
 
 .selo-home {
@@ -246,13 +298,21 @@ body.contato-page {
   width: 5px;
   height: 100%;
   transform: translateX(-50%);
-  background: linear-gradient(to bottom, transparent, #ddff00, transparent);
+  background: linear-gradient(
+    to bottom,
+    rgba(223, 226, 34, 0.34),
+    rgba(223, 226, 34, 0.98),
+    rgba(223, 226, 34, 0.34)
+  );
+  box-shadow: 0 0 16px rgba(223, 226, 34, 0.32);
 }
 
 .timeline-item {
   position: relative;
   display: flex;
   align-items: flex-start;
+  overflow: visible;
+  padding-top: 300px;
   margin-bottom: 70px;
 }
 
@@ -266,7 +326,9 @@ body.contato-page {
   transform: translate(-50%, -50%);
   border-radius: 50%;
   background: #dfe222;
-  box-shadow: 0 0 20px #dfe222;
+  box-shadow:
+    0 0 0 3px rgba(223, 226, 34, 0.18),
+    0 0 22px rgba(223, 226, 34, 0.78);
 }
 
 .timeline-item.left {
@@ -275,7 +337,7 @@ body.contato-page {
 
 .timeline-item.left .card {
   margin-top: -40px;
-  margin-left: 80px;
+  margin-left: 118px;
 }
 
 .timeline-item.right {
@@ -289,22 +351,41 @@ body.contato-page {
 .timeline-item.right .card {
   order: 1;
   margin-top: -40px;
-  margin-right: 80px;
+  margin-right: 118px;
   text-align: right;
 }
 
 .year {
   min-width: 180px;
-  color: #dfe222;
-  font-family: "Bebas Neue", sans-serif;
-  font-size: 76px;
-  font-weight: 400;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  text-shadow:
-    3px 3px 0 #171111,
-    0 8px 18px rgba(0, 0, 0, 0.85),
-    0 0 18px rgba(223, 226, 34, 0.32);
+  min-height: 1px;
+}
+
+.plate-year {
+  position: relative;
+  min-width: 180px;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.plate-year img {
+  position: absolute;
+  top: 0;
+  display: block;
+  width: 272px;
+  height: auto;
+  z-index: 4;
+  transform: rotate(-9deg);
+  transform-origin: center;
+  filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.4));
+}
+
+.timeline-item.left .plate-year img {
+  left: 322px;
+}
+
+.timeline-item.right .plate-year img {
+  left: auto;
+  right: 322px;
 }
 
 .card {
@@ -666,7 +747,9 @@ body.contato-page {
   }
 
   .navbar {
+    --navbar-peek: 0px;
     width: 94%;
+    transform: translateX(-50%) translateY(0);
     background-position: center -18px;
   }
 
@@ -681,6 +764,10 @@ body.contato-page {
     min-height: 100svh;
     padding: 120px 22px 250px;
     justify-content: flex-start;
+  }
+
+  .historia-page .hero {
+    padding-top: 72px;
   }
 
   .home-intro h1,
@@ -716,6 +803,13 @@ body.contato-page {
     font-size: 14px;
   }
 
+  .back-button {
+    top: 18px;
+    left: 18px;
+    padding: 7px 12px;
+    font-size: 16px;
+  }
+
   .mascote {
     left: 50%;
     right: auto;
@@ -731,6 +825,20 @@ body.contato-page {
 
   .mascote:hover {
     transform: translateX(-50%) translateY(-8px) scale(1.015);
+  }
+
+  .historia-page .mascote {
+    left: auto;
+    right: -4px;
+    bottom: 160px;
+    width: 340px;
+    max-width: 92vw;
+    transform: none;
+    z-index: 1;
+  }
+
+  .historia-page .mascote:hover {
+    transform: translateY(-8px) scale(1.015);
   }
 
   .selo-home {
@@ -755,6 +863,7 @@ body.contato-page {
     grid-template-columns: 100px minmax(0, 1fr);
     align-items: start;
     gap: 0;
+    padding-top: 0;
     margin-bottom: 46px;
   }
 
@@ -784,10 +893,28 @@ body.contato-page {
 
   .year {
     min-width: 0;
-    padding-left: 20px;
-    font-size: 28px;
-    line-height: 1.1;
-    letter-spacing: 2px;
+    min-height: 0;
+    padding-left: 0;
+  }
+
+  .plate-year {
+    position: relative;
+    top: auto;
+    left: auto;
+    right: auto;
+    min-width: 100px;
+    padding-left: 8px;
+    pointer-events: auto;
+    z-index: 0;
+  }
+
+  .plate-year img {
+    position: relative;
+    top: auto;
+    left: auto;
+    right: auto;
+    width: 110px;
+    margin-left: 0;
   }
 
   .card {
@@ -889,6 +1016,11 @@ body.contato-page {
     font-size: 47px;
   }
 
+  .back-button {
+    top: 14px;
+    left: 14px;
+  }
+
   .mascote {
     width: 280px;
   }
@@ -907,7 +1039,6 @@ body.contato-page {
 }
 
 /* Intro V8 */
-
 #intro {
   position: fixed;
   inset: 0;
@@ -918,10 +1049,29 @@ body.contato-page {
   gap: 30px;
   padding: 28px 20px;
   background:
-    radial-gradient(circle, rgba(223, 226, 34, 0.12), transparent 35%),
-    #000;
+    radial-gradient(circle, rgb(13, 13, 13), transparent 35%),
+    #000000;
   z-index: 999999;
-  transition: opacity 1s ease, visibility 1s ease;
+  transition: opacity 1s ease, visibility 1s ease;  
+  overflow: hidden; /* necessário para o ::before */
+}
+
+#intro::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("img/capa.png"); /* coloque aqui sua imagem */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0,5; /* ajusta de acordo com o quanto quer que apareça */
+  filter: blur(4px); /* deixa o fundo desfocado */
+  z-index: 0; /* por baixo de tudo */
+}
+
+#intro > * {
+  position: relative;
+  z-index: 1; /* mantém logo, motor e botão na frente */
 }
 
 #intro.hide {
@@ -929,7 +1079,6 @@ body.contato-page {
   visibility: hidden;
   pointer-events: none;
 }
-
 .intro-logo {
   width: 320px;
   max-width: 75vw;
@@ -961,8 +1110,16 @@ body.contato-page {
   width: min(500px, 82vw);
   height: min(300px, 40vh);
   min-height: 180px;
-  border-radius: 14px;
-  background: rgba(17, 17, 17, 0.92);
+  border-radius: 0;
+  background: transparent;
+  --poster-color: transparent;
+}
+
+@media (hover: none), (pointer: coarse) {
+  .navbar {
+    --navbar-peek: 0px;
+    transform: translateX(-50%) translateY(0);
+  }
 }
 
 #entrarBtn {
@@ -1038,3 +1195,4 @@ body.contato-page {
     letter-spacing: 1.5px;
   }
 }
+
