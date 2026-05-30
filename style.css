@@ -713,7 +713,7 @@ body.contato-page {
   position: fixed;
   right: 20px;
   bottom: 42px;
-  width: 250px;
+  width: 160px;
   z-index: 9999;
   cursor: pointer;
   transition: 0.3s;
@@ -733,9 +733,9 @@ body.contato-page {
   position: fixed;
   right: 28px;
   bottom: 245px;
-  width: 330px;
+  width: 230px;
   max-width: calc(100vw - 32px);
-  height: 430px;
+  height: 330px;
   max-height: calc(100svh - 48px);
   z-index: 10000;
   display: flex;
@@ -784,7 +784,7 @@ body.contato-page {
   background: #171111;
   color: #dfe222;
   font-family: "Bebas Neue", sans-serif;
-  font-size: 19px;
+  font-size: 15px;
   letter-spacing: 1px;
   box-shadow: 0 0 18px rgba(0, 0, 0, 0.3);
 }
@@ -1508,7 +1508,7 @@ body.contato-page {
   gap: 30px;
   padding: 28px 20px;
   background:
-    radial-gradient(circle, rgb(4, 95, 241), transparent 35%),
+    radial-gradient(circle, rgb(126, 241, 4), transparent 35%),
     #000000d6;
   z-index: 999999;
   transition: opacity 1s ease, visibility 1s ease;  
@@ -1587,10 +1587,10 @@ body.contato-page {
 
 #entrarBtn {
   padding: 14px 40px;
-  border: 3px solid #dfe222;
+  border: 3px solid #ccff00;
   border-radius: 8px;
-  background: #171111;
-  color: #dfe222;
+  background: #000000;
+  color: #ccff00;
   font-family: "Bebas Neue", sans-serif;
   font-size: 26px;
   letter-spacing: 2px;
@@ -1602,7 +1602,7 @@ body.contato-page {
 }
 
 #entrarBtn:hover {
-  background: #dfe222;
+  background: #ccff00;;
   color: #171111;
   transform: translateY(-3px);
 }

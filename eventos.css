@@ -28,7 +28,7 @@ body {
 .hero {
   min-height: 75vh;
   background:
-    linear-gradient(90deg, rgba(0,0,0,.95), rgba(0,0,0,.55), rgba(0,0,0,.2)),
+    linear-gradient(90deg, rgba(175, 181, 2, 0.121), rgba(241, 242, 204, 0.033), rgba(175, 181, 2, 0.121)),
     url("img/fundo-eventos.jpg");
   background-size: cover;
   background-position: center;
@@ -60,14 +60,14 @@ body {
   font-size: clamp(70px, 13vw, 170px);
   line-height: .85;
   letter-spacing: 4px;
-  color: #f5e9b0;
+  color: #ffffff;
   text-shadow: 0 8px 0 #000;
 }
 
 
 main {
   background:
-    radial-gradient(circle at top, rgba(224, 233, 148, 0.925), transparent 35%),
+    radial-gradient(circle at top, rgba(127, 141, 3, 0.925), transparent 35%),
     linear-gradient(180deg, #333333, #0000009a);
   padding: 70px 7% 100px;
 }
@@ -95,7 +95,7 @@ main {
 }
 
 .info-evento .ano {
-  color: #474501;
+  color: #ffe600;
   font-size: 34px;
   font-weight: 900;
 }
@@ -104,7 +104,7 @@ main {
   margin-top: 10px;
   font-size: clamp(34px, 5vw, 62px);
   line-height: .95;
-  color: #251701;
+  color: #ffffff;
   text-transform: uppercase;
 }
 
@@ -143,7 +143,7 @@ main {
   margin-top: 30px;
   text-decoration: none;
   color: #111;
-  background: #96d600;
+  background: #abd600;
   padding: 15px 26px;
   border-radius: 999px;
   font-weight: 900;
@@ -157,7 +157,7 @@ main {
 }
 
 .chamada-galeria span {
-  color: #d6d000;
+  color: #ccff00;
   font-weight: 900;
   letter-spacing: 3px;
 }
@@ -165,14 +165,14 @@ main {
 .chamada-galeria h2 {
   margin-top: 12px;
   font-size: clamp(38px, 7vw, 86px);
-  color: #f5e9b0;
+  color: #ffffff;
   text-transform: uppercase;
 }
 
 .chamada-galeria p {
   margin-top: 15px;
   font-size: 19px;
-  color: #ccc;
+  color: #ccff00;
 }
 
 .galeria {
