@@ -47,7 +47,7 @@ html {
 body {
   min-height: 100vh;
   overflow-x: hidden;   
-  font-family: Arial, sans-serif;
+  font-family: "Montserrat", Arial, sans-serif;
   color: #ffffff;
 }
 
@@ -250,7 +250,7 @@ body.contato-page {
 }
 
 .foundation h2 {
-  font-family: "Bebas Neue", sans-serif;
+  font-family: "Anton", sans-serif;
   font-size: clamp(42px, 4.6vw, 70px);
   line-height: 0.95;
   letter-spacing: 1.5px;
@@ -260,8 +260,10 @@ body.contato-page {
   max-width: 22ch;
   margin-inline: auto;
   text-shadow:
-    0 10px 28px rgba(0, 0, 0, 0.65),
-    0 0 16px rgba(204, 255, 0, 0.35);
+    4px 4px 0 #000000,
+    8px 8px 0 rgba(0, 0, 0, 0.62),
+    0 18px 34px rgba(0, 0, 0, 0.92),
+    0 0 16px rgba(204, 255, 0, 0.28);
   margin-bottom: 10px;
 }
 
@@ -269,13 +271,15 @@ body.contato-page {
   max-width: 900px;
   margin: 0 auto 26px;
   text-align: center;
-  font-family: system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+  font-family: "Barlow Condensed", Arial, sans-serif;
   font-size: clamp(16px, 1.25vw, 20px);
   line-height: 1.55;
   letter-spacing: 0.2px;
   font-weight: 500;
   color: rgba(255, 255, 255, 0.88);
-  text-shadow: 0 10px 22px rgba(0, 0, 0, 0.55);
+  text-shadow:
+    2px 2px 0 #000000,
+    0 10px 20px rgba(0, 0, 0, 0.88);
 }
 
 .foundation-grid {
@@ -372,7 +376,7 @@ body.contato-page {
 }
 
 .foundation-caption h3 {
-  font-family: "Bebas Neue", sans-serif;
+  font-family: "Anton", sans-serif;
   font-size: 28px;
   letter-spacing: 1px;
   margin-bottom: 6px;
@@ -397,6 +401,22 @@ body.contato-page {
   border-radius: 8px;
   font-size: 0;
   color: transparent;
+  text-decoration: none;
+}
+
+.home-intro-hotspot {
+  position: absolute;
+  left: 8.7vw;
+  top: 80.8vh;
+  width: 8.6vw;
+  height: 5.8vh;
+  min-width: 120px;
+  min-height: 46px;
+  z-index: 41;
+  display: block;
+  border-radius: 8px;
+  color: transparent;
+  font-size: 0;
   text-decoration: none;
 }
 
@@ -462,7 +482,7 @@ body.contato-page {
 .hero h1 {
   max-width: 700px;
   color: #dfe222;
-  font-family: "Bebas Neue", sans-serif;
+  font-family: "Anton", sans-serif;
   font-size: 90px;
   font-weight: 400;
   line-height: 0.9;
@@ -520,7 +540,7 @@ body.contato-page {
   border-radius: 999px;
   background: #dfe222;
   color: #2b1a0f;
-  font-family: "Bebas Neue", sans-serif;
+  font-family: "Barlow Condensed", sans-serif;
   font-size: 22px;
   font-weight: 400;
   letter-spacing: 2px;
@@ -550,7 +570,7 @@ body.contato-page {
   border-radius: 999px;
   background: rgba(10, 10, 10, 0.56);
   color: #ffffff;
-  font-family: "Bebas Neue", sans-serif;
+  font-family: "Barlow Condensed", sans-serif;
   font-size: 18px;
   letter-spacing: 1.5px;
   text-decoration: none;
@@ -738,7 +758,7 @@ body.contato-page {
   display: block;
   margin-bottom: 8px;
   color: #e29322;
-  font-family: "Bebas Neue", sans-serif;
+  font-family: "Barlow Condensed", sans-serif;
   font-size: 22px;
   line-height: 1;
   letter-spacing: 2.5px;
@@ -749,7 +769,7 @@ body.contato-page {
 .historia-lateral h3 {
   margin-bottom: 10px;
   color: #dfe222;
-  font-family: "Bebas Neue", sans-serif;
+  font-family: "Anton", sans-serif;
   font-size: clamp(30px, 2.8vw, 46px);
   font-weight: 400;
   line-height: 0.95;
@@ -837,7 +857,7 @@ body.contato-page {
 .card h2 {
   margin-bottom: 15px;
   color: #dfe222;
-  font-family: "Bebas Neue", sans-serif;
+  font-family: "Anton", sans-serif;
   font-size: 30px;
   font-weight: 400;
   line-height: 1;
@@ -1022,7 +1042,7 @@ body.contato-page {
   border-radius: 50%;
   background: #171111;
   color: #dfe222;
-  font-family: "Bebas Neue", sans-serif;
+  font-family: "Anton", sans-serif;
   font-size: 15px;
   letter-spacing: 1px;
   box-shadow: 0 0 18px rgba(0, 0, 0, 0.3);
@@ -1030,7 +1050,7 @@ body.contato-page {
 
 .chat-header strong {
   display: block;
-  font-family: "Bebas Neue", sans-serif;
+  font-family: "Anton", sans-serif;
   font-size: 24px;
   font-weight: 400;
   line-height: 1;
@@ -1140,7 +1160,7 @@ body.contato-page {
   border-radius: 999px;
   background: #fff;
   color: #171111;
-  font-family: "Bebas Neue", sans-serif;
+  font-family: "Barlow Condensed", sans-serif;
   font-size: 16px;
   font-weight: 400;
   letter-spacing: 1px;
@@ -1200,7 +1220,7 @@ body.contato-page {
   border-radius: 999px;
   background: #171111;
   color: #dfe222;
-  font-family: "Bebas Neue", sans-serif;
+  font-family: "Barlow Condensed", sans-serif;
   font-size: 16px;
   letter-spacing: 1px;
   text-transform: uppercase;
@@ -1232,7 +1252,7 @@ body.contato-page {
   border-radius:999px;
   background:#dfe222;
   color:#171111;
-  font-family:"Bebas Neue",sans-serif;
+  font-family:"Barlow Condensed",sans-serif;
   font-size:26px;
   letter-spacing:2px;
   cursor:pointer;
@@ -1287,7 +1307,7 @@ body.contato-page {
   transform:translateX(-50%);
 
   color:#171111;
-  font-family:"Bebas Neue",sans-serif;
+  font-family:"Barlow Condensed",sans-serif;
   font-size:34px;
   letter-spacing:4px;
 }
@@ -1295,7 +1315,7 @@ body.contato-page {
 .modal-historia-conteudo h2{
   color:#171111;
   text-align:center;
-  font-family:"Bebas Neue",sans-serif;
+  font-family:"Anton",sans-serif;
   font-size:60px;
   letter-spacing:4px;
   margin-bottom:30px;
@@ -1830,7 +1850,7 @@ body.contato-page {
   border-radius: 8px;
   background: #000000;
   color: #ccff00;
-  font-family: "Bebas Neue", sans-serif;
+  font-family: "Barlow Condensed", sans-serif;
   font-size: 16px;
   letter-spacing: 2px;
   cursor: pointer;

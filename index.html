@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>In&iacute;cio</title>
   <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Barlow+Condensed:wght@300;400;500;600&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
 </head>
 <body class="home-page">
@@ -42,6 +42,7 @@
   </header>
 
   <a class="home-history-hotspot" href="historia.html" aria-label="Conhe&ccedil;a nossa hist&oacute;ria"></a>
+  <a class="home-intro-hotspot" href="index.html?intro=1" aria-label="Abrir introdu&ccedil;&atilde;o do site"></a>
 
   <main class="home-main">
     <section class="home-hero-spacer" aria-hidden="true"></section>
@@ -161,7 +162,6 @@
     const hornAudio = document.getElementById("hornSound");
     const farolSound = document.querySelector(".navbar-secret-sound");
     const farolHorn = document.querySelector(".navbar-secret-horn");
-
     const chatAnswers = {
       historia: "O CCC Car nasceu para reunir apaixonados por carros antigos em Curvelo. A linha do tempo mostra essa jornada de 2016 at\\u00E9 2026, com encontros, mem\\u00F3rias e tradi\\u00E7\\u00E3o.",
       eventos: "Os encontros celebram carros cl\\u00E1ssicos, amizade e boas hist\\u00F3rias. Acompanhe a p\\u00E1gina para ver os destaques de cada ano e novidades do clube.",
@@ -233,6 +233,7 @@
 
       setTimeout(() => {
         intro.classList.add("hide");
+        window.history.replaceState({}, "", "index.html");
       }, 6000);
     });
 

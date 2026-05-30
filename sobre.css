@@ -23,7 +23,7 @@ body.sobre-page {
   min-height: 100vh;
   overflow-x: hidden;
   color: var(--branco);
-  font-family: Arial, sans-serif;
+  font-family: "Montserrat", Arial, sans-serif;
   background:
     linear-gradient(90deg, rgba(0,0,0,.82), rgba(0,0,0,.42), rgba(0,0,0,.76)),
     url("img/car19.png") center/cover fixed no-repeat;
@@ -107,7 +107,7 @@ main,
   border-radius: 999px;
   background: rgba(0,0,0,.48);
   color: var(--amarelo-claro);
-  font-family: "Bebas Neue", sans-serif;
+  font-family: "Barlow Condensed", sans-serif;
   font-size: 20px;
   letter-spacing: 3px;
   text-transform: uppercase;
@@ -117,7 +117,7 @@ main,
 .sobre-hero h1,
 .frase-final h2 {
   color: var(--amarelo-claro);
-  font-family: "Bebas Neue", sans-serif;
+  font-family: "Anton", sans-serif;
   font-size: clamp(58px, 7vw, 118px);
   font-weight: 400;
   line-height: .9;
@@ -147,7 +147,7 @@ main,
   border-radius: 999px;
   background: var(--amarelo-claro);
   color: var(--preto);
-  font-family: "Bebas Neue", sans-serif;
+  font-family: "Barlow Condensed", sans-serif;
   font-size: 24px;
   letter-spacing: 2px;
   text-decoration: none;
@@ -209,7 +209,7 @@ main,
   display: block;
   margin-bottom: 12px;
   color: var(--laranja);
-  font-family: "Bebas Neue", sans-serif;
+  font-family: "Barlow Condensed", sans-serif;
   font-size: 22px;
   letter-spacing: 3px;
 }
@@ -218,7 +218,7 @@ main,
 .mascote-texto h2,
 .valores h2 {
   color: var(--amarelo-claro);
-  font-family: "Bebas Neue", sans-serif;
+  font-family: "Anton", sans-serif;
   font-size: clamp(38px, 4vw, 62px);
   font-weight: 400;
   line-height: 1;
@@ -300,7 +300,7 @@ main,
 .valor strong {
   display: block;
   color: var(--amarelo-claro);
-  font-family: "Bebas Neue", sans-serif;
+  font-family: "Anton", sans-serif;
   font-size: 34px;
   font-weight: 400;
   letter-spacing: 2px;

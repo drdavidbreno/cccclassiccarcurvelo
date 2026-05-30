@@ -3,74 +3,59 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Eventos | C.C.C Classic Car Curvelo</title>
+  <title>Galeria de Eventos | C.C.C Classic Car Curvelo</title>
   <link rel="stylesheet" href="eventos.css">
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Barlow+Condensed:wght@300;400;500;600&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
+  <a href="index.html" class="btn-voltar" aria-label="Voltar para o in&iacute;cio">&#8592;</a>
 
-  <a href="index.html" class="btn-voltar">←</a>
+  <main class="eventos-page-shell">
+    <section class="galeria-hero" aria-labelledby="galeria-titulo">
+      <span class="galeria-kicker">Arquivo hist&oacute;rico CCC</span>
+      <h1 id="galeria-titulo">Galeria de Eventos</h1>
+      <p>Confira os melhores momentos dos encontros do Clube de Ve&iacute;culos Antigos de Curvelo.</p>
+    </section>
 
-  <section class="hero">
-    <div class="hero-conteudo">
-     
-      
-      
-    </div>
-  </section>
+    <section class="eventos-gallery" aria-label="Eventos cadastrados">
+      <div class="eventos-grid" id="eventosGrid"></div>
+    </section>
 
-  <main>
+    <section class="album-panel" id="albumPanel" aria-live="polite">
+      <button class="album-close" id="albumClose" type="button" aria-label="Fechar &aacute;lbum">&times;</button>
 
-    <section class="evento-destaque">
-      <div class="cartaz">
-        <img src="img/cartaz2026.jpg" alt="Cartaz do evento 2026">
+      <aside class="album-info">
+        <span class="album-kicker">&Aacute;lbum selecionado</span>
+        <h2 id="albumTitle"></h2>
+        <div class="album-meta" id="albumMeta"></div>
+        <p id="albumDescription"></p>
+        <button class="album-back" id="albumBack" type="button">&#8592; Voltar para galeria</button>
+      </aside>
+
+      <div class="album-content">
+        <div class="album-empty" id="albumEmpty">
+          <span>Fotos em breve</span>
+          <p>Este evento ainda est&aacute; recebendo material fotogr&aacute;fico.</p>
+        </div>
+
+        <div class="album-viewer" id="albumViewer">
+          <button class="album-nav album-prev" id="albumPrev" type="button" aria-label="Foto anterior">&#8249;</button>
+          <img id="albumMainImage" src="" alt="">
+          <button class="album-nav album-next" id="albumNext" type="button" aria-label="Pr&oacute;xima foto">&#8250;</button>
+          <span class="photo-counter" id="photoCounter"></span>
+        </div>
+
+        <div class="album-thumbs" id="albumThumbs"></div>
       </div>
-
-      <div class="info-evento">
-        <span class="ano">2026</span>
-        <h2>10º Encontro Nacional de Veículos Clássicos</h2>
-        <p>
-          Nos dias 18 e 19 de julho de 2026, Curvelo recebe mais um grande
-          encontro de apaixonados por veículos antigos.
-        </p>
-
-        <ul>
-          <li>Praça Central do Brasil</li>
-          <li>Curvelo - MG</li>
-          <li>Shows, feira de pulgas, praça de alimentação e exposição</li>
-        </ul>
-
-        <a class="btn-whats" href="https://wa.me/5538999299771" target="_blank">
-          Falar pelo WhatsApp
-        </a>
-      </div>
     </section>
-
-    <section class="chamada-galeria">
-      <span>REGISTROS RECENTES</span>
-      <h2>Fotos dos últimos encontros</h2>
-      <p>
-        Uma pequena seleção de registros feitos nos encontros do C.C.C Classic Car.
-      </p>
-    </section>
-
-    <section class="galeria">
-      <img src="img/eventos/foto1.jpg" alt="Foto do evento">
-      <img src="img/eventos/foto2.jpg" alt="Foto do evento">
-      <img src="img/eventos/foto3.jpg" alt="Foto do evento">
-      <img src="img/eventos/foto4.jpg" alt="Foto do evento">
-      <img src="img/eventos/foto5.jpg" alt="Foto do evento">
-      <img src="img/eventos/foto6.jpg" alt="Foto do evento">
-      <img src="img/eventos/foto7.jpg" alt="Foto do evento">
-      <img src="img/eventos/foto8.jpg" alt="Foto do evento">
-    </section>
-
   </main>
 
-  <div class="lightbox" id="lightbox">
-    <button class="fechar" id="fechar">×</button>
-    <button class="seta esquerda" id="anterior">‹</button>
-    <img id="imagemGrande" src="" alt="Foto ampliada">
-    <button class="seta direita" id="proxima">›</button>
+  <div class="lightbox" id="lightbox" aria-modal="true" role="dialog" aria-label="Foto ampliada">
+    <button class="lightbox-close" id="lightboxClose" type="button" aria-label="Fechar">&times;</button>
+    <button class="lightbox-nav lightbox-prev" id="lightboxPrev" type="button" aria-label="Foto anterior">&#8249;</button>
+    <img id="lightboxImage" src="" alt="Foto ampliada do evento">
+    <button class="lightbox-nav lightbox-next" id="lightboxNext" type="button" aria-label="Pr&oacute;xima foto">&#8250;</button>
+    <span class="lightbox-counter" id="lightboxCounter"></span>
   </div>
 
   <script src="eventos.js"></script>
