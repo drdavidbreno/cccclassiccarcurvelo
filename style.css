@@ -35,20 +35,18 @@ body.home-page {
 
 body.historia-page {
   position: relative;
-  background: none;
-  isolation: isolate;
+  background: url("img/asfaltonovo.png?v=20260529-5") center center / cover fixed no-repeat;
 }
 
 body.historia-page::before {
   content: "";
-  position: absolute;
+  position: fixed;
   inset: 0;
-  background: url("img/asfaltonovo.png?v=20260529-4") center top / 100% 100% no-repeat;
-  filter: blur(2px);
-  transform: scale(1.012);
-  transform-origin: center top;
-  z-index: -1;
+  z-index: 0;
   pointer-events: none;
+  background:
+    linear-gradient(90deg, rgba(0, 0, 0, 0.72) 0%, rgba(0, 0, 0, 0.42) 42%, rgba(0, 0, 0, 0.12) 100%),
+    linear-gradient(180deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.12) 48%, rgba(0, 0, 0, 0.72) 100%);
 }
 
 body.sobre-page {
@@ -66,22 +64,18 @@ body.contato-page {
 /* Navbar */
 
 .navbar {
-  --navbar-peek: 42px;
   position: fixed;
-  top: 0;
+  top: 8px;
   left: 50%;
-  width: 92%;
-  aspect-ratio: 1480 / 182;
-  transform: translateX(-50%) translateY(calc(-100% + var(--navbar-peek)));
-  background: url("img/menufundoBARRA.png?v=20260528b") center -18px / contain no-repeat;
-  transition: transform 0.38s ease;
-  will-change: transform;
+  width: min(56vw, 960px);
+  aspect-ratio: 1920 / 267;
+  transform: translateX(-50%);
+  background: url("img/menufarol.png?v=20260529a") center / contain no-repeat;
   z-index: 999;
 }
 
-.navbar:hover,
-.navbar:focus-within {
-  transform: translateX(-50%) translateY(0);
+.historia-page .navbar {
+  z-index: 5000;
 }
 
 .navbar nav {
@@ -89,35 +83,83 @@ body.contato-page {
   inset: 0;
 }
 
+.navbar::before,
+.navbar::after {
+  content: "";
+  position: absolute;
+  top: 20%;
+  width: 17%;
+  height: 60%;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 30% 50%, rgba(255, 255, 255, 0.58) 0 13%, rgba(255, 226, 117, 0.42) 18%, rgba(255, 180, 39, 0.14) 33%, transparent 50%),
+    radial-gradient(circle at 78% 50%, rgba(255, 255, 255, 0.58) 0 13%, rgba(255, 226, 117, 0.42) 18%, rgba(255, 180, 39, 0.14) 33%, transparent 50%);
+  mix-blend-mode: screen;
+  filter: blur(1px) drop-shadow(0 0 10px rgba(255, 210, 72, 0.48));
+  opacity: 0.08;
+  animation: farolFalhando 1.2s infinite;
+}
+
+.navbar::before {
+  left: 1.8%;
+}
+
+.navbar::after {
+  right: 1.8%;
+  animation-delay: 0.18s;
+}
+
 .navbar nav a {
   position: absolute;
-  top: 0;
-  width: 9.2%;
-  height: 100%;
+  top: 27%;
+  width: 7.2%;
+  height: 47%;
+  transform: translateX(-50%);
   display: block;
   color: transparent;
   font-size: 0;
   text-decoration: none;
+  border-radius: 999px;
 }
 
 .navbar nav a:nth-child(1) {
-  left: 25%;
+  left: 28.65%;
 }
 
 .navbar nav a:nth-child(2) {
-  left: 34.7%;
+  left: 39.48%;
 }
 
 .navbar nav a:nth-child(3) {
-  left: 43.8%;
+  left: 50.16%;
 }
 
 .navbar nav a:nth-child(4) {
-  left: 52.4%;
+  left: 60.73%;
 }
 
 .navbar nav a:nth-child(5) {
+  left: 70.99%;
+}
+
+.contato-page .navbar {
+  width: min(42vw, 720px);
+  top: 12px;
   left: 61%;
+}
+
+@keyframes farolFalhando {
+  0%, 8%, 13%, 28%, 44%, 62%, 100% {
+    opacity: 0.08;
+  }
+
+  10%, 12%, 31%, 34%, 48%, 52%, 70% {
+    opacity: 0.48;
+  }
+
+  35%, 38%, 54%, 58%, 76%, 82% {
+    opacity: 0.02;
+  }
 }
 
 /* Home */
@@ -126,6 +168,22 @@ body.contato-page {
   position: relative;
   min-height: 100vh;
   width: 100%;
+}
+
+.home-history-hotspot {
+  position: fixed;
+  left: 16.8vw;
+  top: 71.3vh;
+  width: 14.8vw;
+  height: 5.1vh;
+  min-width: 230px;
+  min-height: 44px;
+  z-index: 40;
+  display: block;
+  border-radius: 8px;
+  font-size: 0;
+  color: transparent;
+  text-decoration: none;
 }
 
 .home-intro,
@@ -144,7 +202,21 @@ body.contato-page {
 }
 
 .historia-page .hero {
-  padding-top: 40px;
+  padding-top: 120px;
+  justify-content: center;
+  min-height: 92vh;
+}
+
+.historia-page .hero::after {
+  content: "";
+  position: absolute;
+  left: 6%;
+  top: 18%;
+  width: min(680px, 52vw);
+  height: 58%;
+  z-index: 1;
+  pointer-events: none;
+  background: radial-gradient(ellipse at 30% 45%, rgba(0, 0, 0, 0.42), transparent 70%);
 }
 
 .home-intro h1,
@@ -164,6 +236,11 @@ body.contato-page {
   z-index: 2;
 }
 
+.historia-page .hero h1 {
+  max-width: 760px;
+  font-size: clamp(72px, 7vw, 126px);
+}
+
 .home-intro h1 {
   margin-top: auto;
 }
@@ -175,6 +252,14 @@ body.contato-page {
   font-size: 28px;
   line-height: 1.3;
   z-index: 2;
+}
+
+.historia-page .hero p {
+  color: rgba(255, 255, 255, 0.95);
+  font-size: 30px;
+  text-shadow:
+    0 4px 16px rgba(0, 0, 0, 0.86),
+    0 0 18px rgba(223, 226, 34, 0.12);
 }
 
 .home-intro p {
@@ -204,6 +289,13 @@ body.contato-page {
   text-transform: uppercase;
   transition: transform 0.3s ease;
   z-index: 2;
+}
+
+.historia-page .scroll-btn {
+  border: 1px solid rgba(223, 226, 34, 0.72);
+  box-shadow:
+    0 18px 42px rgba(0, 0, 0, 0.42),
+    0 0 24px rgba(223, 226, 34, 0.2);
 }
 
 .scroll-btn:hover {
@@ -255,16 +347,7 @@ body.contato-page {
 }
 
 .historia-page .mascote {
-  right: 4%;
-  bottom: 260px;
-  width: 780px;
-  max-width: 82vw;
-  z-index: 1;
-  opacity: 0.92;
-  filter:
-    brightness(0.82)
-    saturate(0.8)
-    drop-shadow(0 0 24px rgba(214, 208, 0, 0.16));
+  display: none;
 }
 
 .selo-home {
@@ -282,12 +365,18 @@ body.contato-page {
 /* Historia / Timeline */
 
 .historia {
+  position: relative;
   min-height: 100vh;
+  z-index: 1;
 }
 
 .timeline {
   position: relative;
-  padding: 120px 8%;
+  padding: 150px 8% 170px;
+  background:
+    linear-gradient(180deg, rgba(0, 0, 0, 0.02), rgba(0, 0, 0, 0.72) 12%, rgba(0, 0, 0, 0.8) 86%, rgba(0, 0, 0, 0.58)),
+    radial-gradient(circle at 50% 0, rgba(223, 226, 34, 0.18), transparent 38%);
+  box-shadow: inset 0 42px 80px rgba(0, 0, 0, 0.36);
 }
 
 .timeline::before {
@@ -295,16 +384,18 @@ body.contato-page {
   position: absolute;
   top: 0;
   left: 50%;
-  width: 5px;
+  width: 4px;
   height: 100%;
   transform: translateX(-50%);
   background: linear-gradient(
     to bottom,
-    rgba(223, 226, 34, 0.34),
-    rgba(223, 226, 34, 0.98),
-    rgba(223, 226, 34, 0.34)
+    transparent,
+    rgba(226, 34, 34, 0.637) 7%,
+    rgba(255, 15, 15, 0.986),
+    rgba(192, 1, 1, 0.986),
+    transparent
   );
-  box-shadow: 0 0 16px rgba(223, 226, 34, 0.32);
+  box-shadow: 0 0 24px rgba(226, 34, 34, 0.42);
 }
 
 .timeline-item {
@@ -312,8 +403,8 @@ body.contato-page {
   display: flex;
   align-items: flex-start;
   overflow: visible;
-  padding-top: 300px;
-  margin-bottom: 70px;
+  padding-top: 210px;
+  margin-bottom: 35px;
 }
 
 .timeline-item::before {
@@ -321,14 +412,14 @@ body.contato-page {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 18px;
-  height: 18px;
+  width: 20px;
+  height: 20px;
   transform: translate(-50%, -50%);
   border-radius: 50%;
   background: #dfe222;
   box-shadow:
-    0 0 0 3px rgba(223, 226, 34, 0.18),
-    0 0 22px rgba(223, 226, 34, 0.78);
+    0 0 0 6px rgba(223, 226, 34, 0.12),
+    0 0 28px rgba(223, 226, 34, 0.86);
 }
 
 .timeline-item.left {
@@ -336,8 +427,8 @@ body.contato-page {
 }
 
 .timeline-item.left .card {
-  margin-top: -40px;
-  margin-left: 118px;
+  margin-top: -58px;
+  margin-left: 26px;
 }
 
 .timeline-item.right {
@@ -345,66 +436,90 @@ body.contato-page {
 }
 
 .timeline-item.right .year {
-  order: 2;
+  order: 12;
 }
 
 .timeline-item.right .card {
   order: 1;
-  margin-top: -40px;
-  margin-right: 118px;
+  margin-top: -58px;
+  margin-right: 26px;
   text-align: right;
 }
 
-.year {
-  min-width: 180px;
-  min-height: 1px;
+.ano {
+  largura mínima: 236px;
+  altura mínima: 1px;
 }
 
-.plate-year {
-  position: relative;
-  min-width: 180px;
-  z-index: 0;
-  pointer-events: none;
+.placa-ano {
+  posição: relativa;
+  largura mínima: 236px;
+  índice z: 0;
+  eventos de ponteiro: nenhum;
 }
 
-.plate-year img {
-  position: absolute;
-  top: 0;
-  display: block;
-  width: 272px;
-  height: auto;
-  z-index: 4;
-  transform: rotate(-9deg);
-  transform-origin: center;
-  filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.4));
+.placa-ano img {
+  posição: absoluta;
+  superior: -150px;
+  exibição: bloco;
+  largura: 246px;
+  altura: automático;
+  índice z: 4;
+  transformar: girar (-9 graus);
+  origem da transformação: centro;
+  filtro: sombra projetada (0 14px 26px rgba (0, 0, 0, 0,54));
 }
 
 .timeline-item.left .plate-year img {
-  left: 322px;
+  left: 0;
 }
 
 .timeline-item.right .plate-year img {
   left: auto;
-  right: 322px;
+  right: 0;
 }
 
 .card {
-  width: 320px;
+  width: min(380px, 34vw);
   padding: 18px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 14px;
-  background: rgba(20, 20, 20, 0.72);
-  backdrop-filter: blur(10px);
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.65);
+  border: 1px solid rgba(223, 226, 34, 0.18);
+  border-radius: 8px;
+  background:
+    linear-gradient(135deg, rgba(22, 22, 16, 0.92), rgba(8, 8, 7, 0.78)),
+    rgba(20, 20, 20, 0.72);
+  backdrop-filter: blur(12px);
+  box-shadow:
+    0 22px 62px rgba(0, 0, 0, 0.68),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
   color: #fff;
   transform: translateY(-100px);
+  overflow: hidden;
+}
+
+.card.card-vertical {
+  width: min(340px, 30vw);
+}
+
+.card::before {
+  content: "";
+  display: block;
+  width: 64px;
+  height: 3px;
+  margin-bottom: 14px;
+  background: linear-gradient(90deg, #dfe222, rgba(226, 147, 34, 0.2));
+  box-shadow: 0 0 18px rgba(223, 226, 34, 0.34);
+}
+
+.timeline-item.right .card::before {
+  margin-left: auto;
+  background: linear-gradient(270deg, #dfe222, rgba(226, 147, 34, 0.2));
 }
 
 .card h2 {
   margin-bottom: 15px;
   color: #dfe222;
   font-family: "Bebas Neue", sans-serif;
-  font-size: 27px;
+  font-size: 30px;
   font-weight: 400;
   line-height: 1;
   letter-spacing: 3px;
@@ -416,16 +531,25 @@ body.contato-page {
 }
 
 .card p {
-  font-size: 18px;
-  line-height: 1.7;
-  opacity: 0.9;
+  font-size: 17px;
+  line-height: 1.58;
+  opacity: 0.94;
 }
 
 .card img {
   display: block;
   width: 100%;
-  margin-top: 20px;
-  border-radius: 10px;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  margin-top: 18px;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.card.card-vertical img {
+  aspect-ratio: 2 / 3;
+  object-fit: contain;
+  background: rgba(0, 0, 0, 0.42);
 }
 
 .poster {
@@ -473,6 +597,34 @@ body.contato-page {
 .inner-page {
   min-height: 100vh;
   width: 100%;
+}
+
+.contato-hotspots {
+  position: relative;
+}
+
+.contato-whatsapp-link {
+  position: fixed;
+  z-index: 50;
+  display: block;
+  color: transparent;
+  font-size: 0;
+  text-decoration: none;
+}
+
+.contato-whatsapp-number {
+  left: 15.6vw;
+  top: 52.8vh;
+  width: 15vw;
+  height: 5.4vh;
+}
+
+.contato-whatsapp-button {
+  left: 10.1vw;
+  top: 76.8vh;
+  width: 34vw;
+  height: 10.2vh;
+  border-radius: 18px;
 }
 
 /* Chat */
@@ -747,16 +899,54 @@ body.contato-page {
   }
 
   .navbar {
-    --navbar-peek: 0px;
-    width: 94%;
-    transform: translateX(-50%) translateY(0);
-    background-position: center -18px;
+    top: 8px;
+    left: 50%;
+    width: min(74vw, 960px);
+    aspect-ratio: 1920 / 267;
+    transform: translateX(-50%);
+    background: url("img/menufarol.png?v=20260529a") center / contain no-repeat;
+    padding: 0;
+    border-radius: 0;
+  }
+
+  .navbar nav a {
+    position: absolute;
+    top: 27%;
+    width: 7.2%;
+    height: 47%;
+    transform: translateX(-50%);
+    display: block;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: transparent;
+    font-size: 0;
+    border-radius: 999px;
+  }
+
+  .contato-page .navbar {
+    width: min(58vw, 720px);
+    top: 10px;
+    left: 58%;
   }
 
   .home,
   .historia,
   .inner-page {
     min-height: 100svh;
+  }
+
+  .home-history-hotspot {
+    left: 16.8vw;
+    top: 71.3svh;
+    width: 28vw;
+    height: 5.2svh;
+    min-width: 150px;
+    min-height: 38px;
+  }
+
+  .home-page .home-intro {
+    padding-top: 286px;
   }
 
   .home-intro,
@@ -767,7 +957,20 @@ body.contato-page {
   }
 
   .historia-page .hero {
-    padding-top: 72px;
+    padding-top: 96px;
+    min-height: 86svh;
+  }
+
+  .historia-page .hero::after {
+    left: 0;
+    top: 14%;
+    width: 100%;
+    height: 56%;
+  }
+
+  .historia-page .hero h1 {
+    max-width: 330px;
+    font-size: 52px;
   }
 
   .home-intro h1,
@@ -788,6 +991,11 @@ body.contato-page {
     margin-top: 18px;
     font-size: 20px;
     line-height: 1.25;
+  }
+
+  .historia-page .hero p {
+    max-width: 280px;
+    font-size: 20px;
   }
 
   .home-intro p {
@@ -848,8 +1056,11 @@ body.contato-page {
   }
 
   .timeline {
-    padding: 78px 18px 120px;
+    padding: 86px 18px 120px;
     scroll-margin-top: 110px;
+    background:
+      linear-gradient(180deg, rgba(0, 0, 0, 0.48), rgba(0, 0, 0, 0.78) 10%, rgba(0, 0, 0, 0.86) 90%),
+      radial-gradient(circle at 20% 0, rgba(223, 226, 34, 0.16), transparent 42%);
   }
 
   .timeline::before {
@@ -920,7 +1131,7 @@ body.contato-page {
   .card {
     width: 100%;
     padding: 14px;
-    border-radius: 10px;
+    border-radius: 8px;
     transform: none;
   }
 
@@ -971,6 +1182,20 @@ body.contato-page {
     height: calc(100svh - 82px);
     max-width: none;
     border-radius: 14px;
+  }
+
+  .contato-whatsapp-number {
+    left: 15.6vw;
+    top: 52.8svh;
+    width: 24vw;
+    height: 5.6svh;
+  }
+
+  .contato-whatsapp-button {
+    left: 10.1vw;
+    top: 76.8svh;
+    width: 44vw;
+    height: 10.4svh;
   }
 
   .chat-header {
@@ -1049,8 +1274,8 @@ body.contato-page {
   gap: 30px;
   padding: 28px 20px;
   background:
-    radial-gradient(circle, rgb(13, 13, 13), transparent 35%),
-    #000000;
+    radial-gradient(circle, rgb(4, 95, 241), transparent 35%),
+    #000000d6;
   z-index: 999999;
   transition: opacity 1s ease, visibility 1s ease;  
   overflow: hidden; /* necessário para o ::before */
@@ -1090,8 +1315,8 @@ body.contato-page {
   width: 100%;
   height: auto;
   filter:
-    drop-shadow(0 0 18px rgba(223, 226, 34, 0.45))
-    drop-shadow(0 12px 28px rgba(0, 0, 0, 0.8));
+    drop-shadow(0 0 18px rgb(0, 0, 0))
+    drop-shadow(0 6px 14px rgba(198, 255, 9, 0.678));
 }
 
 @keyframes logoEntrada {
@@ -1113,12 +1338,16 @@ body.contato-page {
   border-radius: 0;
   background: transparent;
   --poster-color: transparent;
+  --progress-bar-height: 0px;
 }
 
-@media (hover: none), (pointer: coarse) {
+#motorV8::part(default-progress-bar) {
+  display: none;
+}
+
+@media (hover: none) and (min-width: 761px), (pointer: coarse) and (min-width: 761px) {
   .navbar {
-    --navbar-peek: 0px;
-    transform: translateX(-50%) translateY(0);
+    transform: translateX(-50%);
   }
 }
 
