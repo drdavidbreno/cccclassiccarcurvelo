@@ -3,21 +3,76 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Eventos</title>
-  <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+  <title>Eventos | C.C.C Classic Car Curvelo</title>
+  <link rel="stylesheet" href="eventos.css">
 </head>
-<body class="eventos-page">
-  <header class="navbar">
-    <nav aria-label="Menu principal">
-      <a href="index.html">In&iacute;cio</a>
-      <a href="historia.html">Hist&oacute;ria</a>
-      <a href="sobre.html">Sobre</a>
-      <a href="eventos.html" class="active">Eventos</a>
-      <a href="contato.html">Contato</a>
-    </nav>
-  </header>
+<body>
 
-  <main class="inner-page"></main>
+  <a href="index.html" class="btn-voltar">←</a>
+
+  <section class="hero">
+    <div class="hero-conteudo">
+     
+      
+      
+    </div>
+  </section>
+
+  <main>
+
+    <section class="evento-destaque">
+      <div class="cartaz">
+        <img src="img/cartaz2026.jpg" alt="Cartaz do evento 2026">
+      </div>
+
+      <div class="info-evento">
+        <span class="ano">2026</span>
+        <h2>10º Encontro Nacional de Veículos Clássicos</h2>
+        <p>
+          Nos dias 18 e 19 de julho de 2026, Curvelo recebe mais um grande
+          encontro de apaixonados por veículos antigos.
+        </p>
+
+        <ul>
+          <li>Praça Central do Brasil</li>
+          <li>Curvelo - MG</li>
+          <li>Shows, feira de pulgas, praça de alimentação e exposição</li>
+        </ul>
+
+        <a class="btn-whats" href="https://wa.me/5538999299771" target="_blank">
+          Falar pelo WhatsApp
+        </a>
+      </div>
+    </section>
+
+    <section class="chamada-galeria">
+      <span>REGISTROS RECENTES</span>
+      <h2>Fotos dos últimos encontros</h2>
+      <p>
+        Uma pequena seleção de registros feitos nos encontros do C.C.C Classic Car.
+      </p>
+    </section>
+
+    <section class="galeria">
+      <img src="img/eventos/foto1.jpg" alt="Foto do evento">
+      <img src="img/eventos/foto2.jpg" alt="Foto do evento">
+      <img src="img/eventos/foto3.jpg" alt="Foto do evento">
+      <img src="img/eventos/foto4.jpg" alt="Foto do evento">
+      <img src="img/eventos/foto5.jpg" alt="Foto do evento">
+      <img src="img/eventos/foto6.jpg" alt="Foto do evento">
+      <img src="img/eventos/foto7.jpg" alt="Foto do evento">
+      <img src="img/eventos/foto8.jpg" alt="Foto do evento">
+    </section>
+
+  </main>
+
+  <div class="lightbox" id="lightbox">
+    <button class="fechar" id="fechar">×</button>
+    <button class="seta esquerda" id="anterior">‹</button>
+    <img id="imagemGrande" src="" alt="Foto ampliada">
+    <button class="seta direita" id="proxima">›</button>
+  </div>
+
+  <script src="eventos.js"></script>
 </body>
 </html>

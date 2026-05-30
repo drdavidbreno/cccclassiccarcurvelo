@@ -1,0 +1,432 @@
+/* SOBRE - CCC CLASSIC CAR */
+
+:root {
+  --amarelo-logo: #d6d000;
+  --amarelo-claro: #dfe222;
+  --laranja: #e29322;
+  --preto: #171111;
+  --vidro: rgba(10, 10, 10, 0.66);
+  --branco: #ffffff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body.sobre-page {
+  min-height: 100vh;
+  overflow-x: hidden;
+  color: var(--branco);
+  font-family: Arial, sans-serif;
+  background:
+    linear-gradient(90deg, rgba(0,0,0,.82), rgba(0,0,0,.42), rgba(0,0,0,.76)),
+    url("img/car19.png") center/cover fixed no-repeat;
+}
+
+body.sobre-page::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 18% 20%, rgba(223,226,34,.16), transparent 30%),
+    radial-gradient(circle at 80% 65%, rgba(226,147,34,.14), transparent 36%),
+    linear-gradient(180deg, rgba(0,0,0,.12), rgba(0,0,0,.72));
+}
+
+main,
+.navbar {
+  position: relative;
+  z-index: 1;
+}
+
+/* MENU IGUAL AO PADRÃO DO SITE */
+
+.navbar {
+  position: fixed;
+  top: 8px;
+  left: 50%;
+  width: min(56vw, 960px);
+  aspect-ratio: 1920 / 267;
+  transform: translateX(-50%);
+  background: url("img/menufarol.png?v=20260529a") center / contain no-repeat;
+  z-index: 5000;
+}
+
+.navbar nav {
+  position: absolute;
+  inset: 0;
+}
+
+.navbar nav a {
+  position: absolute;
+  top: 27%;
+  width: 7.2%;
+  height: 47%;
+  transform: translateX(-50%);
+  display: block;
+  color: transparent;
+  font-size: 0;
+  text-decoration: none;
+  border-radius: 999px;
+}
+
+.navbar nav a:nth-child(1) { left: 28.65%; }
+.navbar nav a:nth-child(2) { left: 39.48%; }
+.navbar nav a:nth-child(3) { left: 50.16%; }
+.navbar nav a:nth-child(4) { left: 60.73%; }
+.navbar nav a:nth-child(5) { left: 70.99%; }
+
+/* HERO */
+
+.sobre-hero {
+  min-height: 100vh;
+  padding: 140px 8% 80px;
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(320px, .9fr);
+  align-items: center;
+  gap: 60px;
+}
+
+.sobre-hero-texto {
+  max-width: 780px;
+}
+
+.etiqueta {
+  display: inline-block;
+  margin-bottom: 22px;
+  padding: 9px 18px;
+  border: 1px solid rgba(223,226,34,.55);
+  border-radius: 999px;
+  background: rgba(0,0,0,.48);
+  color: var(--amarelo-claro);
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 20px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  box-shadow: 0 0 22px rgba(223,226,34,.12);
+}
+
+.sobre-hero h1,
+.frase-final h2 {
+  color: var(--amarelo-claro);
+  font-family: "Bebas Neue", sans-serif;
+  font-size: clamp(58px, 7vw, 118px);
+  font-weight: 400;
+  line-height: .9;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  text-shadow:
+    4px 4px 0 var(--preto),
+    0 10px 28px rgba(0,0,0,.92),
+    0 0 24px rgba(223,226,34,.28);
+}
+
+.sobre-hero p {
+  max-width: 620px;
+  margin-top: 28px;
+  font-size: 24px;
+  line-height: 1.45;
+  color: rgba(255,255,255,.94);
+  text-shadow: 0 4px 18px rgba(0,0,0,.78);
+}
+
+.botao-principal {
+  width: max-content;
+  display: inline-block;
+  margin-top: 34px;
+  padding: 15px 30px;
+  border: 1px solid rgba(223,226,34,.72);
+  border-radius: 999px;
+  background: var(--amarelo-claro);
+  color: var(--preto);
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 24px;
+  letter-spacing: 2px;
+  text-decoration: none;
+  text-transform: uppercase;
+  box-shadow:
+    0 18px 40px rgba(0,0,0,.42),
+    0 0 24px rgba(223,226,34,.18);
+  transition: transform .25s ease, filter .25s ease;
+}
+
+.botao-principal:hover {
+  transform: translateY(-3px);
+  filter: brightness(1.08);
+}
+
+.sobre-hero-imagem {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.sobre-hero-imagem img {
+  width: min(500px, 38vw);
+  max-height: 72vh;
+  object-fit: contain;
+  filter:
+    drop-shadow(0 24px 44px rgba(0,0,0,.8))
+    drop-shadow(0 0 32px rgba(223,226,34,.16));
+}
+
+/* BLOCOS */
+
+.sobre-blocos {
+  padding: 40px 8% 120px;
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr;
+  gap: 24px;
+}
+
+.sobre-card,
+.valor {
+  border: 1px solid rgba(223,226,34,.18);
+  border-radius: 16px;
+  background:
+    linear-gradient(135deg, rgba(22,22,16,.88), rgba(8,8,7,.7)),
+    rgba(0,0,0,.45);
+  backdrop-filter: blur(10px);
+  box-shadow:
+    0 24px 70px rgba(0,0,0,.55),
+    inset 0 1px 0 rgba(255,255,255,.06);
+}
+
+.sobre-card {
+  min-height: 280px;
+  padding: 30px;
+}
+
+.sobre-card span {
+  display: block;
+  margin-bottom: 12px;
+  color: var(--laranja);
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 22px;
+  letter-spacing: 3px;
+}
+
+.sobre-card h2,
+.mascote-texto h2,
+.valores h2 {
+  color: var(--amarelo-claro);
+  font-family: "Bebas Neue", sans-serif;
+  font-size: clamp(38px, 4vw, 62px);
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  text-shadow:
+    2px 2px 0 var(--preto),
+    0 8px 18px rgba(0,0,0,.82);
+}
+
+.sobre-card p {
+  margin-top: 20px;
+  color: rgba(255,255,255,.92);
+  font-size: 18px;
+  line-height: 1.7;
+}
+
+/* MASCOTE */
+
+.mascote-section {
+  margin: 0 8% 120px;
+  padding: 60px;
+  display: grid;
+  grid-template-columns: 1.1fr .9fr;
+  align-items: center;
+  gap: 50px;
+  border: 1px solid rgba(223,226,34,.24);
+  border-radius: 28px;
+  background:
+    radial-gradient(circle at 75% 40%, rgba(223,226,34,.16), transparent 34%),
+    linear-gradient(135deg, rgba(0,0,0,.78), rgba(20,20,14,.56));
+  box-shadow:
+    0 30px 90px rgba(0,0,0,.62),
+    inset 0 1px 0 rgba(255,255,255,.06);
+  overflow: hidden;
+}
+
+.mascote-texto p {
+  margin-top: 22px;
+  color: rgba(255,255,255,.94);
+  font-size: 19px;
+  line-height: 1.75;
+}
+
+.mascote-destaque {
+  min-height: 420px;
+  display: grid;
+  place-items: center;
+}
+
+.mascote-destaque img {
+  width: min(430px, 34vw);
+  object-fit: contain;
+  filter:
+    drop-shadow(0 20px 46px rgba(0,0,0,.85))
+    drop-shadow(0 0 32px rgba(223,226,34,.18));
+}
+
+/* VALORES */
+
+.valores {
+  padding: 0 8% 120px;
+  text-align: center;
+}
+
+.valores-grid {
+  margin-top: 34px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 22px;
+  text-align: left;
+}
+
+.valor {
+  padding: 26px;
+  min-height: 170px;
+}
+
+.valor strong {
+  display: block;
+  color: var(--amarelo-claro);
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 34px;
+  font-weight: 400;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.valor p {
+  margin-top: 12px;
+  color: rgba(255,255,255,.9);
+  font-size: 16px;
+  line-height: 1.55;
+}
+
+/* FINAL */
+
+.frase-final {
+  padding: 90px 8% 120px;
+  text-align: center;
+  background:
+    linear-gradient(180deg, transparent, rgba(0,0,0,.72)),
+    radial-gradient(circle at 50% 0, rgba(223,226,34,.16), transparent 36%);
+}
+
+.frase-final h2 {
+  font-size: clamp(52px, 6vw, 96px);
+}
+
+.frase-final p {
+  max-width: 800px;
+  margin: 28px auto 0;
+  color: rgba(255,255,255,.94);
+  font-size: 22px;
+  line-height: 1.55;
+}
+
+/* RESPONSIVO */
+
+@media (max-width: 900px) {
+  body.sobre-page {
+    background-attachment: scroll;
+  }
+
+  .navbar {
+    width: min(74vw, 960px);
+  }
+
+  .sobre-hero {
+    min-height: auto;
+    padding: 120px 22px 70px;
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .sobre-hero h1 {
+    font-size: 54px;
+  }
+
+  .sobre-hero p {
+    max-width: 330px;
+    font-size: 19px;
+  }
+
+  .sobre-hero-imagem {
+    justify-content: center;
+  }
+
+  .sobre-hero-imagem img {
+    width: min(330px, 78vw);
+  }
+
+  .sobre-blocos {
+    padding: 20px 22px 80px;
+    grid-template-columns: 1fr;
+  }
+
+  .sobre-card {
+    min-height: 0;
+    padding: 24px;
+  }
+
+  .mascote-section {
+    margin: 0 22px 80px;
+    padding: 28px;
+    grid-template-columns: 1fr;
+    gap: 24px;
+    border-radius: 20px;
+  }
+
+  .mascote-destaque {
+    min-height: 260px;
+  }
+
+  .mascote-destaque img {
+    width: min(290px, 78vw);
+  }
+
+  .valores {
+    padding: 0 22px 80px;
+  }
+
+  .valores-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .frase-final {
+    padding: 70px 22px 90px;
+  }
+
+  .frase-final p {
+    font-size: 18px;
+  }
+
+  .botao-principal {
+    font-size: 20px;
+    padding: 13px 22px;
+  }
+}
+
+@media (max-width: 390px) {
+  .sobre-hero h1 {
+    font-size: 48px;
+  }
+
+  .sobre-card h2,
+  .mascote-texto h2,
+  .valores h2 {
+    font-size: 36px;
+  }
+}
