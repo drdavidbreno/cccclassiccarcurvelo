@@ -36,11 +36,63 @@
       <a href="eventos.html">Eventos</a>
       <a href="contato.html">Contato</a>
     </nav>
+
+    <button class="navbar-secret-sound" type="button" aria-label="Acionar som do farol"></button>
+    <button class="navbar-secret-horn" type="button" aria-label="Acionar buzina"></button>
   </header>
 
   <a class="home-history-hotspot" href="historia.html" aria-label="Conhe&ccedil;a nossa hist&oacute;ria"></a>
 
-  
+  <main class="home-main">
+    <section class="home-hero-spacer" aria-hidden="true"></section>
+
+    <section class="foundation" id="fundacao" aria-labelledby="fundacao-title">
+      <h2 id="fundacao-title">QUEM MANT&Eacute;M O RONCO VIVO</h2>
+      <p class="foundation-subtitle">Os respons&aacute;veis por manter vivo o ronco dos motores que atravessam gera&ccedil;&otilde;es.</p>
+
+      <div class="foundation-grid">
+        <figure class="foundation-card">
+          <div class="foundation-photo">
+            <img src="img/fundacao/team-1.png" alt="Foto do Christian Xavier">
+          </div>
+          <figcaption class="foundation-caption">
+            <h3>Christian Xavier</h3>
+            <p>Fundador</p>
+          </figcaption>
+        </figure>
+
+        <figure class="foundation-card">
+          <div class="foundation-photo">
+            <img src="img/fundacao/team-2.png" alt="Foto do Geraldo Santos">
+          </div>
+          <figcaption class="foundation-caption">
+            <h3>Geraldo Santos</h3>
+            <p>Comodoro de Eventos</p>
+          </figcaption>
+        </figure>
+
+        <figure class="foundation-card">
+          <div class="foundation-photo">
+            <img src="img/fundacao/team-3.png" alt="Foto do Geraldo David">
+          </div>
+          <figcaption class="foundation-caption">
+            <h3>Geraldo David</h3>
+            <p>Curador da Hist&oacute;ria</p>
+          </figcaption>
+        </figure>
+
+        <figure class="foundation-card">
+          <div class="foundation-photo">
+            <img src="img/fundacao/team-4.png" alt="Foto do David Apr&iacute;gio">
+          </div>
+          <figcaption class="foundation-caption">
+            <h3>David Apr&iacute;gio</h3>
+            <p>Furriel</p>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+  </main>
 
   <section class="chat-panel" id="chat-panel" aria-label="Atendente virtual CCC Car">
     <div class="chat-header">
@@ -92,6 +144,10 @@
     <source src="audio/v8.mp3" type="audio/mpeg">
   </audio>
 
+  <audio id="hornSound" preload="auto">
+    <source src="audio/buzina.mp3" type="audio/mpeg">
+  </audio>
+
   <script>
     const chatPanel = document.getElementById("chat-panel");
     const chatBody = document.getElementById("chat-body");
@@ -102,6 +158,9 @@
     const btn = document.getElementById("entrarBtn");
     const intro = document.getElementById("intro");
     const audio = document.getElementById("v8Sound");
+    const hornAudio = document.getElementById("hornSound");
+    const farolSound = document.querySelector(".navbar-secret-sound");
+    const farolHorn = document.querySelector(".navbar-secret-horn");
 
     const chatAnswers = {
       historia: "O CCC Car nasceu para reunir apaixonados por carros antigos em Curvelo. A linha do tempo mostra essa jornada de 2016 at\\u00E9 2026, com encontros, mem\\u00F3rias e tradi\\u00E7\\u00E3o.",
@@ -176,6 +235,17 @@
         intro.classList.add("hide");
       }, 6000);
     });
+
+    farolSound.addEventListener("click", () => {
+      audio.currentTime = 0;
+      audio.play().catch(() => {});
+    });
+
+    farolHorn.addEventListener("click", () => {
+      hornAudio.currentTime = 0;
+      hornAudio.play().catch(() => {});
+    });
   </script>
+  
 </body>
 </html>
