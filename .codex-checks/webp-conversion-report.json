@@ -1,0 +1,512 @@
+{
+  "totalOriginal": 178325731,
+  "totalWebp": 25954372,
+  "smaller": 72,
+  "bigger": 0,
+  "results": [
+    {
+      "file": "img\\00043.png",
+      "out": "img\\00043.webp",
+      "original": 2789301,
+      "webp": 381502,
+      "saved": 2407799
+    },
+    {
+      "file": "img\\2016.png",
+      "out": "img\\2016.webp",
+      "original": 1057604,
+      "webp": 217922,
+      "saved": 839682
+    },
+    {
+      "file": "img\\2017.png",
+      "out": "img\\2017.webp",
+      "original": 2739724,
+      "webp": 384396,
+      "saved": 2355328
+    },
+    {
+      "file": "img\\2018.jpeg",
+      "out": "img\\2018.webp",
+      "original": 216120,
+      "webp": 212968,
+      "saved": 3152
+    },
+    {
+      "file": "img\\2019.png",
+      "out": "img\\2019.webp",
+      "original": 3166578,
+      "webp": 572798,
+      "saved": 2593780
+    },
+    {
+      "file": "img\\2020.png",
+      "out": "img\\2020.webp",
+      "original": 1068513,
+      "webp": 213140,
+      "saved": 855373
+    },
+    {
+      "file": "img\\2021.png",
+      "out": "img\\2021.webp",
+      "original": 1110628,
+      "webp": 234340,
+      "saved": 876288
+    },
+    {
+      "file": "img\\2022.jpeg",
+      "out": "img\\2022.webp",
+      "original": 106928,
+      "webp": 89602,
+      "saved": 17326
+    },
+    {
+      "file": "img\\2023.png",
+      "out": "img\\2023.webp",
+      "original": 1267279,
+      "webp": 207830,
+      "saved": 1059449
+    },
+    {
+      "file": "img\\2024.jpeg",
+      "out": "img\\2024.webp",
+      "original": 221331,
+      "webp": 112508,
+      "saved": 108823
+    },
+    {
+      "file": "img\\2025.png",
+      "out": "img\\2025.webp",
+      "original": 2323721,
+      "webp": 301352,
+      "saved": 2022369
+    },
+    {
+      "file": "img\\asfaltonovo.png",
+      "out": "img\\asfaltonovo.webp",
+      "original": 2996524,
+      "webp": 592130,
+      "saved": 2404394
+    },
+    {
+      "file": "img\\capa.png",
+      "out": "img\\capa.webp",
+      "original": 1386014,
+      "webp": 174684,
+      "saved": 1211330
+    },
+    {
+      "file": "img\\car.png",
+      "out": "img\\car.webp",
+      "original": 2210498,
+      "webp": 243646,
+      "saved": 1966852
+    },
+    {
+      "file": "img\\CAR00.png",
+      "out": "img\\CAR00.webp",
+      "original": 1857698,
+      "webp": 181474,
+      "saved": 1676224
+    },
+    {
+      "file": "img\\car19.png",
+      "out": "img\\car19.webp",
+      "original": 2280165,
+      "webp": 287364,
+      "saved": 1992801
+    },
+    {
+      "file": "img\\car28.png",
+      "out": "img\\car28.webp",
+      "original": 2583460,
+      "webp": 354836,
+      "saved": 2228624
+    },
+    {
+      "file": "img\\car6.png",
+      "out": "img\\car6.webp",
+      "original": 2222592,
+      "webp": 205518,
+      "saved": 2017074
+    },
+    {
+      "file": "img\\car7.png",
+      "out": "img\\car7.webp",
+      "original": 2431545,
+      "webp": 281966,
+      "saved": 2149579
+    },
+    {
+      "file": "img\\car75.png",
+      "out": "img\\car75.webp",
+      "original": 2253636,
+      "webp": 198074,
+      "saved": 2055562
+    },
+    {
+      "file": "img\\car77.png",
+      "out": "img\\car77.webp",
+      "original": 2391384,
+      "webp": 357124,
+      "saved": 2034260
+    },
+    {
+      "file": "img\\car95.png",
+      "out": "img\\car95.webp",
+      "original": 2060008,
+      "webp": 242630,
+      "saved": 1817378
+    },
+    {
+      "file": "img\\car955.png",
+      "out": "img\\car955.webp",
+      "original": 3213484,
+      "webp": 576382,
+      "saved": 2637102
+    },
+    {
+      "file": "img\\car99.png",
+      "out": "img\\car99.webp",
+      "original": 2914168,
+      "webp": 428158,
+      "saved": 2486010
+    },
+    {
+      "file": "img\\cartaz2026.jpg",
+      "out": "img\\cartaz2026.webp",
+      "original": 1222268,
+      "webp": 255722,
+      "saved": 966546
+    },
+    {
+      "file": "img\\ChatGPT Image 28 de mai. de 2026, 23_57_38.png",
+      "out": "img\\ChatGPT Image 28 de mai. de 2026, 23_57_38.webp",
+      "original": 2362448,
+      "webp": 266676,
+      "saved": 2095772
+    },
+    {
+      "file": "img\\ChatGPT Image 28 de mai. de 2026, 23_57_49.png",
+      "out": "img\\ChatGPT Image 28 de mai. de 2026, 23_57_49.webp",
+      "original": 2131319,
+      "webp": 200786,
+      "saved": 1930533
+    },
+    {
+      "file": "img\\ChatGPT Image 28 de mai. de 2026, 23_57_55.png",
+      "out": "img\\ChatGPT Image 28 de mai. de 2026, 23_57_55.webp",
+      "original": 2113124,
+      "webp": 200084,
+      "saved": 1913040
+    },
+    {
+      "file": "img\\ChatGPT Image 28 de mai. de 2026, 23_58_00.png",
+      "out": "img\\ChatGPT Image 28 de mai. de 2026, 23_58_00.webp",
+      "original": 2089904,
+      "webp": 171554,
+      "saved": 1918350
+    },
+    {
+      "file": "img\\ChatGPT Image 28 de mai. de 2026, 23_58_05.png",
+      "out": "img\\ChatGPT Image 28 de mai. de 2026, 23_58_05.webp",
+      "original": 2146697,
+      "webp": 207348,
+      "saved": 1939349
+    },
+    {
+      "file": "img\\ChatGPT Image 30 de mai. de 2026, 02_06_45 (2).png",
+      "out": "img\\ChatGPT Image 30 de mai. de 2026, 02_06_45 (2).webp",
+      "original": 3360616,
+      "webp": 605430,
+      "saved": 2755186
+    },
+    {
+      "file": "img\\ddddd.png",
+      "out": "img\\ddddd.webp",
+      "original": 2398606,
+      "webp": 357128,
+      "saved": 2041478
+    },
+    {
+      "file": "img\\eventos\\foto1.jpg",
+      "out": "img\\eventos\\foto1.webp",
+      "original": 12574004,
+      "webp": 2332484,
+      "saved": 10241520
+    },
+    {
+      "file": "img\\eventos\\foto2.jpg",
+      "out": "img\\eventos\\foto2.webp",
+      "original": 7647479,
+      "webp": 713528,
+      "saved": 6933951
+    },
+    {
+      "file": "img\\eventos\\foto3.jpg",
+      "out": "img\\eventos\\foto3.webp",
+      "original": 8116147,
+      "webp": 1033894,
+      "saved": 7082253
+    },
+    {
+      "file": "img\\eventos\\foto4.jpg",
+      "out": "img\\eventos\\foto4.webp",
+      "original": 9617188,
+      "webp": 1531108,
+      "saved": 8086080
+    },
+    {
+      "file": "img\\eventos\\foto5.jpg",
+      "out": "img\\eventos\\foto5.webp",
+      "original": 8232435,
+      "webp": 1029522,
+      "saved": 7202913
+    },
+    {
+      "file": "img\\eventos\\foto6.jpg",
+      "out": "img\\eventos\\foto6.webp",
+      "original": 10721929,
+      "webp": 1926450,
+      "saved": 8795479
+    },
+    {
+      "file": "img\\eventos\\foto7.jpg",
+      "out": "img\\eventos\\foto7.webp",
+      "original": 10657679,
+      "webp": 1599018,
+      "saved": 9058661
+    },
+    {
+      "file": "img\\eventos\\foto8.jpg",
+      "out": "img\\eventos\\foto8.webp",
+      "original": 6977977,
+      "webp": 917160,
+      "saved": 6060817
+    },
+    {
+      "file": "img\\fundacao\\team-1.png",
+      "out": "img\\fundacao\\team-1.webp",
+      "original": 1867481,
+      "webp": 116618,
+      "saved": 1750863
+    },
+    {
+      "file": "img\\fundacao\\team-2.png",
+      "out": "img\\fundacao\\team-2.webp",
+      "original": 1892805,
+      "webp": 146388,
+      "saved": 1746417
+    },
+    {
+      "file": "img\\fundacao\\team-3.png",
+      "out": "img\\fundacao\\team-3.webp",
+      "original": 1778021,
+      "webp": 89306,
+      "saved": 1688715
+    },
+    {
+      "file": "img\\fundacao\\team-4.png",
+      "out": "img\\fundacao\\team-4.webp",
+      "original": 1905191,
+      "webp": 120576,
+      "saved": 1784615
+    },
+    {
+      "file": "img\\fundo-eventos.jpg",
+      "out": "img\\fundo-eventos.webp",
+      "original": 1109143,
+      "webp": 246170,
+      "saved": 862973
+    },
+    {
+      "file": "img\\fundo.png",
+      "out": "img\\fundo.webp",
+      "original": 2985674,
+      "webp": 431764,
+      "saved": 2553910
+    },
+    {
+      "file": "img\\fusc.png",
+      "out": "img\\fusc.webp",
+      "original": 1830571,
+      "webp": 145398,
+      "saved": 1685173
+    },
+    {
+      "file": "img\\logo-clube-transparent.png",
+      "out": "img\\logo-clube-transparent.webp",
+      "original": 79479,
+      "webp": 65374,
+      "saved": 14105
+    },
+    {
+      "file": "img\\logo.png",
+      "out": "img\\logo.webp",
+      "original": 79479,
+      "webp": 65374,
+      "saved": 14105
+    },
+    {
+      "file": "img\\logo2.png",
+      "out": "img\\logo2.webp",
+      "original": 2523366,
+      "webp": 364688,
+      "saved": 2158678
+    },
+    {
+      "file": "img\\mascote.png",
+      "out": "img\\mascote.webp",
+      "original": 3194106,
+      "webp": 516190,
+      "saved": 2677916
+    },
+    {
+      "file": "img\\mascotemetal.png",
+      "out": "img\\mascotemetal.webp",
+      "original": 3425839,
+      "webp": 638288,
+      "saved": 2787551
+    },
+    {
+      "file": "img\\menufarol.png",
+      "out": "img\\menufarol.webp",
+      "original": 432706,
+      "webp": 68248,
+      "saved": 364458
+    },
+    {
+      "file": "img\\menufundoBARRA.png",
+      "out": "img\\menufundoBARRA.webp",
+      "original": 507778,
+      "webp": 72626,
+      "saved": 435152
+    },
+    {
+      "file": "img\\nao mudar o nome.png",
+      "out": "img\\nao mudar o nome.webp",
+      "original": 2321151,
+      "webp": 251464,
+      "saved": 2069687
+    },
+    {
+      "file": "img\\placas\\Nova pasta\\2016.png",
+      "out": "img\\placas\\Nova pasta\\2016.webp",
+      "original": 266182,
+      "webp": 57866,
+      "saved": 208316
+    },
+    {
+      "file": "img\\placas\\Nova pasta\\2017.png",
+      "out": "img\\placas\\Nova pasta\\2017.webp",
+      "original": 260274,
+      "webp": 56056,
+      "saved": 204218
+    },
+    {
+      "file": "img\\placas\\Nova pasta\\2018.png",
+      "out": "img\\placas\\Nova pasta\\2018.webp",
+      "original": 261679,
+      "webp": 57482,
+      "saved": 204197
+    },
+    {
+      "file": "img\\placas\\Nova pasta\\2019.png",
+      "out": "img\\placas\\Nova pasta\\2019.webp",
+      "original": 265999,
+      "webp": 58384,
+      "saved": 207615
+    },
+    {
+      "file": "img\\placas\\Nova pasta\\2020.png",
+      "out": "img\\placas\\Nova pasta\\2020.webp",
+      "original": 261141,
+      "webp": 57222,
+      "saved": 203919
+    },
+    {
+      "file": "img\\placas\\Nova pasta\\2021.png",
+      "out": "img\\placas\\Nova pasta\\2021.webp",
+      "original": 267073,
+      "webp": 59748,
+      "saved": 207325
+    },
+    {
+      "file": "img\\placas\\Nova pasta\\2022.png",
+      "out": "img\\placas\\Nova pasta\\2022.webp",
+      "original": 267065,
+      "webp": 58100,
+      "saved": 208965
+    },
+    {
+      "file": "img\\placas\\Nova pasta\\2023.png",
+      "out": "img\\placas\\Nova pasta\\2023.webp",
+      "original": 263581,
+      "webp": 56930,
+      "saved": 206651
+    },
+    {
+      "file": "img\\placas\\Nova pasta\\2024.png",
+      "out": "img\\placas\\Nova pasta\\2024.webp",
+      "original": 268140,
+      "webp": 59384,
+      "saved": 208756
+    },
+    {
+      "file": "img\\placas\\Nova pasta\\2025.png",
+      "out": "img\\placas\\Nova pasta\\2025.webp",
+      "original": 283001,
+      "webp": 61538,
+      "saved": 221463
+    },
+    {
+      "file": "img\\placas\\Nova pasta\\2026.png",
+      "out": "img\\placas\\Nova pasta\\2026.webp",
+      "original": 287960,
+      "webp": 63366,
+      "saved": 224594
+    },
+    {
+      "file": "img\\re.png",
+      "out": "img\\re.webp",
+      "original": 2362224,
+      "webp": 419086,
+      "saved": 1943138
+    },
+    {
+      "file": "img\\sadasd.png",
+      "out": "img\\sadasd.webp",
+      "original": 1983478,
+      "webp": 162148,
+      "saved": 1821330
+    },
+    {
+      "file": "img\\selo.png",
+      "out": "img\\selo.webp",
+      "original": 3171141,
+      "webp": 612098,
+      "saved": 2559043
+    },
+    {
+      "file": "img\\sss.png",
+      "out": "img\\sss.webp",
+      "original": 250822,
+      "webp": 46768,
+      "saved": 204054
+    },
+    {
+      "file": "img\\vema.png",
+      "out": "img\\vema.webp",
+      "original": 2213127,
+      "webp": 216980,
+      "saved": 1996147
+    },
+    {
+      "file": "img\\WhatsApp Image 2026-05-25 at 11.21.52 (1).jpeg",
+      "out": "img\\WhatsApp Image 2026-05-25 at 11.21.52 (1).webp",
+      "original": 221331,
+      "webp": 112508,
+      "saved": 108823
+    }
+  ]
+}

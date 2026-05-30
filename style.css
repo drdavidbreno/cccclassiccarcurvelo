@@ -54,7 +54,7 @@ body {
 /* Backgrounds das paginas */
 
 body.home-page {
-  background: url("img/CAR00.png?v=20260528a") center/cover fixed no-repeat;
+  background: url("img/CAR00.webp?v=20260528a") center/cover fixed no-repeat;
 }
 
 body.home-page::after {
@@ -69,7 +69,7 @@ body.home-page::after {
 
 body.historia-page {
   position: relative;
-  background: url("img/asfaltonovo.png?v=20260529-5") center center / cover fixed no-repeat;
+  background: url("img/asfaltonovo.webp?v=20260529-5") center center / cover fixed no-repeat;
 }
 
 body.historia-page::before {
@@ -84,15 +84,15 @@ body.historia-page::before {
 }
 
 body.sobre-page {
-  background: url("img/car19.png") center/cover fixed no-repeat;
+  background: url("img/car19.webp") center/cover fixed no-repeat;
 }
 
 body.eventos-page {
-  background: url("img/car7.png") center/cover fixed no-repeat;
+  background: url("img/car7.webp") center/cover fixed no-repeat;
 }
 
 body.contato-page {
-  background: url("img/car95.png") center/cover fixed no-repeat;
+  background: url("img/car95.webp") center/cover fixed no-repeat;
 }
 
 /* Navbar */
@@ -104,7 +104,7 @@ body.contato-page {
   width: min(56vw, 960px);
   aspect-ratio: 1920 / 267;
   transform: translateX(-50%);
-  background: url("img/menufarol.png?v=20260529a") center / contain no-repeat;
+  background: url("img/menufarol.webp?v=20260529a") center / contain no-repeat;
   z-index: 999;
 }
 
@@ -1094,7 +1094,7 @@ html.skip-intro #intro {
   gap: 12px;
   background:
     linear-gradient(135deg, rgba(223, 226, 34, 0.96), rgba(226, 147, 34, 0.88)),
-    url("img/menufundoBARRA.png") center / cover no-repeat;
+    url("img/menufundoBARRA.webp") center / cover no-repeat;
   color: #171111;
 }
 
@@ -1150,7 +1150,7 @@ html.skip-intro #intro {
   padding: 14px;
   background:
     linear-gradient(rgba(255, 255, 255, 0.94), rgba(255, 255, 255, 0.94)),
-    url("img/car.png") center / cover no-repeat;
+    url("img/car.webp") center / cover no-repeat;
   color: #171111;
 }
 
@@ -1416,7 +1416,7 @@ html.skip-intro #intro {
     width: min(74vw, 960px);
     aspect-ratio: 1920 / 267;
     transform: translateX(-50%);
-    background: url("img/menufarol.png?v=20260529a") center / contain no-repeat;
+    background: url("img/menufarol.webp?v=20260529a") center / contain no-repeat;
     padding: 0;
     border-radius: 0;
   }
@@ -1843,7 +1843,7 @@ html.skip-intro #intro {
   content: "";
   position: absolute;
   inset: 0;
-  background-image: url("img/capa.png"); /* coloque aqui sua imagem */
+  background-image: url("img/capa.webp"); /* coloque aqui sua imagem */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
