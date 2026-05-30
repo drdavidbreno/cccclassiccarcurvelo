@@ -57,6 +57,16 @@ body.home-page {
   background: url("img/CAR00.png?v=20260528a") center/cover fixed no-repeat;
 }
 
+body.home-page::after {
+  content: "";
+  position: fixed;
+  inset: auto 0 0;
+  height: 34vh;
+  z-index: 0;
+  pointer-events: none;
+  background: linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.42));
+}
+
 body.historia-page {
   position: relative;
   background: url("img/asfaltonovo.png?v=20260529-5") center center / cover fixed no-repeat;
@@ -241,6 +251,55 @@ body.contato-page {
   height: 100vh;
 }
 
+.home-scroll-cue {
+  position: absolute;
+  left: 50%;
+  bottom: 28px;
+  z-index: 45;
+  transform: translateX(-50%);
+  display: grid;
+  gap: 4px;
+  min-width: 210px;
+  padding: 12px 20px;
+  border: 1px solid rgba(204, 255, 0, 0.72);
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.68);
+  color: #ffffff;
+  text-align: center;
+  text-decoration: none;
+  backdrop-filter: blur(8px);
+  box-shadow:
+    0 18px 42px rgba(0, 0, 0, 0.58),
+    0 0 22px rgba(204, 255, 0, 0.18);
+  transition: transform 0.22s ease, border-color 0.22s ease, background 0.22s ease;
+}
+
+.home-scroll-cue:hover {
+  transform: translateX(-50%) translateY(-4px);
+  border-color: #ccff00;
+  background: rgba(0, 0, 0, 0.78);
+}
+
+.home-scroll-cue span {
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1;
+  opacity: 0.82;
+}
+
+.home-scroll-cue strong {
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 22px;
+  line-height: 1;
+  text-transform: uppercase;
+  color: #ccff00;
+}
+
+.home-mobile-callout {
+  display: none;
+}
+
 .foundation {
   width: 100%;
   padding: 84px 8% 120px;
@@ -418,6 +477,12 @@ body.contato-page {
   color: transparent;
   font-size: 0;
   text-decoration: none;
+}
+
+html.skip-intro #intro {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
 }
 
 .foundation:target {
@@ -1953,5 +2018,364 @@ body.contato-page {
     top: 8px;
     right: 14px;
     font-size: 38px;
+  }
+}
+
+/* Pente fino mobile */
+@media (max-width: 820px) {
+  body {
+    min-height: 100svh;
+  }
+
+  .navbar,
+  .contato-page .navbar {
+    top: 10px;
+    left: 50%;
+    width: calc(100% - 24px);
+    height: auto;
+    aspect-ratio: auto;
+    padding: 8px;
+    border: 1px solid rgba(214, 208, 0, 0.42);
+    border-radius: 14px;
+    background: rgba(8, 8, 7, 0.88);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 16px 42px rgba(0, 0, 0, 0.52);
+  }
+
+  .navbar::before,
+  .navbar::after,
+  .navbar-secret-sound,
+  .navbar-secret-horn,
+  .mobile-nav-brand {
+    display: none;
+  }
+
+  .navbar nav {
+    position: static;
+    display: flex;
+    gap: 7px;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .navbar nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  .navbar nav a {
+    position: static;
+    flex: 0 0 auto;
+    width: auto;
+    height: auto;
+    min-height: 38px;
+    padding: 9px 12px;
+    transform: none;
+    display: grid;
+    place-items: center;
+    border: 1px solid rgba(214, 208, 0, 0.22);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.05);
+    color: #ffffff;
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: 17px;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+
+  .navbar nav a.active {
+    background: #d6d000;
+    color: #171111;
+  }
+
+  .home-hero-spacer {
+    height: 100svh;
+    min-height: 620px;
+  }
+
+  .home-history-hotspot,
+  .home-intro-hotspot {
+    display: none;
+  }
+
+  .home-mobile-callout {
+    position: absolute;
+    left: 16px;
+    right: 16px;
+    top: 155px;
+    z-index: 44;
+    display: grid;
+    gap: 12px;
+    padding: 20px;
+    border: 1px solid rgba(204, 255, 0, 0.45);
+    border-radius: 16px;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.72), rgba(23, 17, 17, 0.46));
+    backdrop-filter: blur(8px);
+    box-shadow:
+      0 22px 50px rgba(0, 0, 0, 0.54),
+      0 0 24px rgba(204, 255, 0, 0.12);
+  }
+
+  .home-mobile-callout span {
+    font-family: "Barlow Condensed", sans-serif;
+    color: #ccff00;
+    font-size: 18px;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+
+  .home-mobile-callout h1 {
+    max-width: 330px;
+    color: #ffffff;
+    font-family: "Anton", sans-serif;
+    font-size: 38px;
+    line-height: 1.05;
+    text-transform: uppercase;
+    text-shadow:
+      3px 3px 0 #000000,
+      0 14px 24px rgba(0, 0, 0, 0.82);
+  }
+
+  .home-mobile-callout p {
+    max-width: 280px;
+    color: rgba(255, 255, 255, 0.9);
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: 21px;
+    line-height: 1.25;
+  }
+
+  .home-mobile-callout a {
+    width: fit-content;
+    margin-top: 4px;
+    padding: 10px 15px;
+    border: 1px solid #ccff00;
+    border-radius: 999px;
+    background: rgba(204, 255, 0, 0.08);
+    color: #ccff00;
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+
+  .home-scroll-cue {
+    bottom: 18px;
+    min-width: 190px;
+    padding: 10px 16px;
+  }
+
+  .home-scroll-cue span {
+    font-size: 14px;
+  }
+
+  .home-scroll-cue strong {
+    font-size: 19px;
+  }
+
+  .foundation {
+    padding: 58px 16px 88px;
+  }
+
+  .foundation h2 {
+    max-width: 12ch;
+    font-size: 40px;
+    line-height: 1.08;
+    text-shadow:
+      3px 3px 0 #000000,
+      6px 6px 0 rgba(0, 0, 0, 0.62),
+      0 16px 28px rgba(0, 0, 0, 0.9);
+  }
+
+  .foundation-subtitle {
+    max-width: 330px;
+    margin-bottom: 22px;
+    font-size: 19px;
+  }
+
+  .foundation-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .foundation-card {
+    max-width: 420px;
+    margin-inline: auto;
+    padding: 12px 12px 16px;
+    border-radius: 10px;
+  }
+
+  .foundation-photo {
+    height: 260px;
+  }
+
+  .home-intro,
+  .hero {
+    padding-top: 92px;
+  }
+
+  .historia-page .hero {
+    min-height: 100svh;
+    padding: 104px 18px 72px;
+  }
+
+  .historia-page .hero h1 {
+    max-width: 320px;
+    font-size: 42px;
+    line-height: 1.05;
+  }
+
+  .historia-page .hero p {
+    max-width: 300px;
+    font-size: 19px;
+  }
+
+  .scroll-btn {
+    font-size: 18px;
+  }
+
+  .timeline {
+    padding: 72px 14px 88px;
+  }
+
+  .timeline::before {
+    left: 24px;
+  }
+
+  .timeline-item {
+    grid-template-columns: 70px minmax(0, 1fr);
+    margin-bottom: 34px;
+  }
+
+  .timeline-item::before {
+    left: 4px;
+    top: 26px;
+  }
+
+  .plate-year {
+    min-width: 70px;
+    padding-left: 0;
+  }
+
+  .plate-year img {
+    width: 78px;
+    transform: rotate(-7deg);
+  }
+
+  .card,
+  .card.card-vertical {
+    width: 100%;
+    padding: 13px;
+  }
+
+  .card h2 {
+    font-size: 21px;
+    line-height: 1.12;
+  }
+
+  .card p,
+  .historia-lateral p {
+    font-size: 14px;
+  }
+
+  .historia-lateral {
+    width: calc(100% - 70px);
+    margin-left: 70px;
+  }
+
+  .contato-hotspots {
+    min-height: 100svh;
+  }
+
+  .contato-whatsapp-number {
+    display: none;
+  }
+
+  .contato-whatsapp-button {
+    position: fixed;
+    left: 16px;
+    right: 16px;
+    bottom: 18px;
+    top: auto;
+    width: auto;
+    height: auto;
+    min-height: 54px;
+    display: grid;
+    place-items: center;
+    padding: 14px 18px;
+    border-radius: 999px;
+    background: #ccff00;
+    color: #171111;
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: 0;
+    font-weight: 700;
+    box-shadow: 0 18px 42px rgba(0, 0, 0, 0.54);
+  }
+
+  .contato-whatsapp-button::after {
+    content: "Chamar no WhatsApp";
+    font-size: 22px;
+    text-transform: uppercase;
+  }
+
+  .raposa-chat {
+    right: 10px;
+    bottom: 82px;
+    width: 76px;
+  }
+
+  .chat-panel {
+    left: 10px;
+    right: 10px;
+    bottom: 160px;
+    width: auto;
+    height: min(520px, calc(100svh - 178px));
+    max-width: none;
+  }
+}
+
+@media (max-width: 430px) {
+  .navbar {
+    width: calc(100% - 16px);
+    padding: 7px;
+  }
+
+  .navbar nav a {
+    min-height: 34px;
+    padding: 8px 10px;
+    font-size: 15px;
+  }
+
+  .foundation h2 {
+    font-size: 34px;
+  }
+
+  .home-mobile-callout {
+    top: 130px;
+    padding: 16px;
+  }
+
+  .home-mobile-callout h1 {
+    font-size: 31px;
+  }
+
+  .home-mobile-callout p {
+    font-size: 19px;
+  }
+
+  .foundation-photo {
+    height: 220px;
+  }
+
+  .timeline-item {
+    grid-template-columns: 58px minmax(0, 1fr);
+  }
+
+  .plate-year img {
+    width: 64px;
+  }
+
+  .historia-lateral {
+    width: calc(100% - 58px);
+    margin-left: 58px;
   }
 }
