@@ -1832,7 +1832,7 @@ html.skip-intro #intro {
   gap: 30px;
   padding: 28px 20px;
   background:
-    radial-gradient(circle, rgb(126, 241, 4), transparent 35%),
+    radial-gradient(circle, rgba(126, 241, 4, 0.082), transparent 35%),
     #000000d6;
   z-index: 999999;
   transition: opacity 1s ease, visibility 1s ease;  
