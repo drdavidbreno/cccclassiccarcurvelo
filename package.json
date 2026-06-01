@@ -1,0 +1,11 @@
+﻿{
+  "name": "sitepaisozinho",
+  "private": true,
+  "type": "module",
+  "devDependencies": {
+    "sharp": "^0.34.3"
+  },
+  "scripts": {
+    "optimize:images": "node scripts/optimize-images.mjs"
+  }
+}

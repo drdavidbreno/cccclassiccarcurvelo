@@ -74,6 +74,42 @@ const lightboxCounter = document.getElementById("lightboxCounter");
 let eventoAtual = null;
 let fotoAtual = 0;
 
+function caminhoSemExtensao(caminho) {
+  return caminho.endsWith(".webp") ? caminho.slice(0, -5) : null;
+}
+
+function caminhoThumb(caminho) {
+  const base = caminhoSemExtensao(caminho);
+  return base ? `${base}-thumb.webp` : caminho;
+}
+
+function srcsetResponsivo(caminho) {
+  const base = caminhoSemExtensao(caminho);
+  if (!base) return "";
+  return `${base}-480.webp 480w, ${base}.webp 960w, ${base}-1600.webp 1600w`;
+}
+
+function aplicarImagemResponsiva(elemento, caminho, sizes) {
+  if (!caminho) {
+    elemento.removeAttribute("src");
+    elemento.removeAttribute("srcset");
+    elemento.removeAttribute("sizes");
+    return;
+  }
+
+  elemento.src = caminho;
+  const srcset = srcsetResponsivo(caminho);
+  if (srcset) {
+    elemento.srcset = srcset;
+    elemento.sizes = sizes;
+  } else {
+    elemento.removeAttribute("srcset");
+    elemento.removeAttribute("sizes");
+  }
+  elemento.loading = "lazy";
+  elemento.decoding = "async";
+}
+
 function textoFotos(total) {
   if (total === 0) return "Fotos em breve";
   if (total === 1) return "1 foto";
@@ -100,7 +136,14 @@ function renderizarEventos() {
     <article class="evento-card" style="--delay: ${index * 80}ms">
       <button class="evento-card-button" type="button" data-evento-index="${index}" aria-label="Abrir &aacute;lbum ${removerHtml(evento.nome)}">
         <span class="evento-cover">
-          <img src="${evento.capa}" alt="Capa do evento ${removerHtml(evento.nome)}">
+          <img
+            src="${caminhoThumb(evento.capa)}"
+            srcset="${srcsetResponsivo(evento.capa)}"
+            sizes="(max-width: 720px) 92vw, (max-width: 1100px) 46vw, 360px"
+            loading="lazy"
+            decoding="async"
+            alt="Capa do evento ${removerHtml(evento.nome)}"
+          >
         </span>
         <span class="evento-card-body">
           <strong>${evento.nome}</strong>
@@ -128,7 +171,7 @@ function selecionarFoto(index) {
   if (!eventoAtual || eventoAtual.fotos.length === 0) return;
 
   fotoAtual = (index + eventoAtual.fotos.length) % eventoAtual.fotos.length;
-  albumMainImage.src = eventoAtual.fotos[fotoAtual];
+  aplicarImagemResponsiva(albumMainImage, eventoAtual.fotos[fotoAtual], "(max-width: 720px) 92vw, 920px");
   albumMainImage.alt = `${removerHtml(eventoAtual.nome)} - foto ${fotoAtual + 1}`;
 
   albumThumbs.querySelectorAll("button").forEach((botao, botaoIndex) => {
@@ -136,7 +179,7 @@ function selecionarFoto(index) {
   });
 
   if (lightbox.classList.contains("ativo")) {
-    lightboxImage.src = eventoAtual.fotos[fotoAtual];
+    aplicarImagemResponsiva(lightboxImage, eventoAtual.fotos[fotoAtual], "(max-width: 720px) 96vw, 1200px");
   }
 
   atualizarContador();
@@ -145,7 +188,7 @@ function selecionarFoto(index) {
 function renderizarThumbs() {
   albumThumbs.innerHTML = eventoAtual.fotos.map((foto, index) => `
     <button class="thumb-button" type="button" data-foto-index="${index}" aria-label="Abrir foto ${index + 1}">
-      <img src="${foto}" alt="">
+      <img src="${caminhoThumb(foto)}" loading="lazy" decoding="async" alt="">
     </button>
   `).join("");
 }
@@ -172,7 +215,7 @@ function abrirAlbum(index) {
     renderizarThumbs();
     selecionarFoto(0);
   } else {
-    albumMainImage.src = "";
+    aplicarImagemResponsiva(albumMainImage, "", "");
     albumThumbs.innerHTML = "";
   }
 
@@ -188,13 +231,13 @@ function abrirLightbox() {
   if (!eventoAtual || eventoAtual.fotos.length === 0) return;
 
   lightbox.classList.add("ativo");
-  lightboxImage.src = eventoAtual.fotos[fotoAtual];
+  aplicarImagemResponsiva(lightboxImage, eventoAtual.fotos[fotoAtual], "(max-width: 720px) 96vw, 1200px");
   atualizarContador();
 }
 
 function fecharLightbox() {
   lightbox.classList.remove("ativo");
-  lightboxImage.src = "";
+  aplicarImagemResponsiva(lightboxImage, "", "");
 }
 
 function proximaFoto() {
