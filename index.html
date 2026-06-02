@@ -14,7 +14,7 @@
     }
   </script>
 </head>
-<body class="home-page">
+<body class="home-page intro-active">
   <div id="intro" aria-label="Introdu&ccedil;&atilde;o V8">
     
     <div class="intro-logo">
@@ -29,7 +29,29 @@
       autoplay>
     </model-viewer>
 
-    <button id="entrarBtn" type="button">LIGAR O V8</button>
+    <button id="entrarBtn" class="v8-start-button" type="button" aria-label="Ligar o V8">
+      <span class="v8-key-container" aria-hidden="true">
+        <span class="v8-button-outer">
+          <span class="v8-button-inner">
+            <span class="v8-triangle-bottom-left"></span>
+            <span class="v8-triangle-bottom-right"></span>
+            <span class="v8-triangle-top-left"></span>
+            <span class="v8-triangle-top-right"></span>
+            <span class="v8-light-shadow-on-button"></span>
+
+            <span class="v8-finger-place">
+              <img class="v8-key-logo" src="Ativo 1.svg" alt="">
+            </span>
+          </span>
+        </span>
+
+        <span class="v8-light">
+          <span class="v8-pointer"></span>
+          <span class="v8-big-shadow-right"></span>
+          <span class="v8-big-shadow-left"></span>
+        </span>
+      </span>
+    </button>
   </div>
 
   <header class="navbar">
@@ -182,6 +204,7 @@
 
     if (skipIntro) {
       intro.classList.add("hide");
+      document.body.classList.remove("intro-active");
     }
 
     const chatAnswers = {
@@ -248,13 +271,14 @@
 
     btn.addEventListener("click", () => {
       btn.disabled = true;
-      btn.textContent = "LIGANDO...";
+      btn.classList.add("is-starting");
 
       audio.currentTime = 0;
       audio.play().catch(() => {});
 
       setTimeout(() => {
         intro.classList.add("hide");
+        document.body.classList.remove("intro-active");
         window.history.replaceState({}, "", "index.html");
       }, 6000);
     });

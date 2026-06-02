@@ -51,6 +51,10 @@ body {
   color: #ffffff;
 }
 
+body.intro-active {
+  overflow: hidden;
+}
+
 /* Backgrounds das paginas */
 
 body.home-page {
@@ -1909,32 +1913,259 @@ html.skip-intro #intro {
   }
 }
 
-#entrarBtn {
-  padding: 10px 15px;
-  border: 1px solid #ccff00;
-  border-radius: 8px;
-  background: #000000;
-  color: #ccff00;
-  font-family: "Barlow Condensed", sans-serif;
-  font-size: 16px;
-  letter-spacing: 2px;
+#entrarBtn.v8-start-button {
+  --v8-button-size: 100px;
+  position: fixed;
+  right: 28px;
+  bottom: 28px;
+  width: var(--v8-button-size);
+  height: calc(var(--v8-button-size) + 24px);
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  display: grid;
+  place-items: center;
   cursor: pointer;
-  transition:
-    transform 0.3s ease,
-    background 0.3s ease,
-    color 0.3s ease;
+  isolation: isolate;
+  transition: transform 0.25s ease, filter 0.25s ease, opacity 0.25s ease;
 }
 
-#entrarBtn:hover {
-  background: #660101;
-  color: #ffffff;
-  transform: translateY(-3px);
+#entrarBtn.v8-start-button:hover {
+  transform: translateY(-4px) scale(1.03);
+  filter: drop-shadow(0 0 18px rgba(204, 255, 0, 0.18));
 }
 
-#entrarBtn:disabled {
-  opacity: 0.72;
+#entrarBtn.v8-start-button:active {
+  transform: translateY(0) scale(0.98);
+}
+
+#entrarBtn.v8-start-button:disabled {
   cursor: default;
+  opacity: 0.9;
+}
+
+#entrarBtn.v8-start-button:disabled:hover {
   transform: none;
+}
+
+.v8-key-container {
+  position: relative;
+  width: var(--v8-button-size);
+  height: calc(var(--v8-button-size) + 24px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.v8-button-outer {
+  height: var(--v8-button-size);
+  width: var(--v8-button-size);
+  border-radius: 42px;
+  border: 6px solid #000000;
+  background-color: #000000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 4;
+}
+
+.v8-button-inner {
+  position: relative;
+  height: 98%;
+  width: 98%;
+  border-radius: 37px;
+  background-color: #2b2d2e;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.v8-finger-place {
+  position: relative;
+  height: 80%;
+  width: 80%;
+  border-radius: 36px / 32px;
+  background: linear-gradient(
+    0deg,
+    rgba(86, 88, 94, 1) 0%,
+    rgba(50, 51, 52, 1) 50%,
+    rgba(36, 38, 38, 1) 100%
+  );
+  border: 1px solid #5c5c5c;
+  z-index: 6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.v8-key-logo {
+  width: 70%;
+  height: auto;
+  display: block;
+  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.55));
+  pointer-events: none;
+}
+
+.v8-triangle-bottom-left,
+.v8-triangle-bottom-right,
+.v8-triangle-top-left,
+.v8-triangle-top-right {
+  position: absolute;
+  height: 50%;
+  width: 50%;
+}
+
+.v8-triangle-bottom-left {
+  border-radius: 0 0 0 37px;
+  translate: -50% 50%;
+  background: linear-gradient(
+    -45deg,
+    rgba(19, 22, 23, 0.8) 0%,
+    rgba(36, 36, 36, 1) 20%,
+    rgb(22, 22, 22) 50%,
+    rgb(43, 43, 43) 60%,
+    rgba(44, 46, 47, 0.1) 90%
+  );
+}
+
+.v8-triangle-bottom-right {
+  border-radius: 0 0 37px 0;
+  translate: 50% 50%;
+  background: linear-gradient(
+    45deg,
+    rgba(19, 22, 23, 0.8) 0%,
+    rgba(36, 36, 36, 1) 20%,
+    rgb(22, 22, 22) 50%,
+    rgb(43, 43, 43) 60%,
+    rgba(44, 46, 47, 0.1) 90%
+  );
+}
+
+.v8-triangle-top-right {
+  border-radius: 0 37px 0 0;
+  translate: 50% -50%;
+  background: linear-gradient(
+    -45deg,
+    rgba(44, 46, 47, 0.1) 10%,
+    rgba(67, 69, 69, 1) 40%,
+    rgba(128, 128, 128, 1) 50%,
+    rgba(68, 70, 70, 1) 70%,
+    rgba(62, 63, 64, 0.5) 100%
+  );
+}
+
+.v8-triangle-top-left {
+  border-radius: 37px 0 0 0;
+  translate: -50% -50%;
+  background: linear-gradient(
+    45deg,
+    rgba(44, 46, 47, 0.1) 10%,
+    rgba(67, 69, 69, 1) 40%,
+    rgba(128, 128, 128, 1) 50%,
+    rgba(68, 70, 70, 1) 70%,
+    rgba(62, 63, 64, 0.5) 100%
+  );
+}
+
+.v8-light-shadow-on-button {
+  position: absolute;
+  bottom: 0;
+  height: 50%;
+  width: 100%;
+  margin: 0 0 -8px;
+  border-radius: 37px;
+}
+
+.v8-light-shadow-on-button::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 6px;
+  left: 0;
+  z-index: -1;
+  border-radius: 37px;
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0) 35%,
+    rgb(145, 189, 14) 94%,
+    rgba(3, 18, 60, 0.18) 100%
+  );
+}
+
+.v8-light {
+  position: relative;
+  z-index: 3;
+  display: block;
+  width: 1px;
+  height: 1px;
+}
+
+.v8-pointer {
+  position: absolute;
+  left: -4px;
+  top: -4px;
+  height: 8px;
+  width: 8px;
+  border: 1px solid #111111;
+  background-color: #65fba1;
+  border-radius: 100%;
+}
+
+.v8-big-shadow-right,
+.v8-big-shadow-left {
+  position: absolute;
+  height: calc(var(--v8-button-size) * 0.22);
+  width: calc(var(--v8-button-size) * 0.36);
+  top: calc(var(--v8-button-size) * -0.18);
+  z-index: 4;
+  opacity: 0.72;
+  pointer-events: none;
+}
+
+.v8-big-shadow-right {
+  left: 2px;
+  background: linear-gradient(
+    -30deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0) 50%,
+    rgba(5, 42, 148, 0.01) 53%,
+    rgba(7, 246, 3, 0.2) 59%,
+    rgb(100, 148, 5) 100%
+  );
+}
+
+.v8-big-shadow-left {
+  right: 2px;
+  background: linear-gradient(
+    30deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0) 50%,
+    rgba(5, 42, 148, 0.01) 53%,
+    rgba(7, 246, 3, 0.2) 59%,
+    rgb(57, 148, 5) 100%
+  );
+}
+
+#entrarBtn.v8-start-button:active .v8-button-outer {
+  border-width: 12px;
+}
+
+#entrarBtn.v8-start-button.is-starting .v8-big-shadow-left,
+#entrarBtn.v8-start-button.is-starting .v8-big-shadow-right {
+  opacity: 0;
+}
+
+#entrarBtn.v8-start-button.is-starting .v8-pointer {
+  background-color: #111111;
+}
+
+#entrarBtn.v8-start-button.is-starting .v8-light-shadow-on-button::after {
+  bottom: 10px;
 }
 
 @media (max-width: 760px) {
@@ -1959,6 +2190,12 @@ html.skip-intro #intro {
     font-size: 21px;
     text-align: center;
   }
+
+  #entrarBtn.v8-start-button {
+    --v8-button-size: 88px;
+    right: 18px;
+    bottom: 18px;
+  }
 }
 
 @media (max-width: 390px) {
@@ -1980,6 +2217,10 @@ html.skip-intro #intro {
     width: 82vw;
     font-size: 18px;
     letter-spacing: 1.5px;
+  }
+
+  #entrarBtn.v8-start-button {
+    --v8-button-size: 76px;
   }
 }
 
