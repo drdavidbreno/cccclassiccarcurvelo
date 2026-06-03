@@ -235,15 +235,38 @@
     }
 
     const chatAnswers = {
-      historia: "O CCC Car nasceu para reunir apaixonados por carros antigos em Curvelo. A linha do tempo mostra essa jornada de 2016 at\\u00E9 2026, com encontros, mem\\u00F3rias e tradi\\u00E7\\u00E3o.",
-      eventos: "Os encontros celebram carros cl\\u00E1ssicos, amizade e boas hist\\u00F3rias. Acompanhe a p\\u00E1gina para ver os destaques de cada ano e novidades do clube.",
-      contato: "Para falar com a gente, escolha o menu Contato ou mande sua mensagem por aqui que retornamos com as informa\\u00E7\\u00F5es do clube.",
-      participar: "Se voc\\u00EA curte antigomobilismo, fam\\u00EDlia e estrada, j\\u00E1 est\\u00E1 no caminho certo. Entre em contato e venha conhecer o CCC Car de perto."
+      historia: {
+        message: "O CCC Car nasceu para reunir apaixonados por carros antigos em Curvelo. A linha do tempo mostra essa jornada com encontros, mem\\u00F3rias e tradi\\u00E7\\u00E3o.",
+        actions: [{ label: "Abrir hist\\u00F3ria", href: "historia.html" }]
+      },
+      eventos: {
+        message: "Nosso \\u00E1lbum atual \\u00E9 o Encontro em homenagem ao dia das M\\u00E3es, em 10 de maio de 2026, na Pracinha Aeroporto - Curvelo MG.",
+        actions: [{ label: "Ver eventos", href: "eventos.html" }]
+      },
+      contato: {
+        message: "Para falar com a gente, abra a p\\u00E1gina de contato e mande sua mensagem. Assim fica mais f\\u00E1cil retornar certinho.",
+        actions: [{ label: "Abrir contato", href: "contato.html" }]
+      },
+      participar: {
+        message: "Se voc\\u00EA curte carros antigos, fam\\u00EDlia e estrada, j\\u00E1 est\\u00E1 no caminho certo. Chama a gente e venha conhecer o clube de perto.",
+        actions: [{ label: "Quero participar", href: "contato.html" }]
+      },
+      ajuda: {
+        message: "Posso te levar para a hist\\u00F3ria do clube, eventos, fotos, contato ou participa\\u00E7\\u00E3o. Digite uma palavra ou escolha um atalho.",
+        actions: [
+          { label: "Hist\\u00F3ria", href: "historia.html" },
+          { label: "Eventos", href: "eventos.html" },
+          { label: "Contato", href: "contato.html" }
+        ]
+      }
     };
 
-    const addChatMessage = (message, type = "bot") => {
+    const addChatMessage = (message, type = "bot", actions = []) => {
       const row = document.createElement("div");
       row.className = `chat-row ${type}`;
+
+      const content = document.createElement("div");
+      content.className = "chat-message-content";
 
       const bubble = document.createElement("p");
       bubble.className = "chat-bubble";
@@ -256,9 +279,58 @@
         row.appendChild(icon);
       }
 
-      row.appendChild(bubble);
+      content.appendChild(bubble);
+
+      if (actions.length > 0) {
+        const actionsWrap = document.createElement("div");
+        actionsWrap.className = "chat-actions";
+
+        actions.forEach((action) => {
+          const link = document.createElement("a");
+          link.href = action.href;
+          link.textContent = action.label;
+          actionsWrap.appendChild(link);
+        });
+
+        content.appendChild(actionsWrap);
+      }
+
+      row.appendChild(content);
       chatBody.appendChild(row);
       chatBody.scrollTop = chatBody.scrollHeight;
+    };
+
+    const normalizarMensagem = (message) =>
+      message
+        .toLowerCase()
+        .normalize("NFD")
+        .replace(/[\\u0300-\\u036f]/g, "");
+
+    const responderChat = (key) => {
+      const resposta = chatAnswers[key] || chatAnswers.ajuda;
+      addChatMessage(resposta.message, "bot", resposta.actions);
+    };
+
+    const detectarIntencao = (message) => {
+      const texto = normalizarMensagem(message);
+
+      if (texto.includes("historia") || texto.includes("fundacao") || texto.includes("fundador")) {
+        return "historia";
+      }
+
+      if (texto.includes("evento") || texto.includes("encontro") || texto.includes("foto") || texto.includes("album") || texto.includes("mae")) {
+        return "eventos";
+      }
+
+      if (texto.includes("contato") || texto.includes("falar") || texto.includes("telefone") || texto.includes("whatsapp") || texto.includes("mensagem")) {
+        return "contato";
+      }
+
+      if (texto.includes("participar") || texto.includes("entrar") || texto.includes("clube") || texto.includes("socio")) {
+        return "participar";
+      }
+
+      return "ajuda";
     };
 
     const openChat = () => {
@@ -279,8 +351,12 @@
       button.addEventListener("click", () => {
         const key = button.dataset.chatAnswer;
         addChatMessage(button.textContent, "user");
-        addChatMessage(chatAnswers[key]);
+        responderChat(key);
       });
+    });
+
+    document.querySelector(".chat-attach").addEventListener("click", () => {
+      responderChat("ajuda");
     });
 
     chatForm.addEventListener("submit", (event) => {
@@ -293,7 +369,7 @@
 
       addChatMessage(message, "user");
       chatInput.value = "";
-      addChatMessage("Recebi sua mensagem! Para um retorno mais certeiro, fale pelo menu Contato ou conte aqui se voc\\u00EA quer saber sobre hist\\u00F3ria, eventos ou participa\\u00E7\\u00E3o.");
+      responderChat(detectarIntencao(message));
     });
 
     const openMobilePoster = () => {

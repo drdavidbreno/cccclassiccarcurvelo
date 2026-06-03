@@ -1194,6 +1194,10 @@ html.skip-intro #intro {
   justify-content: flex-end;
 }
 
+.chat-message-content {
+  max-width: 100%;
+}
+
 .chat-icon {
   width: 32px;
   height: 32px;
@@ -1221,6 +1225,35 @@ html.skip-intro #intro {
   border-radius: 16px 16px 4px 16px;
   background: #171111;
   color: #dfe222;
+}
+
+.chat-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 6px;
+}
+
+.chat-actions a {
+  min-height: 30px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 10px;
+  border: 1px solid #dfe222;
+  border-radius: 999px;
+  background: #171111;
+  color: #dfe222;
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.chat-actions a:hover {
+  background: #dfe222;
+  color: #171111;
 }
 
 .chat-options {
