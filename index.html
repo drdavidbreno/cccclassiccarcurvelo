@@ -29,33 +29,19 @@
       exposure="1.35"
       shadow-intensity="0.8"
       environment-image="neutral"
+      camera-orbit="0deg 75deg 105%"
+      field-of-view="30deg"
       camera-controls
       auto-rotate
       autoplay>
     </model-viewer>
 
     <button id="entrarBtn" class="v8-start-button" type="button" aria-label="Ligar o V8">
-      <span class="v8-key-container" aria-hidden="true">
-        <span class="v8-button-outer">
-          <span class="v8-button-inner">
-            <span class="v8-triangle-bottom-left"></span>
-            <span class="v8-triangle-bottom-right"></span>
-            <span class="v8-triangle-top-left"></span>
-            <span class="v8-triangle-top-right"></span>
-            <span class="v8-light-shadow-on-button"></span>
+      <img class="intro-start-svg" src="img/botao-intro.svg" alt="">
+    </button>
 
-            <span class="v8-finger-place">
-              <img class="v8-key-logo" src="Ativo 1.svg" alt="">
-            </span>
-          </span>
-        </span>
-
-        <span class="v8-light">
-          <span class="v8-pointer"></span>
-          <span class="v8-big-shadow-right"></span>
-          <span class="v8-big-shadow-left"></span>
-        </span>
-      </span>
+    <button id="motorSoundBtn" class="motor-sound-button" type="button">
+      <span>RONCO V8</span>
     </button>
   </div>
 
@@ -89,9 +75,9 @@
     <p>Mais que carros antigos. Mem&oacute;rias sobre rodas.</p>
     <a href="historia.html">Conhe&ccedil;a nossa hist&oacute;ria</a>
   </section>
-  <div class="home-mobile-showpiece" aria-hidden="true">
-    <img src="img/eventodia0306.jpg" alt="">
-  </div>
+  <button class="home-mobile-showpiece" type="button" aria-label="Abrir cartaz do evento">
+    <img src="img/eventodia0306.jpg" alt="Cartaz do evento CCC Car">
+  </button>
   <a class="home-scroll-cue" href="#fundacao" aria-label="Ir para quem mant&eacute;m o ronco vivo">
     <span>Conhe&ccedil;a a equipe</span>
     <strong>Ver Funda&ccedil;&atilde;o</strong>
@@ -194,7 +180,12 @@
     <source src="video/raposa_sem_sombra.webm" type="video/webm">
   </video>
 
-  <audio id="v8Sound" preload="auto">
+  <div class="modal" id="mobilePosterModal" aria-hidden="true">
+    <button class="close" type="button" aria-label="Fechar cartaz">&times;</button>
+    <img class="modal-img" src="img/eventodia0306.jpg" alt="Cartaz do evento CCC Car">
+  </div>
+
+  <audio id="v8Sound" preload="auto" autoplay>
     <source src="audio/v8.mp3" type="audio/mpeg">
   </audio>
 
@@ -209,7 +200,11 @@
     const chatInput = document.getElementById("chat-input");
     const chatClose = document.querySelector(".chat-close");
     const raposaChat = document.querySelector(".raposa-chat");
+    const mobilePoster = document.querySelector(".home-mobile-showpiece");
+    const mobilePosterModal = document.getElementById("mobilePosterModal");
+    const mobilePosterClose = mobilePosterModal.querySelector(".close");
     const btn = document.getElementById("entrarBtn");
+    const motorSoundBtn = document.getElementById("motorSoundBtn");
     const intro = document.getElementById("intro");
     const preprogramacao = document.getElementById("preprogramacao");
     const audio = document.getElementById("v8Sound");
@@ -218,10 +213,25 @@
     const farolHorn = document.querySelector(".navbar-secret-horn");
     const skipIntro = new URLSearchParams(window.location.search).get("home") === "1";
 
+    const playHorn = () => {
+      hornAudio.currentTime = 0;
+      hornAudio.volume = 1;
+      hornAudio.play().catch(() => {});
+
+      const hornBoost = hornAudio.cloneNode(true);
+      hornBoost.volume = 0.85;
+      hornBoost.play().catch(() => {});
+    };
+
     if (skipIntro) {
       intro.classList.add("hide");
       preprogramacao.classList.add("hide");
       document.body.classList.remove("intro-active");
+    } else {
+      window.addEventListener("load", () => {
+        audio.currentTime = 0;
+        audio.play().catch(() => {});
+      });
     }
 
     const chatAnswers = {
@@ -286,12 +296,29 @@
       addChatMessage("Recebi sua mensagem! Para um retorno mais certeiro, fale pelo menu Contato ou conte aqui se voc\\u00EA quer saber sobre hist\\u00F3ria, eventos ou participa\\u00E7\\u00E3o.");
     });
 
+    const openMobilePoster = () => {
+      mobilePosterModal.classList.add("active");
+      mobilePosterModal.setAttribute("aria-hidden", "false");
+    };
+
+    const closeMobilePoster = () => {
+      mobilePosterModal.classList.remove("active");
+      mobilePosterModal.setAttribute("aria-hidden", "true");
+    };
+
+    mobilePoster.addEventListener("click", openMobilePoster);
+    mobilePosterClose.addEventListener("click", closeMobilePoster);
+    mobilePosterModal.addEventListener("click", (event) => {
+      if (event.target === mobilePosterModal) {
+        closeMobilePoster();
+      }
+    });
+
     btn.addEventListener("click", () => {
       btn.disabled = true;
       btn.classList.add("is-starting");
 
-      audio.currentTime = 0;
-      audio.play().catch(() => {});
+      playHorn();
 
       setTimeout(() => {
         intro.classList.add("hide");
@@ -305,7 +332,13 @@
           document.body.classList.remove("intro-active");
           window.history.replaceState({}, "", "index.html");
         }, 5200);
-      }, 2800);
+      }, 150);
+    });
+
+    motorSoundBtn.addEventListener("click", () => {
+      audio.currentTime = 0;
+      audio.play().catch(() => {});
+      motorSoundBtn.classList.add("is-playing");
     });
 
     farolSound.addEventListener("click", () => {
@@ -314,8 +347,7 @@
     });
 
     farolHorn.addEventListener("click", () => {
-      hornAudio.currentTime = 0;
-      hornAudio.play().catch(() => {});
+      playHorn();
     });
   </script>
   

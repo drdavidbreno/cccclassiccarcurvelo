@@ -1,10 +1,10 @@
 const eventos = [
   {
-    nome: "10&ordm; Encontro de Ve&iacute;culos Antigos",
-    data: "20 de Julho de 2025",
-    local: "Pra&ccedil;a Central - Curvelo/MG",
+    nome: "Encontro em homenagem ao dia das M&atilde;es",
+    data: "10 de maio de 2026",
+    local: "Pracinha Aeroporto - Curvelo MG",
     capa: "img/eventos/foto2.webp",
-    descricao: "Um encontro marcante com motores, mem&oacute;ria e carros que atravessam gera&ccedil;&otilde;es.",
+    descricao: "Registros do encontro em homenagem ao dia das M&atilde;es, reunindo fam&iacute;lias, amigos e cl&aacute;ssicos do CCC Car.",
     fotos: [
       "img/eventos/foto1.webp",
       "img/eventos/foto2.webp",
@@ -14,38 +14,6 @@ const eventos = [
       "img/eventos/foto6.webp",
       "img/eventos/foto7.webp",
       "img/eventos/foto8.webp"
-    ]
-  },
-  {
-    nome: "Noite dos Cl&aacute;ssicos",
-    data: "14 de Setembro de 2025",
-    local: "Centro Hist&oacute;rico - Curvelo/MG",
-    capa: "img/eventos/foto4.webp",
-    descricao: "Uma noite para reunir amigos, fam&iacute;lias e m&aacute;quinas antigas sob as luzes da cidade.",
-    fotos: [
-      "img/eventos/foto4.webp",
-      "img/eventos/foto6.webp",
-      "img/eventos/foto8.webp"
-    ]
-  },
-  {
-    nome: "Exposi&ccedil;&atilde;o Especial CCC",
-    data: "18 e 19 de Julho de 2026",
-    local: "Curvelo/MG",
-    capa: "img/cartaz2026.webp",
-    descricao: "A pr&oacute;xima grande celebra&ccedil;&atilde;o do clube, preparada para receber novos registros hist&oacute;ricos.",
-    fotos: []
-  },
-  {
-    nome: "Passeio dos Antigos",
-    data: "12 de Outubro de 2025",
-    local: "Estrada Real - Minas Gerais",
-    capa: "img/eventos/foto7.webp",
-    descricao: "Rota especial para colocar os cl&aacute;ssicos na estrada e guardar novas hist&oacute;rias sobre rodas.",
-    fotos: [
-      "img/eventos/foto7.webp",
-      "img/eventos/foto3.webp",
-      "img/eventos/foto5.webp"
     ]
   }
 ];

@@ -152,9 +152,16 @@ a {
 
 .galeria-hero p {
   max-width: 720px;
-  color: rgba(255, 255, 255, 0.78);
+  padding: 8px 16px;
+  border: 1px solid rgba(204, 255, 0, 0.28);
+  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.68);
+  color: rgba(255, 255, 255, 0.96);
   font-size: 18px;
   line-height: 1.55;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.95);
+  box-shadow: 0 12px 34px rgba(0, 0, 0, 0.38);
+  backdrop-filter: blur(4px);
 }
 
 .eventos-grid {
