@@ -304,6 +304,10 @@ body.contato-page {
   display: none;
 }
 
+.home-mobile-showpiece {
+  display: none;
+}
+
 .foundation {
   width: 100%;
   padding: 84px 8% 120px;
@@ -1836,8 +1840,8 @@ html.skip-intro #intro {
   gap: 30px;
   padding: 28px 20px;
   background:
-    radial-gradient(circle, rgba(126, 241, 4, 0.082), transparent 35%),
-    #000000d6;
+    radial-gradient(circle, rgba(126, 241, 4, 0.045), transparent 35%),
+    #000000;
   z-index: 999999;
   transition: opacity 1s ease, visibility 1s ease;  
   overflow: hidden; /* necessário para o ::before */
@@ -1851,8 +1855,8 @@ html.skip-intro #intro {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  opacity: 0,5; /* ajusta de acordo com o quanto quer que apareça */
-  filter: blur(4px); /* deixa o fundo desfocado */
+  opacity: 0.28; /* ajusta de acordo com o quanto quer que apareça */
+  filter: blur(4px) brightness(0.55); /* deixa o fundo desfocado */
   z-index: 0; /* por baixo de tudo */
 }
 
@@ -1866,6 +1870,128 @@ html.skip-intro #intro {
   visibility: hidden;
   pointer-events: none;
 }
+
+.preprogramacao {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.72), rgba(0, 0, 0, 0.9)),
+    url("img/capa.webp") center/cover no-repeat;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  z-index: 999998;
+  transition: opacity 0.7s ease, visibility 0.7s ease;
+}
+
+.preprogramacao.active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.preprogramacao.hide {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.preprogramacao-frame {
+  position: relative;
+  width: min(560px, 92vw);
+  max-height: 86vh;
+  display: grid;
+  place-items: center;
+  padding: 14px;
+  overflow: visible;
+  isolation: isolate;
+  animation: preprogramacaoEntrada 0.7s ease both;
+}
+
+.preprogramacao-frame::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 1px solid rgba(255, 174, 74, 0.42);
+  box-shadow:
+    0 0 38px rgba(220, 54, 38, 0.22),
+    inset 0 0 38px rgba(255, 174, 74, 0.12);
+  z-index: -1;
+}
+
+.preprogramacao-frame img {
+  width: 100%;
+  max-height: calc(86vh - 28px);
+  height: auto;
+  display: block;
+  object-fit: contain;
+  filter:
+    drop-shadow(0 12px 28px rgba(0, 0, 0, 0.8))
+    drop-shadow(0 0 16px rgba(255, 174, 74, 0.24));
+  animation: preprogramacaoPulso 2.8s ease both;
+}
+
+.preprogramacao-scan {
+  position: absolute;
+  left: 14px;
+  right: 14px;
+  top: 24px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #ffae4a, #dc3626, transparent);
+  box-shadow: 0 0 18px rgba(255, 174, 74, 0.68);
+  animation: preprogramacaoScan 1.4s ease-in-out infinite;
+}
+
+@keyframes preprogramacaoEntrada {
+  from {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes preprogramacaoPulso {
+  0% {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+
+  28%,
+  82% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  100% {
+    opacity: 0.92;
+    transform: scale(1.04);
+  }
+}
+
+@keyframes preprogramacaoScan {
+  0% {
+    top: 24px;
+    opacity: 0;
+  }
+
+  20%,
+  80% {
+    opacity: 1;
+  }
+
+  100% {
+    top: calc(100% - 24px);
+    opacity: 0;
+  }
+}
+
 .intro-logo {
   width: 320px;
   max-width: 75vw;
@@ -1898,7 +2024,10 @@ html.skip-intro #intro {
   height: min(300px, 40vh);
   min-height: 180px;
   border-radius: 0;
-  background: transparent;
+  background:
+    radial-gradient(ellipse at center, rgba(255, 255, 255, 0.18), transparent 58%),
+    radial-gradient(ellipse at center, rgba(204, 255, 0, 0.12), transparent 68%);
+  filter: drop-shadow(0 18px 28px rgba(0, 0, 0, 0.88));
   --poster-color: transparent;
   --progress-bar-height: 0px;
 }
@@ -2399,6 +2528,29 @@ html.skip-intro #intro {
     text-transform: uppercase;
   }
 
+  .home-mobile-showpiece {
+    position: absolute;
+    left: 50%;
+    top: 465px;
+    z-index: 43;
+    display: block;
+    width: min(250px, 52vw);
+    transform: translateX(-50%);
+    pointer-events: none;
+  }
+
+  .home-mobile-showpiece img {
+    display: block;
+    width: 100%;
+    max-height: 260px;
+    height: auto;
+    object-fit: contain;
+    border-radius: 8px;
+    filter:
+      drop-shadow(0 18px 24px rgba(0, 0, 0, 0.64))
+      drop-shadow(0 0 18px rgba(255, 174, 74, 0.2));
+  }
+
   .home-scroll-cue {
     bottom: 18px;
     min-width: 190px;
@@ -2601,6 +2753,15 @@ html.skip-intro #intro {
 
   .home-mobile-callout p {
     font-size: 19px;
+  }
+
+  .home-mobile-showpiece {
+    top: 410px;
+    width: min(205px, 50vw);
+  }
+
+  .home-mobile-showpiece img {
+    max-height: 235px;
   }
 
   .foundation-photo {

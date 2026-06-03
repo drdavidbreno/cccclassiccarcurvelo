@@ -24,6 +24,11 @@
     <model-viewer
       id="motorV8"
       src="modelos/motor.glb"
+      loading="eager"
+      reveal="auto"
+      exposure="1.35"
+      shadow-intensity="0.8"
+      environment-image="neutral"
       camera-controls
       auto-rotate
       autoplay>
@@ -54,6 +59,13 @@
     </button>
   </div>
 
+  <div id="preprogramacao" class="preprogramacao" aria-hidden="true">
+    <div class="preprogramacao-frame">
+      <img src="img/eventodia0306.jpg" alt="Evento CCC Car" decoding="async">
+      <span class="preprogramacao-scan" aria-hidden="true"></span>
+    </div>
+  </div>
+
   <header class="navbar">
     <a href="index.html?home=1" class="mobile-nav-brand" aria-label="CCC Car - In&iacute;cio">
     </a>
@@ -77,6 +89,9 @@
     <p>Mais que carros antigos. Mem&oacute;rias sobre rodas.</p>
     <a href="historia.html">Conhe&ccedil;a nossa hist&oacute;ria</a>
   </section>
+  <div class="home-mobile-showpiece" aria-hidden="true">
+    <img src="img/eventodia0306.jpg" alt="">
+  </div>
   <a class="home-scroll-cue" href="#fundacao" aria-label="Ir para quem mant&eacute;m o ronco vivo">
     <span>Conhe&ccedil;a a equipe</span>
     <strong>Ver Funda&ccedil;&atilde;o</strong>
@@ -196,6 +211,7 @@
     const raposaChat = document.querySelector(".raposa-chat");
     const btn = document.getElementById("entrarBtn");
     const intro = document.getElementById("intro");
+    const preprogramacao = document.getElementById("preprogramacao");
     const audio = document.getElementById("v8Sound");
     const hornAudio = document.getElementById("hornSound");
     const farolSound = document.querySelector(".navbar-secret-sound");
@@ -204,6 +220,7 @@
 
     if (skipIntro) {
       intro.classList.add("hide");
+      preprogramacao.classList.add("hide");
       document.body.classList.remove("intro-active");
     }
 
@@ -278,9 +295,17 @@
 
       setTimeout(() => {
         intro.classList.add("hide");
-        document.body.classList.remove("intro-active");
-        window.history.replaceState({}, "", "index.html");
-      }, 6000);
+        preprogramacao.classList.add("active");
+        preprogramacao.setAttribute("aria-hidden", "false");
+
+        setTimeout(() => {
+          preprogramacao.classList.add("hide");
+          preprogramacao.classList.remove("active");
+          preprogramacao.setAttribute("aria-hidden", "true");
+          document.body.classList.remove("intro-active");
+          window.history.replaceState({}, "", "index.html");
+        }, 5200);
+      }, 2800);
     });
 
     farolSound.addEventListener("click", () => {
