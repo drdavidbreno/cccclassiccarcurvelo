@@ -73,7 +73,7 @@ a {
   width: min(56vw, 960px);
   aspect-ratio: 1920 / 330;
   transform: translateX(-50%);
-  background: url("img/menufarol.png?v=20260603a") center / contain no-repeat;
+  background: url("img/menufarol.webp?v=20260604c") center / contain no-repeat;
   z-index: 5000;
   transition: transform 0.28s ease, opacity 0.28s ease;
   will-change: transform, opacity;
@@ -831,7 +831,7 @@ a {
     padding: 0;
     border: 0;
     border-radius: 0;
-    background: url("img/menufarolmobile.png?v=20260603a") center / contain no-repeat;
+    background: url("img/menufarolmobile.webp?v=20260604c") center / contain no-repeat;
     box-shadow: none;
   }
 

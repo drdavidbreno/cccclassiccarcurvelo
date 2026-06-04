@@ -108,7 +108,7 @@ body.contato-page {
   width: min(56vw, 960px);
   aspect-ratio: 1920 / 322;
   transform: translateX(-50%);
-  background: url("img/menufarol.png?v=20260603a") center / contain no-repeat;
+  background: url("img/menufarol.webp?v=20260604c") center / contain no-repeat;
   z-index: 999;
   transition: transform 0.28s ease, opacity 0.28s ease;
   will-change: transform, opacity;
@@ -1745,7 +1745,7 @@ html.skip-intro #intro {
     width: min(74vw, 960px);
     aspect-ratio: 1920 / 322;
     transform: translateX(-50%);
-    background: url("img/menufarol.png?v=20260603a") center / contain no-repeat;
+    background: url("img/menufarol.webp?v=20260604c") center / contain no-repeat;
     padding: 0;
     border-radius: 0;
   }
@@ -2180,7 +2180,7 @@ html.skip-intro #intro {
   inset: 0;
   background:
     linear-gradient(rgba(0, 0, 0, 0.18), rgba(0, 0, 0, 0.28)),
-    url("img/fundointro.jpg") center/cover no-repeat;
+    url("img/fundointro.webp?v=20260604c") center/cover no-repeat;
   opacity: 1;
   filter: none;
   z-index: 0; /* por baixo de tudo */
@@ -2845,7 +2845,7 @@ html.skip-intro #intro {
     padding: 0;
     border: 0;
     border-radius: 0;
-    background: url("img/menufarolmobile.png?v=20260603a") center / contain no-repeat;
+    background: url("img/menufarolmobile.webp?v=20260604c") center / contain no-repeat;
     backdrop-filter: none;
     box-shadow: none;
   }
