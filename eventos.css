@@ -71,10 +71,18 @@ a {
   top: 8px;
   left: 50%;
   width: min(56vw, 960px);
-  aspect-ratio: 1920 / 322;
+  aspect-ratio: 1920 / 330;
   transform: translateX(-50%);
   background: url("img/menufarol.png?v=20260603a") center / contain no-repeat;
   z-index: 5000;
+  transition: transform 0.28s ease, opacity 0.28s ease;
+  will-change: transform, opacity;
+}
+
+.navbar.navbar-hidden {
+  transform: translate(-50%, calc(-100% - 28px));
+  opacity: 0;
+  pointer-events: none;
 }
 
 .navbar nav {
@@ -101,13 +109,33 @@ a {
 .navbar nav a:nth-child(4) { left: 60.73%; }
 .navbar nav a:nth-child(5) { left: 70.99%; }
 
+.proximos-menu-button {
+  position: absolute;
+  left: 44.7%;
+  top: 80.5%;
+  width: 10.8%;
+  height: 18.8%;
+  display: block;
+  border: 0;
+  background: transparent;
+  opacity: 0;
+  cursor: pointer;
+  z-index: 3;
+}
+
+.proximos-menu-button:focus-visible {
+  opacity: 1;
+  outline: 3px solid rgba(204, 255, 0, 0.82);
+  outline-offset: 3px;
+}
+
 .navbar::before,
 .navbar::after {
   content: "";
   position: absolute;
-  top: 20%;
-  width: 17%;
-  height: 60%;
+  top: 18%;
+  width: 16.4%;
+  height: 44%;
   pointer-events: none;
   background:
     radial-gradient(circle at 30% 50%, rgba(255, 255, 255, 0.58) 0 13%, rgba(255, 245, 134, 0.44) 18%, rgba(210, 255, 0, 0.16) 33%, transparent 50%),
@@ -119,11 +147,11 @@ a {
 }
 
 .navbar::before {
-  left: 1.8%;
+  left: 3.9%;
 }
 
 .navbar::after {
-  right: 1.8%;
+  right: 3.9%;
   animation-delay: 0.18s;
 }
 
@@ -216,6 +244,98 @@ a {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 18px;
+}
+
+.proximos-shell {
+  max-width: 1180px;
+}
+
+.proximos-hero {
+  min-height: 260px;
+}
+
+.proximos-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(300px, 0.85fr);
+  gap: 22px;
+  align-items: stretch;
+}
+
+.proximo-card {
+  overflow: hidden;
+  min-height: 420px;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgba(204, 255, 0, 0.52);
+  border-radius: 8px;
+  background:
+    linear-gradient(145deg, rgba(0, 0, 0, 0.82), rgba(23, 17, 17, 0.72)),
+    radial-gradient(circle at 20% 0, rgba(204, 255, 0, 0.16), transparent 36rem);
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.58);
+}
+
+.proximo-card.destaque {
+  min-height: 560px;
+}
+
+.proximo-card img {
+  width: 100%;
+  height: 390px;
+  display: block;
+  object-fit: contain;
+  background: #050505;
+  border-bottom: 1px solid rgba(204, 255, 0, 0.38);
+}
+
+.proximo-card-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 26px;
+}
+
+.proximo-card-body span {
+  color: var(--verde-vivo);
+  font-family: "Barlow Condensed", Arial, sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.proximo-card-body h2 {
+  color: var(--verde);
+  font-family: "Anton", Arial, sans-serif;
+  font-size: 46px;
+  font-weight: 400;
+  line-height: 1;
+  text-transform: uppercase;
+  text-shadow: 0 5px 0 #000000, 0 18px 34px rgba(0, 0, 0, 0.7);
+}
+
+.proximo-card-body p {
+  max-width: 520px;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 19px;
+  line-height: 1.55;
+}
+
+.proximo-card-body a {
+  width: max-content;
+  min-height: 44px;
+  margin-top: auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 18px;
+  border: 1px solid var(--verde-vivo);
+  border-radius: 999px;
+  color: var(--verde-vivo);
+  font-family: "Barlow Condensed", Arial, sans-serif;
+  font-size: 19px;
+  font-weight: 800;
+  text-decoration: none;
+  text-transform: uppercase;
 }
 
 .evento-card {
@@ -758,6 +878,13 @@ a {
   .navbar nav a:nth-child(4) { left: 39.2%; top: 34%; width: 22%; height: 25%; }
   .navbar nav a:nth-child(5) { left: 62%; top: 34%; width: 22.2%; height: 25%; }
 
+  .proximos-menu-button {
+    left: 52.2%;
+    top: 64%;
+    width: 31.4%;
+    height: 28%;
+  }
+
   .eventos-page-shell {
     width: calc(100% - 28px);
     padding: clamp(138px, 38vw, 290px) 0 64px;
@@ -793,6 +920,38 @@ a {
   .eventos-grid {
     grid-template-columns: 1fr;
     gap: 16px;
+  }
+
+  .proximos-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .proximo-card,
+  .proximo-card.destaque {
+    min-height: 0;
+  }
+
+  .proximo-card img {
+    height: auto;
+    max-height: 62svh;
+    object-fit: contain;
+  }
+
+  .proximo-card-body {
+    padding: 18px;
+  }
+
+  .proximo-card-body h2 {
+    font-size: 34px;
+  }
+
+  .proximo-card-body p {
+    font-size: 16px;
+  }
+
+  .proximo-card-body a {
+    width: 100%;
   }
 
   .evento-card-button {

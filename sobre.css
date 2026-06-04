@@ -54,10 +54,18 @@ main,
   top: 8px;
   left: 50%;
   width: min(56vw, 960px);
-  aspect-ratio: 1920 / 322;
+  aspect-ratio: 1920 / 330;
   transform: translateX(-50%);
   background: url("img/menufarol.png?v=20260603a") center / contain no-repeat;
   z-index: 5000;
+  transition: transform 0.28s ease, opacity 0.28s ease;
+  will-change: transform, opacity;
+}
+
+.navbar.navbar-hidden {
+  transform: translate(-50%, calc(-100% - 28px));
+  opacity: 0;
+  pointer-events: none;
 }
 
 .navbar nav {
@@ -66,17 +74,29 @@ main,
 }
 
 .navbar-secret-sound,
-.navbar-secret-horn {
+.navbar-secret-horn,
+.proximos-menu-button {
   position: absolute;
-  top: 20%;
-  width: 17%;
-  height: 60%;
   border: 0;
   padding: 0;
   background: transparent;
   opacity: 0;
   cursor: pointer;
   z-index: 2;
+}
+
+.navbar-secret-sound,
+.navbar-secret-horn {
+  top: 20%;
+  width: 17%;
+  height: 60%;
+}
+
+.proximos-menu-button {
+  left: 44.7%;
+  top: 80.5%;
+  width: 10.8%;
+  height: 18.8%;
 }
 
 .navbar-secret-sound {
@@ -88,7 +108,8 @@ main,
 }
 
 .navbar-secret-sound:focus-visible,
-.navbar-secret-horn:focus-visible {
+.navbar-secret-horn:focus-visible,
+.proximos-menu-button:focus-visible {
   opacity: 1;
   outline: 3px solid rgba(214, 255, 0, 0.82);
   outline-offset: 3px;
@@ -98,9 +119,9 @@ main,
 .navbar::after {
   content: "";
   position: absolute;
-  top: 20%;
-  width: 17%;
-  height: 60%;
+  top: 18%;
+  width: 16.4%;
+  height: 44%;
   pointer-events: none;
   background:
     radial-gradient(circle at 30% 50%, rgba(255, 255, 255, 0.58) 0 13%, rgba(255, 245, 134, 0.44) 18%, rgba(210, 255, 0, 0.16) 33%, transparent 50%),
@@ -112,11 +133,11 @@ main,
 }
 
 .navbar::before {
-  left: 1.8%;
+  left: 3.9%;
 }
 
 .navbar::after {
-  right: 1.8%;
+  right: 3.9%;
   animation-delay: 0.18s;
 }
 
@@ -547,6 +568,14 @@ main,
 
   .navbar-secret-horn {
     right: 4.2%;
+  }
+
+  .proximos-menu-button {
+    display: block;
+    left: 52.2%;
+    top: 64%;
+    width: 31.4%;
+    height: 28%;
   }
 
   .navbar nav {

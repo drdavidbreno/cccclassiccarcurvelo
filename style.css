@@ -110,6 +110,14 @@ body.contato-page {
   transform: translateX(-50%);
   background: url("img/menufarol.png?v=20260603a") center / contain no-repeat;
   z-index: 999;
+  transition: transform 0.28s ease, opacity 0.28s ease;
+  will-change: transform, opacity;
+}
+
+.navbar.navbar-hidden {
+  transform: translate(-50%, calc(-100% - 28px));
+  opacity: 0;
+  pointer-events: none;
 }
 
 .historia-page .navbar {
@@ -147,19 +155,32 @@ body.contato-page {
   cursor: pointer;
 }
 
-.programacao-menu-button {
+.programacao-menu-button,
+.proximos-menu-button {
   position: absolute;
-  left: 46.7%;
-  top: 67%;
-  width: 9.8%;
-  height: 18%;
   border: 0;
   background: transparent;
   cursor: pointer;
   opacity: 0;
+  z-index: 3;
 }
 
-.programacao-menu-button:focus-visible {
+.programacao-menu-button {
+  left: 45%;
+  top: 61%;
+  width: 10.2%;
+  height: 17%;
+}
+
+.proximos-menu-button {
+  left: 44.7%;
+  top: 80.5%;
+  width: 10.8%;
+  height: 18.8%;
+}
+
+.programacao-menu-button:focus-visible,
+.proximos-menu-button:focus-visible {
   opacity: 1;
   outline: 3px solid rgba(204, 255, 0, 0.82);
   outline-offset: 3px;
@@ -2929,10 +2950,18 @@ html.skip-intro #intro {
 
   .programacao-menu-button {
     display: block;
-    left: 35%;
-    top: 71%;
-    width: 30%;
-    height: 26%;
+    left: 18.4%;
+    top: 64%;
+    width: 31.2%;
+    height: 28%;
+  }
+
+  .proximos-menu-button {
+    display: block;
+    left: 52.2%;
+    top: 64%;
+    width: 31.4%;
+    height: 28%;
   }
 
   .programacao-mobile-button {
