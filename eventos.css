@@ -66,35 +66,83 @@ a {
   -webkit-tap-highlight-color: transparent;
 }
 
-.btn-voltar {
+.navbar {
   position: fixed;
-  top: 22px;
-  left: 22px;
-  z-index: 100;
-  width: 44px;
-  height: 44px;
-  display: grid;
-  place-items: center;
-  border: 1px solid var(--borda);
-  border-radius: 999px;
-  background: rgba(0, 0, 0, 0.7);
-  color: var(--verde-vivo);
-  text-decoration: none;
-  font-size: 26px;
-  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.5);
-  transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+  top: 8px;
+  left: 50%;
+  width: min(56vw, 960px);
+  aspect-ratio: 1920 / 322;
+  transform: translateX(-50%);
+  background: url("img/menufarol.png?v=20260603a") center / contain no-repeat;
+  z-index: 5000;
 }
 
-.btn-voltar:hover {
-  transform: translateX(-3px);
-  border-color: var(--verde);
-  background: rgba(214, 208, 0, 0.13);
+.navbar nav {
+  position: absolute;
+  inset: 0;
+}
+
+.navbar nav a {
+  position: absolute;
+  top: 27%;
+  width: 7.2%;
+  height: 47%;
+  transform: translateX(-50%);
+  display: block;
+  color: transparent;
+  font-size: 0;
+  text-decoration: none;
+  border-radius: 999px;
+}
+
+.navbar nav a:nth-child(1) { left: 28.65%; }
+.navbar nav a:nth-child(2) { left: 39.48%; }
+.navbar nav a:nth-child(3) { left: 50.16%; }
+.navbar nav a:nth-child(4) { left: 60.73%; }
+.navbar nav a:nth-child(5) { left: 70.99%; }
+
+.navbar::before,
+.navbar::after {
+  content: "";
+  position: absolute;
+  top: 20%;
+  width: 17%;
+  height: 60%;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 30% 50%, rgba(255, 255, 255, 0.58) 0 13%, rgba(255, 245, 134, 0.44) 18%, rgba(210, 255, 0, 0.16) 33%, transparent 50%),
+    radial-gradient(circle at 78% 50%, rgba(255, 255, 255, 0.58) 0 13%, rgba(255, 245, 134, 0.44) 18%, rgba(210, 255, 0, 0.16) 33%, transparent 50%);
+  mix-blend-mode: screen;
+  filter: blur(1px) drop-shadow(0 0 10px rgba(214, 255, 0, 0.48));
+  opacity: 0.08;
+  animation: farolFalhando 1.2s infinite;
+}
+
+.navbar::before {
+  left: 1.8%;
+}
+
+.navbar::after {
+  right: 1.8%;
+  animation-delay: 0.18s;
+}
+
+@keyframes farolFalhando {
+  0%, 100% { opacity: 0.1; }
+  8% { opacity: 0.72; }
+  13% { opacity: 0.15; }
+  18% { opacity: 0.9; }
+  28% { opacity: 0.22; }
+  45% { opacity: 0.65; }
+  58% { opacity: 0.12; }
+  75% { opacity: 0.78; }
+  84% { opacity: 0.18; }
 }
 
 .eventos-page-shell {
   width: min(1480px, calc(100% - 56px));
   margin: 0 auto;
-  padding: 36px 0 90px;
+  padding: 122px 0 90px;
 }
 
 .galeria-hero {
@@ -567,14 +615,9 @@ a {
 }
 
 @media (max-width: 720px) {
-  .btn-voltar {
-    top: 14px;
-    left: 14px;
-  }
-
   .eventos-page-shell {
     width: min(100% - 28px, 1480px);
-    padding-top: 70px;
+    padding-top: clamp(138px, 38vw, 290px);
   }
 
   .galeria-hero {
@@ -659,16 +702,65 @@ a {
     background-position: center top;
   }
 
-  .btn-voltar {
-    top: 12px;
-    left: 12px;
-    width: 42px;
-    height: 42px;
+  .navbar {
+    top: 10px;
+    left: 50%;
+    width: calc(100% - 24px);
+    height: auto;
+    aspect-ratio: 1080 / 360;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    background: url("img/menufarolmobile.png?v=20260603a") center / contain no-repeat;
+    box-shadow: none;
   }
+
+  .navbar::before,
+  .navbar::after {
+    top: 2%;
+    width: 17%;
+    height: 30%;
+  }
+
+  .navbar::before {
+    left: 4.2%;
+  }
+
+  .navbar::after {
+    right: 4.2%;
+  }
+
+  .navbar nav {
+    position: absolute;
+    inset: 0;
+    display: block;
+    overflow: visible;
+  }
+
+  .navbar nav a {
+    position: absolute;
+    width: auto;
+    height: auto;
+    min-height: 0;
+    padding: 0;
+    transform: none;
+    display: block;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    color: transparent;
+    font-size: 0;
+  }
+
+  .navbar nav a:nth-child(1) { left: 25.7%; top: 4%; width: 24.2%; height: 28%; }
+  .navbar nav a:nth-child(2) { left: 50.2%; top: 4%; width: 24.6%; height: 28%; }
+  .navbar nav a:nth-child(3) { left: 16.4%; top: 34%; width: 22.2%; height: 25%; }
+  .navbar nav a:nth-child(4) { left: 39.2%; top: 34%; width: 22%; height: 25%; }
+  .navbar nav a:nth-child(5) { left: 62%; top: 34%; width: 22.2%; height: 25%; }
 
   .eventos-page-shell {
     width: calc(100% - 28px);
-    padding: 74px 0 64px;
+    padding: clamp(138px, 38vw, 290px) 0 64px;
   }
 
   .galeria-hero {
