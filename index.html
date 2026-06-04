@@ -63,12 +63,14 @@
       <a href="contato.html">Contato</a>
     </nav>
 
+    <button class="programacao-menu-button" type="button" aria-label="Abrir programa&ccedil;&atilde;o"></button>
     <button class="navbar-secret-sound" type="button" aria-label="Acionar som do farol"></button>
     <button class="navbar-secret-horn" type="button" aria-label="Acionar buzina"></button>
   </header>
 
   <a class="home-history-hotspot" href="historia.html" aria-label="Conhe&ccedil;a nossa hist&oacute;ria"></a>
   <a class="home-intro-hotspot" href="index.html?intro=1" aria-label="Abrir introdu&ccedil;&atilde;o do site"></a>
+  <button class="programacao-mobile-button" type="button">Programa&ccedil;&atilde;o</button>
   <section class="home-mobile-callout" aria-labelledby="home-mobile-title">
     <span>CCC Classic Car</span>
     <h1 id="home-mobile-title">Anos passam.<br>O ronco permanece.</h1>
@@ -185,6 +187,65 @@
     <img class="modal-img" src="img/eventodia0306.jpg" alt="Cartaz do evento CCC Car">
   </div>
 
+  <section class="programacao-modal" id="programacaoModal" aria-hidden="true" aria-labelledby="programacaoTitle">
+    <div class="programacao-dialog">
+      <button class="programacao-close" type="button" aria-label="Fechar programa&ccedil;&atilde;o">&times;</button>
+      <div class="programacao-heading">
+        <span>CCC Classic Car</span>
+        <h2 id="programacaoTitle">Programa&ccedil;&atilde;o</h2>
+        <p>Calend&aacute;rio, avisos e posts dos pr&oacute;ximos encontros.</p>
+      </div>
+
+      <div class="programacao-layout">
+        <section class="programacao-calendar-image" aria-label="Calend&aacute;rio oficial CCC 2026">
+          <img src="img/calendario-oficial-ccc.webp" alt="Calend&aacute;rio oficial CCC 2026">
+          <button class="calendar-hotspot janeiro" type="button" data-programacao="janeiro">Janeiro</button>
+          <button class="calendar-hotspot fevereiro" type="button" data-programacao="fevereiro">Fevereiro</button>
+          <button class="calendar-hotspot marco" type="button" data-programacao="marco">Mar&ccedil;o</button>
+          <button class="calendar-hotspot abril" type="button" data-programacao="abril">Abril</button>
+          <button class="calendar-hotspot maio" type="button" data-programacao="maio">Maio</button>
+          <button class="calendar-hotspot junho" type="button" data-programacao="junho">Junho</button>
+          <button class="calendar-hotspot julho" type="button" data-programacao="julho">Julho</button>
+          <button class="calendar-hotspot agosto" type="button" data-programacao="agosto">Agosto</button>
+          <button class="calendar-hotspot setembro" type="button" data-programacao="setembro">Setembro</button>
+          <button class="calendar-hotspot outubro" type="button" data-programacao="outubro">Outubro</button>
+          <button class="calendar-hotspot novembro" type="button" data-programacao="novembro">Novembro</button>
+          <button class="calendar-hotspot dezembro" type="button" data-programacao="dezembro">Dezembro</button>
+        </section>
+
+        <div class="programacao-month-tabs" aria-label="Escolher m&ecirc;s da programa&ccedil;&atilde;o">
+          <button type="button" data-programacao="janeiro">Jan</button>
+          <button type="button" data-programacao="fevereiro">Fev</button>
+          <button type="button" data-programacao="marco">Mar</button>
+          <button type="button" data-programacao="abril">Abr</button>
+          <button type="button" data-programacao="maio">Mai</button>
+          <button type="button" data-programacao="junho">Jun</button>
+          <button type="button" data-programacao="julho">Jul</button>
+          <button type="button" data-programacao="agosto">Ago</button>
+          <button type="button" data-programacao="setembro">Set</button>
+          <button type="button" data-programacao="outubro">Out</button>
+          <button type="button" data-programacao="novembro">Nov</button>
+          <button type="button" data-programacao="dezembro">Dez</button>
+        </div>
+
+        <aside class="programacao-detail" aria-live="polite">
+          <span id="programacaoDetailMonth">Reuni&otilde;es mensais</span>
+          <h3 id="programacaoDetailTitle">Clique em um m&ecirc;s</h3>
+          <p id="programacaoDetailText">Toque ou clique em qualquer bloco do calend&aacute;rio para ver o destaque do m&ecirc;s, feriados e observa&ccedil;&otilde;es.</p>
+          <div class="programacao-detail-actions">
+            <a href="eventos.html">Ver &aacute;lbum</a>
+            <a href="contato.html">Contato</a>
+          </div>
+        </aside>
+      </div>
+
+      <div class="programacao-actions">
+        <a href="eventos.html">Ver &aacute;lbum</a>
+        <a href="contato.html">Falar com a gente</a>
+      </div>
+    </div>
+  </section>
+
   <audio id="v8Sound" preload="auto" autoplay>
     <source src="audio/v8.mp3" type="audio/mpeg">
   </audio>
@@ -203,6 +264,13 @@
     const mobilePoster = document.querySelector(".home-mobile-showpiece");
     const mobilePosterModal = document.getElementById("mobilePosterModal");
     const mobilePosterClose = mobilePosterModal.querySelector(".close");
+    const programacaoModal = document.getElementById("programacaoModal");
+    const programacaoClose = document.querySelector(".programacao-close");
+    const programacaoButtons = document.querySelectorAll(".programacao-menu-button, .programacao-mobile-button");
+    const programacaoHotspots = document.querySelectorAll("[data-programacao]");
+    const programacaoDetailMonth = document.getElementById("programacaoDetailMonth");
+    const programacaoDetailTitle = document.getElementById("programacaoDetailTitle");
+    const programacaoDetailText = document.getElementById("programacaoDetailText");
     const btn = document.getElementById("entrarBtn");
     const motorSoundBtn = document.getElementById("motorSoundBtn");
     const intro = document.getElementById("intro");
@@ -221,6 +289,69 @@
       const hornBoost = hornAudio.cloneNode(true);
       hornBoost.volume = 0.85;
       hornBoost.play().catch(() => {});
+    };
+
+    const programacaoInfo = {
+      janeiro: {
+        month: "Janeiro",
+        title: "16 - Reuni\\u00E3o mensal",
+        text: "M\\u00EAs de abertura do calend\\u00E1rio CCC. Tamb\\u00E9m marca o dia 01 - Ano novo e 17 - Confraterniza\\u00E7\\u00E3o Universal."
+      },
+      fevereiro: {
+        month: "Fevereiro",
+        title: "06 - Reuni\\u00E3o mensal",
+        text: "Primeira sexta destacada do m\\u00EAs para encontro e alinhamento dos cl\\u00E1ssicos."
+      },
+      marco: {
+        month: "Mar\\u00E7o",
+        title: "06 - Reuni\\u00E3o mensal",
+        text: "Reuni\\u00E3o mensal marcada no calend\\u00E1rio oficial para manter a agenda do clube acelerada."
+      },
+      abril: {
+        month: "Abril",
+        title: "10 - Reuni\\u00E3o mensal",
+        text: "M\\u00EAs com 03 - Sexta-feira Santa, 21 - Tiradentes e reuni\\u00E3o mensal destacada no dia 10."
+      },
+      maio: {
+        month: "Maio",
+        title: "08 - Reuni\\u00E3o mensal",
+        text: "M\\u00EAs das m\\u00E3es no CCC. Destaques: 01 - Dia do Trabalho e 10 - Dia das M\\u00E3es."
+      },
+      junho: {
+        month: "Junho",
+        title: "12 - Reuni\\u00E3o mensal",
+        text: "Reuni\\u00E3o mensal no dia 12. Destaque tamb\\u00E9m para 04 - Corpus Christi."
+      },
+      julho: {
+        month: "Julho",
+        title: "10 - Reuni\\u00E3o mensal",
+        text: "Encontro mensal destacado no dia 10 para reunir a turma e organizar os pr\\u00F3ximos registros."
+      },
+      agosto: {
+        month: "Agosto",
+        title: "07 - Reuni\\u00E3o mensal",
+        text: "Reuni\\u00E3o mensal no dia 07. Destaque do m\\u00EAs: 09 - Dia dos Pais."
+      },
+      setembro: {
+        month: "Setembro",
+        title: "11 - Reuni\\u00E3o mensal",
+        text: "M\\u00EAs com reuni\\u00E3o no dia 11 e feriado de 07 - Independ\\u00EAncia do Brasil."
+      },
+      outubro: {
+        month: "Outubro",
+        title: "09 - Reuni\\u00E3o mensal",
+        text: "Reuni\\u00E3o mensal no dia 09. Destaque: 12 - Dia das Crian\\u00E7as e Nossa Sra. Aparecida."
+      },
+      novembro: {
+        month: "Novembro",
+        title: "13 - Reuni\\u00E3o mensal",
+        text: "M\\u00EAs com 02 - Finados, 15 - Proclama\\u00E7\\u00E3o da Rep\\u00FAblica, 20 - Consci\\u00EAncia Negra e reuni\\u00E3o no dia 13."
+      },
+      dezembro: {
+        month: "Dezembro",
+        title: "11 - Reuni\\u00E3o mensal",
+        text: "Fechamento do calend\\u00E1rio com reuni\\u00E3o mensal no dia 11 e 25 - Natal."
+      }
     };
 
     if (skipIntro) {
@@ -388,6 +519,44 @@
       if (event.target === mobilePosterModal) {
         closeMobilePoster();
       }
+    });
+
+    const openProgramacao = () => {
+      programacaoModal.classList.add("active");
+      programacaoModal.setAttribute("aria-hidden", "false");
+    };
+
+    const closeProgramacao = () => {
+      programacaoModal.classList.remove("active");
+      programacaoModal.setAttribute("aria-hidden", "true");
+    };
+
+    programacaoButtons.forEach((button) => {
+      button.addEventListener("click", openProgramacao);
+    });
+
+    programacaoClose.addEventListener("click", closeProgramacao);
+    programacaoModal.addEventListener("click", (event) => {
+      if (event.target === programacaoModal) {
+        closeProgramacao();
+      }
+    });
+
+    programacaoHotspots.forEach((button) => {
+      button.addEventListener("click", () => {
+        const info = programacaoInfo[button.dataset.programacao];
+
+        if (!info) {
+          return;
+        }
+
+        programacaoHotspots.forEach((hotspot) => {
+          hotspot.classList.toggle("is-active", hotspot.dataset.programacao === button.dataset.programacao);
+        });
+        programacaoDetailMonth.textContent = info.month;
+        programacaoDetailTitle.textContent = info.title;
+        programacaoDetailText.textContent = info.text;
+      });
     });
 
     btn.addEventListener("click", () => {
