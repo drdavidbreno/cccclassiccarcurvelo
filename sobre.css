@@ -54,15 +54,70 @@ main,
   top: 8px;
   left: 50%;
   width: min(56vw, 960px);
-  aspect-ratio: 1920 / 267;
+  aspect-ratio: 1920 / 322;
   transform: translateX(-50%);
-  background: url("img/menufarol.webp?v=20260529a") center / contain no-repeat;
+  background: url("img/menufarol.png?v=20260603a") center / contain no-repeat;
   z-index: 5000;
 }
 
 .navbar nav {
   position: absolute;
   inset: 0;
+}
+
+.navbar-secret-sound,
+.navbar-secret-horn {
+  position: absolute;
+  top: 20%;
+  width: 17%;
+  height: 60%;
+  border: 0;
+  padding: 0;
+  background: transparent;
+  opacity: 0;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.navbar-secret-sound {
+  left: 1.8%;
+}
+
+.navbar-secret-horn {
+  right: 1.8%;
+}
+
+.navbar-secret-sound:focus-visible,
+.navbar-secret-horn:focus-visible {
+  opacity: 1;
+  outline: 3px solid rgba(214, 255, 0, 0.82);
+  outline-offset: 3px;
+}
+
+.navbar::before,
+.navbar::after {
+  content: "";
+  position: absolute;
+  top: 20%;
+  width: 17%;
+  height: 60%;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 30% 50%, rgba(255, 255, 255, 0.58) 0 13%, rgba(255, 245, 134, 0.44) 18%, rgba(210, 255, 0, 0.16) 33%, transparent 50%),
+    radial-gradient(circle at 78% 50%, rgba(255, 255, 255, 0.58) 0 13%, rgba(255, 245, 134, 0.44) 18%, rgba(210, 255, 0, 0.16) 33%, transparent 50%);
+  mix-blend-mode: screen;
+  filter: blur(1px) drop-shadow(0 0 10px rgba(214, 255, 0, 0.48));
+  opacity: 0.08;
+  animation: farolFalhando 1.2s infinite;
+}
+
+.navbar::before {
+  left: 1.8%;
+}
+
+.navbar::after {
+  right: 1.8%;
+  animation-delay: 0.18s;
 }
 
 .navbar nav a {
@@ -83,6 +138,18 @@ main,
 .navbar nav a:nth-child(3) { left: 50.16%; }
 .navbar nav a:nth-child(4) { left: 60.73%; }
 .navbar nav a:nth-child(5) { left: 70.99%; }
+
+@keyframes farolFalhando {
+  0%, 100% { opacity: 0.1; }
+  8% { opacity: 0.72; }
+  13% { opacity: 0.15; }
+  18% { opacity: 0.9; }
+  28% { opacity: 0.22; }
+  45% { opacity: 0.65; }
+  58% { opacity: 0.12; }
+  75% { opacity: 0.78; }
+  84% { opacity: 0.18; }
+}
 
 /* HERO */
 
@@ -443,51 +510,72 @@ main,
     left: 50%;
     width: calc(100% - 24px);
     height: auto;
-    aspect-ratio: auto;
-    padding: 8px;
-    border: 1px solid rgba(214, 208, 0, 0.42);
-    border-radius: 14px;
-    background: rgba(8, 8, 7, 0.88);
-    backdrop-filter: blur(10px);
-    box-shadow: 0 16px 42px rgba(0, 0, 0, 0.52);
+    aspect-ratio: 1080 / 360;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    background: url("img/menufarolmobile.png?v=20260603a") center / contain no-repeat;
+    backdrop-filter: none;
+    box-shadow: none;
+  }
+
+  .navbar::before,
+  .navbar::after {
+    top: 2%;
+    width: 17%;
+    height: 30%;
+  }
+
+  .navbar::before {
+    left: 4.2%;
+  }
+
+  .navbar::after {
+    right: 4.2%;
+  }
+
+  .navbar-secret-sound,
+  .navbar-secret-horn {
+    top: 2%;
+    width: 17%;
+    height: 30%;
+  }
+
+  .navbar-secret-sound {
+    left: 4.2%;
+  }
+
+  .navbar-secret-horn {
+    right: 4.2%;
   }
 
   .navbar nav {
-    position: static;
-    display: flex;
-    gap: 7px;
-    overflow-x: auto;
-    scrollbar-width: none;
-  }
-
-  .navbar nav::-webkit-scrollbar {
-    display: none;
+    position: absolute;
+    inset: 0;
+    display: block;
+    overflow: visible;
   }
 
   .navbar nav a {
-    position: static;
-    flex: 0 0 auto;
+    position: absolute;
     width: auto;
     height: auto;
-    min-height: 38px;
-    padding: 9px 12px;
+    min-height: 0;
+    padding: 0;
     transform: none;
-    display: grid;
-    place-items: center;
-    border: 1px solid rgba(214, 208, 0, 0.22);
-    border-radius: 999px;
-    background: rgba(255, 255, 255, 0.05);
-    color: #ffffff;
-    font-family: "Barlow Condensed", sans-serif;
-    font-size: 17px;
-    font-weight: 600;
-    text-transform: uppercase;
+    display: block;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    color: transparent;
+    font-size: 0;
   }
 
-  .navbar nav a.active {
-    background: #d6d000;
-    color: #171111;
-  }
+  .navbar nav a:nth-child(1) { left: 25.7%; top: 4%; width: 24.2%; height: 28%; }
+  .navbar nav a:nth-child(2) { left: 50.2%; top: 4%; width: 24.6%; height: 28%; }
+  .navbar nav a:nth-child(3) { left: 16.4%; top: 34%; width: 22.2%; height: 25%; }
+  .navbar nav a:nth-child(4) { left: 39.2%; top: 34%; width: 22%; height: 25%; }
+  .navbar nav a:nth-child(5) { left: 62%; top: 34%; width: 22.2%; height: 25%; }
 
   .sobre-hero {
     min-height: 100svh;
@@ -593,13 +681,13 @@ main,
 @media (max-width: 430px) {
   .navbar {
     width: calc(100% - 16px);
-    padding: 7px;
+    padding: 0;
   }
 
   .navbar nav a {
-    min-height: 34px;
-    padding: 8px 10px;
-    font-size: 15px;
+    min-height: 0;
+    padding: 0;
+    font-size: 0;
   }
 
   .sobre-hero h1,

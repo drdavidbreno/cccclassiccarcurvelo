@@ -1278,6 +1278,10 @@ html.skip-intro #intro {
   position: relative;
 }
 
+.contato-mobile-art {
+  display: none;
+}
+
 .contato-whatsapp-link {
   position: fixed;
   z-index: 50;
@@ -2816,59 +2820,123 @@ html.skip-intro #intro {
     left: 50%;
     width: calc(100% - 24px);
     height: auto;
-    aspect-ratio: auto;
-    padding: 8px;
-    border: 1px solid rgba(214, 208, 0, 0.42);
-    border-radius: 14px;
-    background: rgba(8, 8, 7, 0.88);
-    backdrop-filter: blur(10px);
-    box-shadow: 0 16px 42px rgba(0, 0, 0, 0.52);
+    aspect-ratio: 1080 / 360;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    background: url("img/menufarolmobile.png?v=20260603a") center / contain no-repeat;
+    backdrop-filter: none;
+    box-shadow: none;
+  }
+
+  .mobile-nav-brand {
+    display: none;
   }
 
   .navbar::before,
   .navbar::after,
   .navbar-secret-sound,
-  .navbar-secret-horn,
-  .programacao-menu-button,
-  .mobile-nav-brand {
-    display: none;
+  .navbar-secret-horn {
+    display: block;
+  }
+
+  .navbar::before,
+  .navbar::after {
+    top: 2%;
+    width: 17%;
+    height: 30%;
+  }
+
+  .navbar::before {
+    left: 4.2%;
+  }
+
+  .navbar::after {
+    right: 4.2%;
+  }
+
+  .navbar-secret-sound,
+  .navbar-secret-horn {
+    top: 2%;
+    width: 17%;
+    height: 30%;
+  }
+
+  .navbar-secret-sound {
+    left: 4.2%;
+  }
+
+  .navbar-secret-horn {
+    right: 4.2%;
   }
 
   .navbar nav {
-    position: static;
-    display: flex;
-    gap: 7px;
-    overflow-x: auto;
-    scrollbar-width: none;
-  }
-
-  .navbar nav::-webkit-scrollbar {
-    display: none;
+    position: absolute;
+    inset: 0;
+    display: block;
+    overflow: visible;
   }
 
   .navbar nav a {
-    position: static;
-    flex: 0 0 auto;
+    position: absolute;
     width: auto;
     height: auto;
-    min-height: 38px;
-    padding: 9px 12px;
+    min-height: 0;
+    padding: 0;
     transform: none;
-    display: grid;
-    place-items: center;
-    border: 1px solid rgba(214, 208, 0, 0.22);
-    border-radius: 999px;
-    background: rgba(255, 255, 255, 0.05);
-    color: #ffffff;
-    font-family: "Barlow Condensed", sans-serif;
-    font-size: 17px;
-    font-weight: 600;
-    text-transform: uppercase;
+    display: block;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    color: transparent;
+    font-size: 0;
   }
 
-  .navbar nav a.active {
-    background: #d6d000;
-    color: #171111;
+  .navbar nav a:nth-child(1) {
+    left: 25.7%;
+    top: 4%;
+    width: 24.2%;
+    height: 28%;
+  }
+
+  .navbar nav a:nth-child(2) {
+    left: 50.2%;
+    top: 4%;
+    width: 24.6%;
+    height: 28%;
+  }
+
+  .navbar nav a:nth-child(3) {
+    left: 16.4%;
+    top: 34%;
+    width: 22.2%;
+    height: 25%;
+  }
+
+  .navbar nav a:nth-child(4) {
+    left: 39.2%;
+    top: 34%;
+    width: 22%;
+    height: 25%;
+  }
+
+  .navbar nav a:nth-child(5) {
+    left: 62%;
+    top: 34%;
+    width: 22.2%;
+    height: 25%;
+  }
+
+  .programacao-menu-button {
+    display: block;
+    left: 35%;
+    top: 71%;
+    width: 30%;
+    height: 26%;
+  }
+
+  .programacao-mobile-button {
+    display: none;
   }
 
   .home-hero-spacer {
@@ -3162,7 +3230,25 @@ html.skip-intro #intro {
   }
 
   .contato-hotspots {
-    min-height: 100svh;
+    width: min(100%, 520px);
+    min-height: auto;
+    margin: 0 auto;
+    padding-top: 118px;
+    background: #000;
+  }
+
+  .contato-page {
+    background: #000;
+  }
+
+  .contato-mobile-art {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  .contato-whatsapp-link {
+    position: absolute;
   }
 
   .contato-whatsapp-number {
@@ -3170,36 +3256,34 @@ html.skip-intro #intro {
   }
 
   .contato-whatsapp-button {
-    position: fixed;
-    left: 16px;
-    right: 16px;
-    bottom: 18px;
-    top: auto;
-    width: auto;
-    height: auto;
-    min-height: 54px;
-    display: grid;
-    place-items: center;
-    padding: 14px 18px;
-    border-radius: 999px;
-    background: #ccff00;
-    color: #171111;
-    font-family: "Barlow Condensed", sans-serif;
+    left: 7.2%;
+    top: 65.4%;
+    right: auto;
+    bottom: auto;
+    width: 56.6%;
+    height: 12.4%;
+    min-height: 0;
+    display: block;
+    padding: 0;
+    border-radius: 18px;
+    background: transparent;
+    color: transparent;
     font-size: 0;
-    font-weight: 700;
-    box-shadow: 0 18px 42px rgba(0, 0, 0, 0.54);
+    box-shadow: none;
   }
 
   .contato-whatsapp-button::after {
-    content: "Chamar no WhatsApp";
-    font-size: 22px;
-    text-transform: uppercase;
+    content: none;
   }
 
   .raposa-chat {
     right: 10px;
     bottom: 82px;
     width: 76px;
+  }
+
+  .contato-page .raposa-chat {
+    display: none;
   }
 
   .chat-panel {
@@ -3215,13 +3299,13 @@ html.skip-intro #intro {
 @media (max-width: 430px) {
   .navbar {
     width: calc(100% - 16px);
-    padding: 7px;
+    padding: 0;
   }
 
   .navbar nav a {
-    min-height: 34px;
-    padding: 8px 10px;
-    font-size: 15px;
+    min-height: 0;
+    padding: 0;
+    font-size: 0;
   }
 
   .foundation h2 {
@@ -3234,11 +3318,7 @@ html.skip-intro #intro {
   }
 
   .programacao-mobile-button {
-    top: 92px;
-    min-width: 128px;
-    min-height: 30px;
-    padding: 7px 15px;
-    font-size: 16px;
+    display: none;
   }
 
   .home-mobile-callout h1 {

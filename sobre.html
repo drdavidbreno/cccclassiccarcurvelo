@@ -19,6 +19,8 @@
       <a href="eventos.html">Eventos</a>
       <a href="contato.html">Contato</a>
     </nav>
+    <button class="navbar-secret-sound" type="button" aria-label="Acionar ronco do motor"></button>
+    <button class="navbar-secret-horn" type="button" aria-label="Acionar buzina"></button>
   </header>
 
   <main>
@@ -126,5 +128,38 @@
       <a href="contato.html" class="botao-principal">Fale com o clube</a>
     </section>
   </main>
+
+  <audio id="v8Sound" preload="auto">
+    <source src="audio/v8.mp3" type="audio/mpeg">
+  </audio>
+
+  <audio id="hornSound" preload="auto">
+    <source src="audio/buzina.mp3" type="audio/mpeg">
+  </audio>
+
+  <script>
+    const audio = document.getElementById("v8Sound");
+    const hornAudio = document.getElementById("hornSound");
+    const farolSound = document.querySelector(".navbar-secret-sound");
+    const farolHorn = document.querySelector(".navbar-secret-horn");
+
+    const playHorn = () => {
+      hornAudio.currentTime = 0;
+      hornAudio.volume = 1;
+      hornAudio.play().catch(() => {});
+
+      const hornBoost = hornAudio.cloneNode(true);
+      hornBoost.volume = 0.85;
+      hornBoost.play().catch(() => {});
+    };
+
+    farolSound.addEventListener("click", () => {
+      audio.currentTime = 0;
+      audio.volume = 1;
+      audio.play().catch(() => {});
+    });
+
+    farolHorn.addEventListener("click", playHorn);
+  </script>
 </body>
 </html>
