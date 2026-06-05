@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" href="img/favicon.png" type="image/png">
   <title>In&iacute;cio</title>
-  <link rel="stylesheet" href="style.css?v=20260604c">
+  <link rel="stylesheet" href="style.css?v=20260604n">
   <link href="https://fonts.googleapis.com/css2?family=Anton&family=Barlow+Condensed:wght@300;400;500;600&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
   <script>
@@ -47,7 +47,7 @@
 
   <div id="preprogramacao" class="preprogramacao" aria-hidden="true">
     <div class="preprogramacao-frame">
-      <img src="img/eventodia0306.webp?v=20260604c" alt="Evento CCC Car" decoding="async">
+      <img src="img/eventodia0306.webp?v=20260604m" alt="Evento CCC Car" decoding="async">
       <span class="preprogramacao-scan" aria-hidden="true"></span>
     </div>
   </div>
@@ -71,15 +71,13 @@
 
   <a class="home-history-hotspot" href="historia.html" aria-label="Conhe&ccedil;a nossa hist&oacute;ria"></a>
   <a class="home-intro-hotspot" href="index.html?intro=1" aria-label="Abrir introdu&ccedil;&atilde;o do site"></a>
+  <a class="home-store-button" href="card.html" aria-label="Abrir loja CCC Store">
+    <img src="img/botao-loja.webp?v=20260604a" alt="CCC Store">
+  </a>
   <button class="programacao-mobile-button" type="button">Programa&ccedil;&atilde;o</button>
-  <section class="home-mobile-callout" aria-labelledby="home-mobile-title">
-    <span>CCC Classic Car</span>
-    <h1 id="home-mobile-title">Anos passam.<br>O ronco permanece.</h1>
-    <p>Mais que carros antigos. Mem&oacute;rias sobre rodas.</p>
-    <a href="historia.html">Conhe&ccedil;a nossa hist&oacute;ria</a>
-  </section>
+ 
   <button class="home-mobile-showpiece" type="button" aria-label="Abrir cartaz do evento">
-    <img src="img/eventodia0306.webp?v=20260604c" alt="Cartaz do evento CCC Car">
+    <img src="img/eventodia0306.webp?v=20260604m" alt="Cartaz do evento CCC Car">
   </button>
   <a class="home-scroll-cue" href="#fundacao" aria-label="Ir para quem mant&eacute;m o ronco vivo">
     <span>Conhe&ccedil;a a equipe</span>
@@ -185,7 +183,7 @@
 
   <div class="modal" id="mobilePosterModal" aria-hidden="true">
     <button class="close" type="button" aria-label="Fechar cartaz">&times;</button>
-    <img class="modal-img" src="img/eventodia0306.webp?v=20260604c" alt="Cartaz do evento CCC Car">
+    <img class="modal-img" src="img/eventodia0306.webp?v=20260604m" alt="Cartaz do evento CCC Car">
   </div>
 
   <section class="programacao-modal" id="programacaoModal" aria-hidden="true" aria-labelledby="programacaoTitle">
@@ -255,6 +253,10 @@
     <source src="audio/buzina.mp3" type="audio/mpeg">
   </audio>
 
+  <audio id="storeSound" preload="auto">
+    <source src="audio/sound-effects-library-cash-register-sound.mp3" type="audio/mpeg">
+  </audio>
+
   <script>
     const chatPanel = document.getElementById("chat-panel");
     const chatBody = document.getElementById("chat-body");
@@ -278,6 +280,8 @@
     const preprogramacao = document.getElementById("preprogramacao");
     const audio = document.getElementById("v8Sound");
     const hornAudio = document.getElementById("hornSound");
+    const storeAudio = document.getElementById("storeSound");
+    const storeButton = document.querySelector(".home-store-button");
     const farolSound = document.querySelector(".navbar-secret-sound");
     const farolHorn = document.querySelector(".navbar-secret-horn");
     const skipIntro = new URLSearchParams(window.location.search).get("home") === "1";
@@ -291,6 +295,19 @@
       hornBoost.volume = 0.85;
       hornBoost.play().catch(() => {});
     };
+
+    storeButton.addEventListener("click", (event) => {
+      event.preventDefault();
+      storeAudio.currentTime = 0.45;
+      storeAudio.volume = 1;
+
+      const abrirLoja = () => {
+        window.location.href = storeButton.href;
+      };
+
+      window.setTimeout(abrirLoja, 850);
+      storeAudio.play().catch(abrirLoja);
+    });
 
     const programacaoInfo = {
       janeiro: {
@@ -597,5 +614,6 @@
     });
   </script>
   <script src="js/nav-scroll.js"></script>
+  <script src="js/page-transitions.js"></script>
 </body>
 </html>

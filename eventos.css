@@ -242,8 +242,9 @@ a {
 
 .eventos-grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 18px;
+  grid-template-columns: repeat(auto-fit, minmax(290px, 340px));
+  justify-content: center;
+  gap: 22px;
 }
 
 .proximos-shell {
@@ -722,7 +723,7 @@ a {
 
 @media (max-width: 1180px) {
   .eventos-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(2, minmax(300px, 380px));
   }
 
   .album-panel {
@@ -759,6 +760,11 @@ a {
 
   .eventos-grid {
     grid-template-columns: 1fr;
+    justify-items: center;
+  }
+
+  .evento-card {
+    width: min(100%, 460px);
   }
 
   .evento-card-button {

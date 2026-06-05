@@ -111,7 +111,7 @@ body.contato-page {
   background: url("img/menufarol.webp?v=20260604c") center / contain no-repeat;
   z-index: 999;
   transition: transform 0.28s ease, opacity 0.28s ease;
-  will-change: transform, opacity;
+  will-change: transform, opacity: 100%;
 }
 
 .navbar.navbar-hidden {
@@ -339,9 +339,6 @@ body.contato-page {
   color: #ccff00;
 }
 
-.home-mobile-callout {
-  display: none;
-}
 
 .home-mobile-showpiece {
   display: none;
@@ -633,10 +630,11 @@ body.contato-page {
 
 .foundation-grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(290px, 340px));
   gap: 22px;
   align-items: start;
-  max-width: 1400px;
+  justify-content: center;
+  max-width: 1500px;
   margin: 0 auto;
 }
 
@@ -700,7 +698,7 @@ body.contato-page {
 
 .foundation-photo {
   width: 100%;
-  height: 300px;
+  height: 330px;
   border-radius: 10px;
   overflow: hidden;
   background: #101010;
@@ -769,6 +767,36 @@ body.contato-page {
   text-decoration: none;
 }
 
+.home-store-button {
+  position: absolute;
+  left: 86px;
+  top: 86px;
+  z-index: 43;
+  display: block;
+  width: clamp(190px, 18vw, 320px);
+  aspect-ratio: 3 / 2;
+  text-decoration: none;
+  transform: translateZ(0);
+  transition: transform 0.22s ease, filter 0.22s ease;
+}
+
+.home-store-button:hover,
+.home-store-button:focus-visible {
+  transform: translateY(-6px) scale(1.02);
+  filter: brightness(1.08);
+  outline: none;
+}
+
+.home-store-button img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter:
+    drop-shadow(0 18px 26px rgba(0, 0, 0, 0.72))
+    drop-shadow(0 0 18px rgba(204, 255, 0, 0.2));
+}
+
 html.skip-intro #intro {
   opacity: 0;
   visibility: hidden;
@@ -786,7 +814,7 @@ html.skip-intro #intro {
 
 @media (max-width: 1100px) {
   .foundation-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(2, minmax(300px, 380px));
   }
 }
 
@@ -797,6 +825,11 @@ html.skip-intro #intro {
 
   .foundation-grid {
     grid-template-columns: 1fr;
+  }
+
+  .foundation-card {
+    width: min(100%, 460px);
+    margin-inline: auto;
   }
 }
 
@@ -2251,7 +2284,7 @@ html.skip-intro #intro {
 
 .preprogramacao-frame img {
   width: auto;
-  max-width: calc(92vw - 20px);
+  max-width: calc(92vw - 15px);
   max-height: calc(86vh - 28px);
   height: auto;
   display: block;
@@ -2264,7 +2297,7 @@ html.skip-intro #intro {
 
 .preprogramacao-scan {
   position: absolute;
-  left: 14px;
+  left: 11px;
   right: 14px;
   top: 24px;
   height: 2px;
@@ -2978,6 +3011,20 @@ html.skip-intro #intro {
     display: none;
   }
 
+  .home-store-button {
+    left: 47%;
+    top: 116px;
+    bottom: auto;
+    width: min(124px, 32vw);
+    transform: translateX(-50%);
+    z-index: 45;
+  }
+
+  .home-store-button:hover,
+  .home-store-button:focus-visible {
+    transform: translateX(-50%) translateY(-4px) scale(1.02);
+  }
+
   .programacao-mobile-button {
     position: absolute;
     left: 50%;
@@ -3049,71 +3096,12 @@ html.skip-intro #intro {
     font-size: 24px;
   }
 
-  .home-mobile-callout {
-    position: absolute;
-    left: 16px;
-    right: 16px;
-    top: 155px;
-    z-index: 44;
-    display: grid;
-    gap: 12px;
-    padding: 20px;
-    border: 1px solid rgba(204, 255, 0, 0.45);
-    border-radius: 16px;
-    background: linear-gradient(135deg, rgba(0, 0, 0, 0.72), rgba(23, 17, 17, 0.46));
-    backdrop-filter: blur(8px);
-    box-shadow:
-      0 22px 50px rgba(0, 0, 0, 0.54),
-      0 0 24px rgba(204, 255, 0, 0.12);
-  }
-
-  .home-mobile-callout span {
-    font-family: "Barlow Condensed", sans-serif;
-    color: #ccff00;
-    font-size: 18px;
-    font-weight: 600;
-    text-transform: uppercase;
-  }
-
-  .home-mobile-callout h1 {
-    max-width: 330px;
-    color: #ffffff;
-    font-family: "Anton", sans-serif;
-    font-size: 38px;
-    line-height: 1.05;
-    text-transform: uppercase;
-    text-shadow:
-      3px 3px 0 #000000,
-      0 14px 24px rgba(0, 0, 0, 0.82);
-  }
-
-  .home-mobile-callout p {
-    max-width: 280px;
-    color: rgba(255, 255, 255, 0.9);
-    font-family: "Barlow Condensed", sans-serif;
-    font-size: 21px;
-    line-height: 1.25;
-  }
-
-  .home-mobile-callout a {
-    width: fit-content;
-    margin-top: 4px;
-    padding: 10px 15px;
-    border: 1px solid #ccff00;
-    border-radius: 999px;
-    background: rgba(204, 255, 0, 0.08);
-    color: #ccff00;
-    font-family: "Barlow Condensed", sans-serif;
-    font-size: 18px;
-    font-weight: 700;
-    text-decoration: none;
-    text-transform: uppercase;
-  }
+ 
 
   .home-mobile-showpiece {
     position: absolute;
     left: 50%;
-    top: 465px;
+    top: 300px;
     z-index: 43;
     display: block;
     width: min(250px, 52vw);
@@ -3341,30 +3329,25 @@ html.skip-intro #intro {
     font-size: 34px;
   }
 
-  .home-mobile-callout {
-    top: 130px;
-    padding: 16px;
-  }
 
   .programacao-mobile-button {
     display: none;
   }
 
-  .home-mobile-callout h1 {
-    font-size: 31px;
-  }
-
-  .home-mobile-callout p {
-    font-size: 19px;
-  }
 
   .home-mobile-showpiece {
-    top: 410px;
-    width: min(205px, 50vw);
+    top: 270px;
+    width: min(210px, 52vw);
+  }
+
+  .home-store-button {
+    left: 47%;
+    top: 83px;
+    width: min(112px, 32vw);
   }
 
   .home-mobile-showpiece img {
-    max-height: 235px;
+    max-height: 570px;
   }
 
   .foundation-photo {
@@ -3376,7 +3359,7 @@ html.skip-intro #intro {
   }
 
   .plate-year img {
-    width: 64px;
+    width: 74px;
   }
 
   .historia-lateral {

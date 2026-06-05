@@ -1,0 +1,8 @@
+node_modules/
+.git/
+.vscode/
+.codex-checks/
+*.log
+tmp_frames/
+NAO MECHER/
+*-backup-*/
