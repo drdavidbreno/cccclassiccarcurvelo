@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" href="img/favicon.png" type="image/png">
   <title>In&iacute;cio</title>
-  <link rel="stylesheet" href="style.css?v=20260606m">
+  <link rel="stylesheet" href="style.css?v=20260606o">
   <link href="https://fonts.googleapis.com/css2?family=Anton&family=Barlow+Condensed:wght@300;400;500;600&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
   <script>
@@ -28,9 +28,10 @@
       reveal="auto"
       exposure="1.35"
       shadow-intensity="0.8"
-      environment-image="neutral"
-      camera-orbit="0deg 75deg 105%"
-      field-of-view="30deg"
+      tone-mapping="commerce"
+      environment-image="https://modelviewer.dev/shared-assets/environments/spruit_sunrise_1k_HDR.hdr"
+      camera-orbit="0deg 75deg 145%"
+      field-of-view="36deg"
       camera-controls
       auto-rotate
       autoplay>
@@ -40,8 +41,8 @@
       <img class="intro-start-svg" src="img/botao-intro.svg?v=20260605c" alt="">
     </button>
 
-    <button id="motorSoundBtn" class="motor-sound-button" type="button">
-      <span>RONCO V8</span>
+    <button id="motorSoundBtn" class="motor-sound-button" type="button" aria-label="Chave da introdução">
+      <img class="motor-sound-key" src="img/CHAVEINTRO.webp" alt="" decoding="async">
     </button>
   </div>
 
@@ -279,6 +280,7 @@
     const audio = document.getElementById("v8Sound");
     const hornAudio = document.getElementById("hornSound");
     const storeAudio = document.getElementById("storeSound");
+    let motorPlayback = null;
     const storeButton = document.querySelector(".home-store-button");
     const farolSound = document.querySelector(".navbar-secret-sound");
     const farolHorn = document.querySelector(".navbar-secret-horn");
@@ -287,11 +289,45 @@
     const playHorn = () => {
       hornAudio.currentTime = 0;
       hornAudio.volume = 1;
+      hornAudio.muted = false;
+      hornAudio.load();
       hornAudio.play().catch(() => {});
 
       const hornBoost = hornAudio.cloneNode(true);
       hornBoost.volume = 0.85;
+      hornBoost.muted = false;
       hornBoost.play().catch(() => {});
+    };
+
+    const playMotorSound = () => {
+      if (motorPlayback) {
+        motorPlayback.pause();
+        motorPlayback.remove();
+        motorPlayback = null;
+      }
+
+      motorPlayback = document.createElement("audio");
+      motorPlayback.preload = "auto";
+      motorPlayback.src = "audio/v8.mp3?v=20260606p";
+      motorPlayback.volume = 1;
+      motorPlayback.muted = false;
+      motorPlayback.playsInline = true;
+      motorPlayback.style.display = "none";
+      document.body.appendChild(motorPlayback);
+
+      const promise = motorPlayback.play();
+      if (promise && typeof promise.catch === "function") {
+        promise.catch((error) => {
+          console.error("Falha ao tocar v8.mp3", error);
+        });
+      }
+
+      motorPlayback.addEventListener("ended", () => {
+        if (motorPlayback) {
+          motorPlayback.remove();
+          motorPlayback = null;
+        }
+      }, { once: true });
     };
 
     storeButton.addEventListener("click", (event) => {
@@ -597,14 +633,22 @@
     });
 
     motorSoundBtn.addEventListener("click", () => {
+      audio.pause();
       audio.currentTime = 0;
-      audio.play().catch(() => {});
+      audio.volume = 1;
+      audio.muted = false;
+      audio.load();
+      playMotorSound();
       motorSoundBtn.classList.add("is-playing");
     });
 
     farolSound.addEventListener("click", () => {
+      audio.pause();
       audio.currentTime = 0;
-      audio.play().catch(() => {});
+      audio.volume = 1;
+      audio.muted = false;
+      audio.load();
+      playMotorSound();
     });
 
     farolHorn.addEventListener("click", () => {

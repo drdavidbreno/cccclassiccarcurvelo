@@ -2450,9 +2450,9 @@ html.skip-intro #intro {
 }
 
 #motorV8 {
-  width: min(560px, 86vw);
-  height: min(340px, 42vh);
-  min-height: 220px;
+  width: min(760px, 92vw);
+  height: min(520px, 60vh);
+  min-height: 300px;
   border-radius: 0;
   background: transparent;
   filter: drop-shadow(0 18px 28px rgba(0, 0, 0, 0.88));
@@ -2526,77 +2526,34 @@ html.skip-intro #intro {
   left: 28px;
   bottom: 42px;
   z-index: 1000001;
-  width: 100px;
-  height: 40px;
+  width: clamp(88px, 13vw, 138px);
+  height: auto;
   background: transparent;
-  display: flex;
-  color: #d9ff1c;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  display: block;
   border: none;
   padding: 0;
-  gap: 12px;
-  border-radius: 8px;
+  gap: 0;
+  border-radius: 0;
   cursor: pointer;
-  font-family: Arial, sans-serif;
-  font-size: 14px;
-  font-weight: 400;
-  text-transform: uppercase;
   isolation: isolate;
 }
 
-.motor-sound-button span {
+#motorSoundBtn .motor-sound-key {
   position: relative;
   z-index: 2;
   width: 100%;
-  height: 100%;
-  display: grid;
-  place-items: center;
-  border-radius: 8px;
-  background-color: #000;
-}
-
-#motorSoundBtn.motor-sound-button::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  left: -4px;
-  top: -1px;
-  margin: auto;
-  width: 109px;
-  height: 48px;
-  border-radius: 10px;
-  background: linear-gradient(-45deg, #d9ff1c 0%, #91ff02 100% );
-  z-index: 0;
+  height: auto;
+  display: block;
+  object-fit: contain;
   pointer-events: none;
-  transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-#motorSoundBtn.motor-sound-button::after {
-  content: "";
-  z-index: 0;
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(-45deg, #d9ff1c 0%, #91ff02 100% );
-  transform: translate3d(0, 0, 0) scale(0.95);
-  filter: blur(20px);
-}
-
-#motorSoundBtn.motor-sound-button:hover::after {
-  filter: blur(30px);
-}
-
-#motorSoundBtn.motor-sound-button:hover::before {
-  transform: rotate(-180deg);
-}
-
-#motorSoundBtn.motor-sound-button:active::before {
-  scale: 0.7;
+#motorSoundBtn.motor-sound-button:hover .motor-sound-key {
+  transform: translateY(-2px) scale(1.02);
 }
 
 #motorSoundBtn.motor-sound-button.is-playing {
-  color: #d9ff1c;
+  opacity: 0.98;
 }
 
 @media (max-width: 760px) {
@@ -2610,9 +2567,9 @@ html.skip-intro #intro {
   }
 
   #motorV8 {
-    width: min(88vw, 430px);
-    height: min(240px, 32vh);
-    min-height: 150px;
+    width: min(94vw, 560px);
+    height: min(360px, 42vh);
+    min-height: 220px;
   }
 
   #entrarBtn {
@@ -2633,9 +2590,7 @@ html.skip-intro #intro {
   #motorSoundBtn.motor-sound-button {
     left: 18px;
     bottom: 34px;
-    width: 100px;
-    height: 40px;
-    font-size: 14px;
+    width: clamp(80px, 19vw, 116px);
   }
 }
 
@@ -2649,9 +2604,9 @@ html.skip-intro #intro {
   }
 
   #motorV8 {
-    width: 88vw;
-    height: min(210px, 28vh);
-    min-height: 130px;
+    width: 94vw;
+    height: min(300px, 36vh);
+    min-height: 180px;
   }
 
   #entrarBtn {
@@ -2668,15 +2623,7 @@ html.skip-intro #intro {
   #motorSoundBtn.motor-sound-button {
     left: 16px;
     bottom: 26px;
-    width: 92px;
-    height: 38px;
-    font-size: 13px;
-    line-height: 1;
-  }
-
-  #motorSoundBtn.motor-sound-button::before {
-    width: 101px;
-    height: 46px;
+    width: clamp(76px, 21vw, 110px);
   }
 }
 
