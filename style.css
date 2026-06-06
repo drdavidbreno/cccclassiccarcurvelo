@@ -2532,7 +2532,7 @@ html.skip-intro #intro {
   left: 28px;
   bottom: 42px;
   z-index: 1000001;
-  width: clamp(88px, 13vw, 138px);
+  width: clamp(112px, 16vw, 178px);
   height: auto;
   background: transparent;
   display: block;
@@ -2596,7 +2596,7 @@ html.skip-intro #intro {
   #motorSoundBtn.motor-sound-button {
     left: 18px;
     bottom: 34px;
-    width: clamp(80px, 19vw, 116px);
+    width: clamp(98px, 24vw, 146px);
   }
 }
 
@@ -2629,7 +2629,7 @@ html.skip-intro #intro {
   #motorSoundBtn.motor-sound-button {
     left: 16px;
     bottom: 26px;
-    width: clamp(76px, 21vw, 110px);
+    width: clamp(90px, 25vw, 132px);
   }
 }
 

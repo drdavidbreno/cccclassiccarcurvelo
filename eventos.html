@@ -5,10 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" href="img/favicon.png" type="image/png">
   <title>Galeria de Eventos | C.C.C Classic Car Curvelo</title>
-  <link rel="stylesheet" href="eventos.css?v=20260606m">
+  <link rel="stylesheet" href="eventos.css?v=20260606ab">
   <link href="https://fonts.googleapis.com/css2?family=Anton&family=Barlow+Condensed:wght@300;400;500;600&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
+  <div class="eventos-vanta-bg" id="eventosVantaBg" aria-hidden="true">
+    <img class="eventos-vanta-logo" src="img/vanta-eventos/imagem.png" alt="">
+  </div>
+  <img class="eventos-mascote" src="img/mascoteeventos.webp" alt="" aria-hidden="true" decoding="async">
+
   <a class="page-back-plate" href="index.html?home=1" aria-label="Voltar para o in&iacute;cio">
     <img src="img/voltar.webp" alt="Voltar">
   </a>
@@ -25,8 +30,7 @@
 
   <main class="eventos-page-shell">
     <section class="galeria-hero" aria-labelledby="galeria-titulo">
-      
-    
+      <img class="eventos-title-image" src="img/ccc.webp" alt="Eventos CCC" decoding="async">
     </section>
 
     <section class="eventos-gallery" aria-label="Eventos cadastrados">
@@ -70,7 +74,55 @@
     <span class="lightbox-counter" id="lightboxCounter"></span>
   </div>
 
-  <script src="eventos.js?v=20260606a"></script>
+  <audio id="raposaSound" preload="auto">
+    <source src="audio/raposa.mp3" type="audio/mpeg">
+  </audio>
+
+  <script src="js/vanta-eventos/three.r134.min.js"></script>
+  <script src="js/vanta-eventos/vanta.waves.min.js"></script>
+  <script>
+    (() => {
+      const eventosVanta = document.getElementById("eventosVantaBg");
+      const mascoteEventos = document.querySelector(".eventos-mascote");
+      const raposaSound = document.getElementById("raposaSound");
+      let raposaSoundTimer = null;
+
+      mascoteEventos?.addEventListener("click", () => {
+        if (!raposaSound) {
+          return;
+        }
+
+        window.clearTimeout(raposaSoundTimer);
+        raposaSound.pause();
+        raposaSound.currentTime = 0;
+        raposaSound.volume = 1;
+        raposaSound.play().catch(() => {});
+
+        raposaSoundTimer = window.setTimeout(() => {
+          raposaSound.pause();
+          raposaSound.currentTime = 0;
+        }, 2000);
+      });
+
+      if (!eventosVanta || !window.VANTA || !window.VANTA.WAVES) {
+        return;
+      }
+
+      window.VANTA.WAVES({
+        el: eventosVanta,
+        mouseControls: true,
+        touchControls: true,
+        gyroControls: false,
+        color: 0x000000,
+        backgroundAlpha: 0,
+        shininess: 55,
+        waveHeight: 22,
+        waveSpeed: 1,
+        zoom: 0.85
+      });
+    })();
+  </script>
+  <script src="eventos.js?v=20260606b"></script>
   <script src="js/nav-scroll.js"></script>
   <script src="js/page-transitions.js?v=20260605a"></script>
 </body>

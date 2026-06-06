@@ -66,6 +66,54 @@ const eventos = [
       "img/eventos/foto7.webp",
       "img/eventos/foto8.webp"
     ]
+  },
+  {
+    nome: "AGUARDEM",
+    data: "Em breve",
+    local: "CCC Car Curvelo",
+    descricao: "",
+    fotos: [],
+    aguardem: true
+  },
+  {
+    nome: "AGUARDEM",
+    data: "Em breve",
+    local: "CCC Car Curvelo",
+    descricao: "",
+    fotos: [],
+    aguardem: true
+  },
+  {
+    nome: "AGUARDEM",
+    data: "Em breve",
+    local: "CCC Car Curvelo",
+    descricao: "",
+    fotos: [],
+    aguardem: true
+  },
+  {
+    nome: "AGUARDEM",
+    data: "Em breve",
+    local: "CCC Car Curvelo",
+    descricao: "",
+    fotos: [],
+    aguardem: true
+  },
+  {
+    nome: "AGUARDEM",
+    data: "Em breve",
+    local: "CCC Car Curvelo",
+    descricao: "",
+    fotos: [],
+    aguardem: true
+  },
+  {
+    nome: "AGUARDEM",
+    data: "Em breve",
+    local: "CCC Car Curvelo",
+    descricao: "",
+    fotos: [],
+    aguardem: true
   }
 ];
 
@@ -159,8 +207,30 @@ function criarMetaItem(icone, texto) {
 }
 
 function renderizarEventos() {
-  eventosGrid.innerHTML = eventos.map((evento, index) => `
-    <article class="evento-card" style="--delay: ${index * 80}ms">
+  eventosGrid.innerHTML = eventos.map((evento, index) => {
+    if (evento.aguardem) {
+      return `
+        <article class="evento-card evento-card-empty" style="--delay: ${index * 80}ms">
+          <button class="evento-card-button" type="button" disabled aria-label="Aguardem pr&oacute;ximo evento">
+            <span class="evento-cover evento-cover-empty">
+              <span>AGUARDEM</span>
+            </span>
+            <span class="evento-card-body">
+              <strong>${evento.nome}</strong>
+              <span class="evento-meta-list">
+                ${criarMetaItem("&#128197;", evento.data)}
+                ${criarMetaItem("&#128205;", evento.local)}
+                ${criarMetaItem("&#128247;", "Fotos em breve")}
+              </span>
+              <span class="evento-action">Em breve</span>
+            </span>
+          </button>
+        </article>
+      `;
+    }
+
+    return `
+      <article class="evento-card" style="--delay: ${index * 80}ms">
       <button class="evento-card-button" type="button" data-evento-index="${index}" aria-label="Abrir &aacute;lbum ${removerHtml(evento.nome)}">
         <span class="evento-cover">
           <img
@@ -183,7 +253,8 @@ function renderizarEventos() {
         </span>
       </button>
     </article>
-  `).join("");
+    `;
+  }).join("");
 }
 
 function atualizarContador() {
