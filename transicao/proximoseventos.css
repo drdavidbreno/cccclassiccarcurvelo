@@ -43,29 +43,33 @@ button {
 }
 
 .back-home {
-	position: fixed;
+	position: absolute;
 	top: 18px;
 	left: 18px;
-	z-index: 1000;
-	width: 42px;
-	height: 42px;
-	display: grid;
-	place-items: center;
-	border: 1px solid rgba(204, 255, 0, 0.55);
-	border-radius: 999px;
-	background: rgba(0, 0, 0, 0.34);
-	color: #ccff00;
-	font-family: Arial, Helvetica, sans-serif;
-	font-size: 26px;
+	z-index: 10020;
+	width: clamp(118px, 12vw, 178px);
+	height: auto;
+	display: block;
+	border: 0;
+	background: transparent;
+	color: transparent;
+	font-size: 0;
 	line-height: 1;
 	text-decoration: none;
-	backdrop-filter: blur(8px);
-	transition: transform 180ms ease, background 180ms ease;
+	filter: drop-shadow(0 12px 18px rgba(0, 0, 0, 0.52));
+	transition: transform 180ms ease, filter 180ms ease;
+}
+
+.back-home img {
+	display: block;
+	width: 100%;
+	height: auto;
+	pointer-events: none;
 }
 
 .back-home:hover {
-	transform: translateX(-3px);
-	background: rgba(0, 0, 0, 0.58);
+	transform: translateY(-2px) scale(1.04);
+	filter: brightness(1.08) drop-shadow(0 16px 24px rgba(0, 0, 0, 0.58));
 }
 
 /* ------------------------------------------------ */

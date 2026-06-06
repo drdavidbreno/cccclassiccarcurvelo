@@ -105,13 +105,17 @@ body.contato-page {
   position: fixed;
   top: 8px;
   left: 50%;
-  width: min(56vw, 960px);
-  aspect-ratio: 1920 / 322;
+  width: min(92vw, 1540px);
+  aspect-ratio: 1920 / 330;
   transform: translateX(-50%);
-  background: url("img/menufarol.webp?v=20260604c") center / contain no-repeat;
+  background: url("img/menufarol.webp?v=20260606i") center / contain no-repeat;
   z-index: 999;
   transition: transform 0.28s ease, opacity 0.28s ease;
   will-change: transform, opacity, 100%;
+}
+
+body:not(.home-page) .navbar {
+  display: none !important;
 }
 
 .navbar.navbar-hidden {
@@ -131,10 +135,10 @@ body.contato-page {
 
 .navbar-secret-sound {
   position: absolute;
-  top: 20%;
-  left: 1.8%;
-  width: 17%;
-  height: 60%;
+  top: 4%;
+  left: 15.6%;
+  width: 12%;
+  height: 42%;
   background: transparent;
   border: 0;
   padding: 0;
@@ -144,10 +148,10 @@ body.contato-page {
 
 .navbar-secret-horn {
   position: absolute;
-  top: 20%;
-  right: 1.8%;
-  width: 17%;
-  height: 60%;
+  top: 4%;
+  right: 15.6%;
+  width: 12%;
+  height: 42%;
   background: transparent;
   border: 0;
   padding: 0;
@@ -166,17 +170,17 @@ body.contato-page {
 }
 
 .programacao-menu-button {
-  left: 45%;
-  top: 61%;
-  width: 10.2%;
-  height: 17%;
+  left: 50.1%;
+  top: 67%;
+  width: 8.6%;
+  height: 21%;
 }
 
 .proximos-menu-button {
-  left: 44.7%;
-  top: 80.5%;
-  width: 10.8%;
-  height: 18.8%;
+  left: 41.9%;
+  top: 67%;
+  width: 8.6%;
+  height: 21%;
 }
 
 .programacao-menu-button:focus-visible,
@@ -202,74 +206,78 @@ body.contato-page {
 .navbar::after {
   content: "";
   position: absolute;
-  top: 20%;
-  width: 17%;
-  height: 60%;
+  top: 6.2%;
+  width: 11.6%;
+  height: 31%;
   pointer-events: none;
   background:
-    radial-gradient(circle at 30% 50%, rgba(255, 255, 255, 0.58) 0 13%, rgba(255, 226, 117, 0.42) 18%, rgba(255, 180, 39, 0.14) 33%, transparent 50%),
-    radial-gradient(circle at 78% 50%, rgba(255, 255, 255, 0.58) 0 13%, rgba(255, 226, 117, 0.42) 18%, rgba(255, 180, 39, 0.14) 33%, transparent 50%);
+    radial-gradient(ellipse at 27% 50%, rgba(255, 255, 255, 0.78) 0 11%, rgba(255, 228, 112, 0.58) 18%, rgba(255, 181, 36, 0.18) 34%, transparent 52%),
+    radial-gradient(ellipse at 75% 50%, rgba(255, 255, 255, 0.78) 0 11%, rgba(255, 228, 112, 0.58) 18%, rgba(255, 181, 36, 0.18) 34%, transparent 52%);
   mix-blend-mode: screen;
-  filter: blur(1px) drop-shadow(0 0 10px rgba(255, 210, 72, 0.48));
+  filter: blur(0.5px) drop-shadow(0 0 10px rgba(255, 210, 72, 0.58));
   opacity: 0.08;
   animation: farolFalhando 1.2s infinite;
 }
 
 .navbar::before {
-  left: 1.8%;
+  left: 16.4%;
 }
 
 .navbar::after {
-  right: 1.8%;
+  right: 16.4%;
   animation-delay: 0.18s;
 }
 
 .navbar nav a {
   position: absolute;
-  top: 27%;
-  width: 7.2%;
-  height: 47%;
-  transform: translateX(-50%);
+  top: 43%;
+  width: 8%;
+  height: 22%;
+  transform: none;
   display: block;
   color: transparent;
   font-size: 0;
   text-decoration: none;
-  border-radius: 999px;
+  border-radius: 6px;
 }
 
 .navbar nav a:nth-child(1) {
-  left: 28.65%;
+  left: 30.1%;
 }
 
 .navbar nav a:nth-child(2) {
-  left: 39.48%;
+  left: 38.2%;
+  width: 8.2%;
 }
 
 .navbar nav a:nth-child(3) {
-  left: 50.16%;
+  left: 46.1%;
+  width: 7.9%;
 }
 
 .navbar nav a:nth-child(4) {
-  left: 60.73%;
+  left: 53.9%;
+  width: 8.1%;
 }
 
 .navbar nav a:nth-child(5) {
-  left: 70.99%;
+  left: 61.8%;
+  width: 7.8%;
 }
 
 .contato-page .navbar {
-  width: min(42vw, 720px);
+  width: min(72vw, 1200px);
   top: 12px;
-  left: 61%;
+  left: 56%;
 }
 
 @keyframes farolFalhando {
   0%, 8%, 13%, 28%, 44%, 62%, 100% {
-    opacity: 0.08;
+    opacity: 0.12;
   }
 
   10%, 12%, 31%, 34%, 48%, 52%, 70% {
-    opacity: 0.48;
+    opacity: 0.72;
   }
 
   35%, 38%, 54%, 58%, 76%, 82% {
@@ -772,68 +780,33 @@ body.contato-page {
   left: 56px;
   top: 116px;
   z-index: 43;
-  display: flex;
-  width: 170px;
-  height: fit-content;
-  background-color: #000000;
-  border-radius: 40px;
-  box-shadow: 0px 5px 10px #bebebe;
-  justify-content: space-between;
-  align-items: center;
+  display: block;
+  width: 185px;
+  height: auto;
+  background: transparent;
+  border-radius: 0;
+  box-shadow: none;
   border: none;
   cursor: pointer;
-  color: #b3ff00;
-  font-family: "Anton", "Montserrat", sans-serif;
-  font-size: 1.1em;
-  font-weight: 700;
-  letter-spacing: 1.2px;
-  text-transform: uppercase;
   text-decoration: none;
-  overflow: hidden;
+  overflow: visible;
   outline: none;
   transform: translateZ(0);
-  transition: background 300ms, transform 200ms;
+  transition: transform 0.24s ease, filter 0.24s ease;
 }
 
-.Btn-Container.home-store-button .text {
-  width: calc(170px - 45px);
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  font-size: 1.1em;
-  letter-spacing: 1.2px;
-}
-
-.Btn-Container.home-store-button .icon-Container {
-  position: relative;
-  width: 45px;
-  height: 45px;
-  overflow: hidden;
-  background-color: #b3ff00;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 3px solid #1d2129;
-  z-index: 3;
-}
-
-.Btn-Container.home-store-button .icon-Container svg {
-  transition-duration: 1.5s;
-  transform: rotate(225deg);
+.home-store-plate {
+  display: block;
+  width: 100%;
+  height: auto;
+  pointer-events: none;
+  filter: drop-shadow(0 10px 16px rgba(0, 0, 0, 0.52));
 }
 
 .Btn-Container.home-store-button:hover,
 .Btn-Container.home-store-button:focus-visible {
-  background: #73ff00;
   transform: translateY(-3px) scale(1.05);
-}
-
-.Btn-Container.home-store-button:hover .icon-Container svg,
-.Btn-Container.home-store-button:focus-visible .icon-Container svg {
-  animation: arrow 1s linear infinite;
+  filter: brightness(1.08);
 }
 
 @keyframes arrow {
@@ -990,37 +963,62 @@ html.skip-intro #intro {
 }
 
 .historia-page .scroll-btn {
-  border: 1px solid rgba(223, 226, 34, 0.72);
-  box-shadow:
-    0 18px 42px rgba(0, 0, 0, 0.42),
-    0 0 24px rgba(223, 226, 34, 0.2);
+  width: clamp(230px, 25vw, 360px);
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  line-height: 0;
+  box-shadow: none;
+  filter: drop-shadow(0 16px 24px rgba(0, 0, 0, 0.48));
+}
+
+.historia-page .scroll-btn img {
+  display: block;
+  width: 100%;
+  height: auto;
+  pointer-events: none;
 }
 
 .scroll-btn:hover {
-  transform: translateY(-3px);
+  transform: translateY(-3px) scale(1.03);
 }
 
-.back-button {
+.back-button,
+.page-back-plate {
   position: absolute;
-  top: 22px;
-  left: 22px;
-  padding: 8px 14px;
-  border: 1px solid rgba(223, 226, 34, 0.5);
-  border-radius: 999px;
-  background: rgba(10, 10, 10, 0.56);
-  color: #ffffff;
-  font-family: "Barlow Condensed", sans-serif;
-  font-size: 18px;
-  letter-spacing: 1.5px;
+  top: 18px;
+  left: 18px;
+  z-index: 10020;
+  display: block;
+  width: clamp(118px, 12vw, 178px);
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: transparent;
+  font-size: 0;
+  line-height: 0;
   text-decoration: none;
-  text-transform: uppercase;
-  z-index: 3;
-  backdrop-filter: blur(6px);
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.28);
+  filter: drop-shadow(0 12px 18px rgba(0, 0, 0, 0.52));
+  transition: transform 0.22s ease, filter 0.22s ease;
 }
 
-.back-button:hover {
-  background: rgba(223, 226, 34, 0.14);
+.back-button img,
+.page-back-plate img {
+  display: block;
+  width: 100%;
+  height: auto;
+  pointer-events: none;
+}
+
+.back-button:hover,
+.back-button:focus-visible,
+.page-back-plate:hover,
+.page-back-plate:focus-visible {
+  background: transparent;
+  outline: none;
+  transform: translateY(-2px) scale(1.04);
+  filter: brightness(1.08) drop-shadow(0 16px 24px rgba(0, 0, 0, 0.58));
 }
 
 .mascote {
@@ -1725,15 +1723,32 @@ html.skip-intro #intro {
 }
 
 .abrir-historia{
-  padding:16px 34px;
-  border:1px solid rgba(223,226,34,.75);
-  border-radius:999px;
-  background:#dfe222;
-  color:#171111;
-  font-family:"Barlow Condensed",sans-serif;
-  font-size:26px;
-  letter-spacing:2px;
+  display:block;
+  width: clamp(250px, 28vw, 390px);
+  padding:0;
+  border:0;
+  border-radius:0;
+  background:transparent;
+  color:transparent;
+  font-size:0;
+  line-height:0;
   cursor:pointer;
+  filter:drop-shadow(0 16px 24px rgba(0,0,0,.48));
+  transition:transform .22s ease, filter .22s ease;
+}
+
+.abrir-historia img{
+  display:block;
+  width:100%;
+  height:auto;
+  pointer-events:none;
+}
+
+.abrir-historia:hover,
+.abrir-historia:focus-visible{
+  outline:none;
+  transform:translateY(-3px) scale(1.03);
+  filter:brightness(1.08) drop-shadow(0 20px 28px rgba(0,0,0,.55));
 }
 
 .modal-historia{
@@ -1826,10 +1841,10 @@ html.skip-intro #intro {
   .navbar {
     top: 8px;
     left: 50%;
-    width: min(74vw, 960px);
-    aspect-ratio: 1920 / 322;
+    width: min(96vw, 1540px);
+    aspect-ratio: 1920 / 330;
     transform: translateX(-50%);
-    background: url("img/menufarol.webp?v=20260604c") center / contain no-repeat;
+    background: url("img/menufarol.webp?v=20260606i") center / contain no-repeat;
     padding: 0;
     border-radius: 0;
   }
@@ -1850,7 +1865,7 @@ html.skip-intro #intro {
   }
 
   .contato-page .navbar {
-    width: min(58vw, 720px);
+    width: min(86vw, 1200px);
     top: 10px;
     left: 58%;
   }
@@ -1932,15 +1947,17 @@ html.skip-intro #intro {
 
   .scroll-btn {
     margin-top: 28px;
-    padding: 13px 22px;
-    font-size: 14px;
+    padding: 0;
+    font-size: 0;
   }
 
-  .back-button {
+  .back-button,
+  .page-back-plate {
     top: 18px;
     left: 18px;
-    padding: 7px 12px;
-    font-size: 16px;
+    width: clamp(108px, 30vw, 150px);
+    padding: 0;
+    font-size: 0;
   }
 
   .mascote {
@@ -2220,7 +2237,8 @@ html.skip-intro #intro {
     font-size: 47px;
   }
 
-  .back-button {
+  .back-button,
+  .page-back-plate {
     top: 14px;
     left: 14px;
   }
@@ -2670,8 +2688,9 @@ html.skip-intro #intro {
   }
 
   .abrir-historia{
-    padding: 14px 24px;
-    font-size: 21px;
+    width: min(310px, 78vw);
+    padding: 0;
+    font-size: 0;
   }
 
   .modal-historia{
@@ -2712,11 +2731,11 @@ html.skip-intro #intro {
     left: 50%;
     width: calc(100% - 24px);
     height: auto;
-    aspect-ratio: 1080 / 360;
+    aspect-ratio: 1080 / 256;
     padding: 0;
     border: 0;
     border-radius: 0;
-    background: url("img/menufarolmobile.webp?v=20260604c") center / contain no-repeat;
+    background: url("img/menufarolmobile.webp?v=20260606j") center / contain no-repeat;
     backdrop-filter: none;
     box-shadow: none;
   }
@@ -2734,32 +2753,33 @@ html.skip-intro #intro {
 
   .navbar::before,
   .navbar::after {
-    top: 2%;
-    width: 17%;
-    height: 30%;
+    top: 3.5%;
+    width: 16.8%;
+    height: 34%;
   }
 
   .navbar::before {
-    left: 4.2%;
+    left: 1.8%;
   }
 
   .navbar::after {
-    right: 4.2%;
+    right: 1.8%;
   }
 
   .navbar-secret-sound,
   .navbar-secret-horn {
-    top: 2%;
-    width: 17%;
-    height: 30%;
+    top: 0;
+    width: 19.2%;
+    height: 39%;
+    z-index: 5;
   }
 
   .navbar-secret-sound {
-    left: 4.2%;
+    left: 0;
   }
 
   .navbar-secret-horn {
-    right: 4.2%;
+    right: 0;
   }
 
   .navbar nav {
@@ -2782,57 +2802,60 @@ html.skip-intro #intro {
     background: transparent;
     color: transparent;
     font-size: 0;
+    z-index: 4;
   }
 
   .navbar nav a:nth-child(1) {
-    left: 25.7%;
-    top: 4%;
-    width: 24.2%;
-    height: 28%;
+    left: 15%;
+    top: 42.5%;
+    width: 13.4%;
+    height: 27%;
   }
 
   .navbar nav a:nth-child(2) {
-    left: 50.2%;
-    top: 4%;
-    width: 24.6%;
-    height: 28%;
+    left: 29.2%;
+    top: 42.5%;
+    width: 13.2%;
+    height: 27%;
   }
 
   .navbar nav a:nth-child(3) {
-    left: 16.4%;
-    top: 34%;
-    width: 22.2%;
-    height: 25%;
+    left: 43.3%;
+    top: 42.5%;
+    width: 13.2%;
+    height: 27%;
   }
 
   .navbar nav a:nth-child(4) {
-    left: 39.2%;
-    top: 34%;
-    width: 22%;
-    height: 25%;
+    left: 57.5%;
+    top: 42.5%;
+    width: 13%;
+    height: 27%;
   }
 
   .navbar nav a:nth-child(5) {
-    left: 62%;
-    top: 34%;
-    width: 22.2%;
-    height: 25%;
+    left: 71.4%;
+    top: 42.5%;
+    width: 12.4%;
+    height: 27%;
   }
 
   .programacao-menu-button {
     display: block;
-    left: 18.4%;
-    top: 64%;
-    width: 31.2%;
-    height: 28%;
+    left: 50.2%;
+    top: 73.5%;
+    width: 12.8%;
+    height: 25%;
+    z-index: 5;
   }
 
   .proximos-menu-button {
     display: block;
-    left: 52.2%;
-    top: 64%;
-    width: 31.4%;
-    height: 28%;
+    left: 35.7%;
+    top: 73.5%;
+    width: 14.3%;
+    height: 25%;
+    z-index: 5;
   }
 
   .programacao-mobile-button {
@@ -2853,7 +2876,7 @@ html.skip-intro #intro {
     left: 47%;
     top: 188px;
     bottom: auto;
-    width: 170px;
+    width: 185px;
     height: fit-content;
     font-size: 1.05em;
     transform: translateX(-50%);
@@ -3010,7 +3033,7 @@ html.skip-intro #intro {
   }
 
   .scroll-btn {
-    font-size: 18px;
+    font-size: 0;
   }
 
   .timeline {
@@ -3159,7 +3182,7 @@ html.skip-intro #intro {
   .Btn-Container.home-store-button {
     left: 47%;
     top: 188px;
-    width: 150px;
+    width: 185px;
     height: fit-content;
     font-size: 0.95em;
   }

@@ -47,19 +47,55 @@ main,
   z-index: 1;
 }
 
+.page-back-plate {
+  position: absolute;
+  top: 18px;
+  left: 18px;
+  z-index: 10020;
+  display: block;
+  width: clamp(118px, 12vw, 178px);
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: transparent;
+  font-size: 0;
+  line-height: 0;
+  text-decoration: none;
+  filter: drop-shadow(0 12px 18px rgba(0, 0, 0, 0.52));
+  transition: transform 0.22s ease, filter 0.22s ease;
+}
+
+.page-back-plate img {
+  display: block;
+  width: 100%;
+  height: auto;
+  pointer-events: none;
+}
+
+.page-back-plate:hover,
+.page-back-plate:focus-visible {
+  outline: none;
+  transform: translateY(-2px) scale(1.04);
+  filter: brightness(1.08) drop-shadow(0 16px 24px rgba(0, 0, 0, 0.58));
+}
+
 /* MENU IGUAL AO PADRÃO DO SITE */
 
 .navbar {
   position: fixed;
   top: 8px;
   left: 50%;
-  width: min(56vw, 960px);
+  width: min(92vw, 1540px);
   aspect-ratio: 1920 / 330;
   transform: translateX(-50%);
-  background: url("img/menufarol.webp?v=20260604c") center / contain no-repeat;
+  background: url("img/menufarol.webp?v=20260606i") center / contain no-repeat;
   z-index: 5000;
   transition: transform 0.28s ease, opacity 0.28s ease;
   will-change: transform, opacity;
+}
+
+.sobre-page .navbar {
+  display: none !important;
 }
 
 .navbar.navbar-hidden {
@@ -87,24 +123,24 @@ main,
 
 .navbar-secret-sound,
 .navbar-secret-horn {
-  top: 20%;
-  width: 17%;
-  height: 60%;
+  top: 4%;
+  width: 12%;
+  height: 42%;
 }
 
 .proximos-menu-button {
-  left: 44.7%;
-  top: 80.5%;
-  width: 10.8%;
-  height: 18.8%;
+  left: 41.9%;
+  top: 67%;
+  width: 8.6%;
+  height: 21%;
 }
 
 .navbar-secret-sound {
-  left: 1.8%;
+  left: 15.6%;
 }
 
 .navbar-secret-horn {
-  right: 1.8%;
+  right: 15.6%;
 }
 
 .navbar-secret-sound:focus-visible,
@@ -119,46 +155,46 @@ main,
 .navbar::after {
   content: "";
   position: absolute;
-  top: 18%;
-  width: 16.4%;
-  height: 44%;
+  top: 6.2%;
+  width: 11.6%;
+  height: 31%;
   pointer-events: none;
   background:
-    radial-gradient(circle at 30% 50%, rgba(255, 255, 255, 0.58) 0 13%, rgba(255, 245, 134, 0.44) 18%, rgba(210, 255, 0, 0.16) 33%, transparent 50%),
-    radial-gradient(circle at 78% 50%, rgba(255, 255, 255, 0.58) 0 13%, rgba(255, 245, 134, 0.44) 18%, rgba(210, 255, 0, 0.16) 33%, transparent 50%);
+    radial-gradient(ellipse at 27% 50%, rgba(255, 255, 255, 0.78) 0 11%, rgba(255, 228, 112, 0.58) 18%, rgba(255, 181, 36, 0.18) 34%, transparent 52%),
+    radial-gradient(ellipse at 75% 50%, rgba(255, 255, 255, 0.78) 0 11%, rgba(255, 228, 112, 0.58) 18%, rgba(255, 181, 36, 0.18) 34%, transparent 52%);
   mix-blend-mode: screen;
-  filter: blur(1px) drop-shadow(0 0 10px rgba(214, 255, 0, 0.48));
+  filter: blur(0.5px) drop-shadow(0 0 10px rgba(255, 210, 72, 0.58));
   opacity: 0.08;
   animation: farolFalhando 1.2s infinite;
 }
 
 .navbar::before {
-  left: 3.9%;
+  left: 16.4%;
 }
 
 .navbar::after {
-  right: 3.9%;
+  right: 16.4%;
   animation-delay: 0.18s;
 }
 
 .navbar nav a {
   position: absolute;
-  top: 27%;
-  width: 7.2%;
-  height: 47%;
-  transform: translateX(-50%);
+  top: 43%;
+  width: 8%;
+  height: 22%;
+  transform: none;
   display: block;
   color: transparent;
   font-size: 0;
   text-decoration: none;
-  border-radius: 999px;
+  border-radius: 6px;
 }
 
-.navbar nav a:nth-child(1) { left: 28.65%; }
-.navbar nav a:nth-child(2) { left: 39.48%; }
-.navbar nav a:nth-child(3) { left: 50.16%; }
-.navbar nav a:nth-child(4) { left: 60.73%; }
-.navbar nav a:nth-child(5) { left: 70.99%; }
+.navbar nav a:nth-child(1) { left: 30.1%; }
+.navbar nav a:nth-child(2) { left: 38.2%; width: 8.2%; }
+.navbar nav a:nth-child(3) { left: 46.1%; width: 7.9%; }
+.navbar nav a:nth-child(4) { left: 53.9%; width: 8.1%; }
+.navbar nav a:nth-child(5) { left: 61.8%; width: 7.8%; }
 
 @keyframes farolFalhando {
   0%, 100% { opacity: 0.1; }
@@ -227,28 +263,39 @@ main,
 }
 
 .botao-principal {
-  width: max-content;
-  display: inline-block;
+  display: block;
   margin-top: 34px;
-  padding: 15px 30px;
-  border: 1px solid rgba(223,226,34,.72);
-  border-radius: 999px;
-  background: var(--amarelo-claro);
-  color: var(--preto);
-  font-family: "Barlow Condensed", sans-serif;
-  font-size: 24px;
-  letter-spacing: 2px;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: transparent;
+  font-size: 0;
+  line-height: 0;
   text-decoration: none;
-  text-transform: uppercase;
-  box-shadow:
-    0 18px 40px rgba(0,0,0,.42),
-    0 0 24px rgba(223,226,34,.18);
+  filter: drop-shadow(0 18px 26px rgba(0,0,0,.46));
   transition: transform .25s ease, filter .25s ease;
+}
+
+.botao-principal img {
+  display: block;
+  width: 100%;
+  height: auto;
+  pointer-events: none;
+}
+
+.botao-mascote-plate {
+  width: clamp(270px, 29vw, 430px);
+}
+
+.botao-clube-plate {
+  width: clamp(230px, 23vw, 345px);
+  margin-inline: auto;
 }
 
 .botao-principal:hover {
   transform: translateY(-3px);
-  filter: brightness(1.08);
+  filter: brightness(1.08) drop-shadow(0 22px 32px rgba(0,0,0,.55));
 }
 
 .sobre-hero-imagem {
@@ -432,7 +479,7 @@ main,
   }
 
   .navbar {
-    width: min(74vw, 960px);
+    width: min(96vw, 1540px);
   }
 
   .sobre-hero {
@@ -502,8 +549,8 @@ main,
   }
 
   .botao-principal {
-    font-size: 20px;
-    padding: 13px 22px;
+    padding: 0;
+    font-size: 0;
   }
 }
 
@@ -526,56 +573,71 @@ main,
     background-position: center top;
   }
 
+  .page-back-plate {
+    top: 14px;
+    left: 14px;
+    width: clamp(108px, 30vw, 150px);
+  }
+
   .navbar {
     top: 10px;
     left: 50%;
     width: calc(100% - 24px);
     height: auto;
-    aspect-ratio: 1080 / 360;
+    aspect-ratio: 1080 / 256;
     padding: 0;
     border: 0;
     border-radius: 0;
-    background: url("img/menufarolmobile.webp?v=20260604c") center / contain no-repeat;
+    background: url("img/menufarolmobile.webp?v=20260606j") center / contain no-repeat;
     backdrop-filter: none;
     box-shadow: none;
   }
 
   .navbar::before,
+  .navbar::after,
+  .navbar-secret-sound,
+  .navbar-secret-horn {
+    display: block;
+  }
+
+  .navbar::before,
   .navbar::after {
-    top: 2%;
-    width: 17%;
-    height: 30%;
+    top: 3.5%;
+    width: 16.8%;
+    height: 34%;
   }
 
   .navbar::before {
-    left: 4.2%;
+    left: 1.8%;
   }
 
   .navbar::after {
-    right: 4.2%;
+    right: 1.8%;
   }
 
   .navbar-secret-sound,
   .navbar-secret-horn {
-    top: 2%;
-    width: 17%;
-    height: 30%;
+    top: 0;
+    width: 19.2%;
+    height: 39%;
+    z-index: 5;
   }
 
   .navbar-secret-sound {
-    left: 4.2%;
+    left: 0;
   }
 
   .navbar-secret-horn {
-    right: 4.2%;
+    right: 0;
   }
 
   .proximos-menu-button {
     display: block;
-    left: 52.2%;
-    top: 64%;
-    width: 31.4%;
-    height: 28%;
+    left: 35.7%;
+    top: 73.5%;
+    width: 14.3%;
+    height: 25%;
+    z-index: 5;
   }
 
   .navbar nav {
@@ -598,13 +660,14 @@ main,
     background: transparent;
     color: transparent;
     font-size: 0;
+    z-index: 4;
   }
 
-  .navbar nav a:nth-child(1) { left: 25.7%; top: 4%; width: 24.2%; height: 28%; }
-  .navbar nav a:nth-child(2) { left: 50.2%; top: 4%; width: 24.6%; height: 28%; }
-  .navbar nav a:nth-child(3) { left: 16.4%; top: 34%; width: 22.2%; height: 25%; }
-  .navbar nav a:nth-child(4) { left: 39.2%; top: 34%; width: 22%; height: 25%; }
-  .navbar nav a:nth-child(5) { left: 62%; top: 34%; width: 22.2%; height: 25%; }
+  .navbar nav a:nth-child(1) { left: 15%; top: 42.5%; width: 13.4%; height: 27%; }
+  .navbar nav a:nth-child(2) { left: 29.2%; top: 42.5%; width: 13.2%; height: 27%; }
+  .navbar nav a:nth-child(3) { left: 43.3%; top: 42.5%; width: 13.2%; height: 27%; }
+  .navbar nav a:nth-child(4) { left: 57.5%; top: 42.5%; width: 13%; height: 27%; }
+  .navbar nav a:nth-child(5) { left: 71.4%; top: 42.5%; width: 12.4%; height: 27%; }
 
   .sobre-hero {
     min-height: 100svh;
@@ -631,10 +694,15 @@ main,
   }
 
   .botao-principal {
-    width: 100%;
-    max-width: 340px;
+    width: min(340px, 82vw);
+    max-width: none;
+    padding: 0;
     text-align: center;
-    font-size: 21px;
+    font-size: 0;
+  }
+
+  .botao-clube-plate {
+    width: min(300px, 74vw);
   }
 
   .sobre-blocos {
