@@ -15,7 +15,7 @@
 
     body.page-ready {
       opacity: 1;
-      transform: translateY(0);
+      transform: none;
     }
 
     body.page-leaving {
