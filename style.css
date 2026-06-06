@@ -3017,7 +3017,7 @@ html.skip-intro #intro {
     display: none;
   }
 
-  .home-store-button {
+  .Btn-Container.home-store-button {
     left: 47%;
     top: 116px;
     bottom: auto;
