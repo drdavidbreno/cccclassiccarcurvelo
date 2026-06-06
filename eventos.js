@@ -1,5 +1,56 @@
 const eventos = [
   {
+    nome: "REUNI&Atilde;O MENSAL",
+    data: "04 de junho de 2026",
+    local: "Pra&ccedil;a da Esta&ccedil;&atilde;o - Curvelo MG",
+    capa: "img/eventos/evento040626/IMG-20260605-WA0007.webp",
+    descricao: "Registros da reuni&atilde;o mensal do CCC Car na Pra&ccedil;a da Esta&ccedil;&atilde;o, em Curvelo MG.",
+    fotos: [
+      "img/eventos/evento040626/IMG-20260605-WA0007.webp",
+      "img/eventos/evento040626/IMG-20260605-WA0008.webp",
+      "img/eventos/evento040626/IMG-20260605-WA0010.webp",
+      "img/eventos/evento040626/IMG-20260605-WA0012.webp",
+      "img/eventos/evento040626/IMG-20260605-WA0017.webp",
+      "img/eventos/evento040626/IMG-20260605-WA0019.webp",
+      "img/eventos/evento040626/IMG-20260605-WA0020.webp",
+      "img/eventos/evento040626/IMG-20260605-WA0023.webp",
+      "img/eventos/evento040626/IMG-20260605-WA0035.webp",
+      "img/eventos/evento040626/IMG-20260605-WA0037.webp",
+      "img/eventos/evento040626/IMG-20260605-WA0038.webp",
+      "img/eventos/evento040626/IMG-20260605-WA0045.webp",
+      "img/eventos/evento040626/IMG-20260605-WA0050.webp",
+      "img/eventos/evento040626/IMG-20260605-WA0051.webp",
+      "img/eventos/evento040626/IMG-20260605-WA0053.webp",
+      "img/eventos/evento040626/IMG-20260605-WA0054.webp",
+      "img/eventos/evento040626/IMG-20260605-WA0057.webp",
+      "img/eventos/evento040626/IMG-20260605-WA0060.webp",
+      "img/eventos/evento040626/IMG-20260605-WA0061.webp",
+      "img/eventos/evento040626/IMG-20260605-WA0062.webp",
+      "img/eventos/evento040626/IMG-20260605-WA0063.webp",
+      "img/eventos/evento040626/IMG-20260605-WA0068.webp",
+      "img/eventos/evento040626/IMG-20260605-WA0069.webp",
+      "img/eventos/evento040626/IMG-20260605-WA0070.webp",
+      "img/eventos/evento040626/IMG-20260605-WA0071.webp",
+      "img/eventos/evento040626/IMG-20260605-WA0073.webp",
+      "img/eventos/evento040626/IMG-20260605-WA0074.webp",
+      "img/eventos/evento040626/IMG-20260605-WA0075.webp",
+      "img/eventos/evento040626/IMG-20260605-WA0076.webp",
+      "img/eventos/evento040626/IMG-20260605-WA0077.webp",
+      "img/eventos/evento040626/IMG-20260605-WA0080.webp",
+      "img/eventos/evento040626/IMG-20260605-WA0081.webp",
+      "img/eventos/evento040626/IMG-20260605-WA0083.webp",
+      "img/eventos/evento040626/IMG-20260605-WA0085.webp",
+      "img/eventos/evento040626/IMG-20260605-WA0086.webp",
+      "img/eventos/evento040626/IMG-20260605-WA0087.webp",
+      "img/eventos/evento040626/IMG-20260605-WA0088.webp",
+      "img/eventos/evento040626/IMG-20260605-WA0089.webp",
+      "img/eventos/evento040626/IMG-20260605-WA0090.webp",
+      "img/eventos/evento040626/IMG-20260605-WA0091.webp",
+      "img/eventos/evento040626/IMG-20260605-WA0092.webp",
+      "img/eventos/evento040626/IMG-20260605-WA0093.webp"
+    ]
+  },
+  {
     nome: "Encontro em homenagem ao dia das M&atilde;es",
     data: "10 de maio de 2026",
     local: "Pracinha Aeroporto - Curvelo MG",
@@ -46,12 +97,20 @@ function caminhoSemExtensao(caminho) {
   return caminho.endsWith(".webp") ? caminho.slice(0, -5) : null;
 }
 
+function usaImagemUnica(caminho) {
+  return caminho.includes("/evento040626/");
+}
+
 function caminhoThumb(caminho) {
+  if (usaImagemUnica(caminho)) return caminho;
+
   const base = caminhoSemExtensao(caminho);
   return base ? `${base}-thumb.webp` : caminho;
 }
 
 function srcsetResponsivo(caminho) {
+  if (usaImagemUnica(caminho)) return "";
+
   const base = caminhoSemExtensao(caminho);
   if (!base) return "";
   return `${base}-480.webp 480w, ${base}.webp 960w, ${base}-1600.webp 1600w`;
