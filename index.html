@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" href="img/favicon.png" type="image/png">
   <title>In&iacute;cio</title>
-  <link rel="stylesheet" href="style.css?v=20260606o">
+  <link rel="stylesheet" href="style.css?v=20260606p">
   <link href="https://fonts.googleapis.com/css2?family=Anton&family=Barlow+Condensed:wght@300;400;500;600&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
   <script>
@@ -16,6 +16,7 @@
 </head>
 <body class="home-page intro-active">
   <div id="intro" aria-label="Introdu&ccedil;&atilde;o V8">
+    <div id="vanta-bg" aria-hidden="true"></div>
     
     <div class="intro-logo">
       <img src="img/logo2.webp" alt="CCC Car" decoding="async">
@@ -30,7 +31,7 @@
       shadow-intensity="0.8"
       tone-mapping="commerce"
       environment-image="https://modelviewer.dev/shared-assets/environments/spruit_sunrise_1k_HDR.hdr"
-      camera-orbit="0deg 75deg 145%"
+      camera-orbit="0deg 75deg 185%"
       field-of-view="36deg"
       camera-controls
       auto-rotate
@@ -256,6 +257,8 @@
     <source src="audio/sound-effects-library-cash-register-sound.mp3" type="audio/mpeg">
   </audio>
 
+  <script src="js/vanta/three.r134.min.js"></script>
+  <script src="js/vanta/vanta.waves.min.js"></script>
   <script>
     const chatPanel = document.getElementById("chat-panel");
     const chatBody = document.getElementById("chat-body");
@@ -285,6 +288,36 @@
     const farolSound = document.querySelector(".navbar-secret-sound");
     const farolHorn = document.querySelector(".navbar-secret-horn");
     const skipIntro = new URLSearchParams(window.location.search).get("home") === "1";
+    let introVanta = null;
+
+    const initIntroVanta = () => {
+      const vantaEl = document.getElementById("vanta-bg");
+
+      if (skipIntro || !vantaEl || !window.VANTA || !window.VANTA.WAVES) {
+        return;
+      }
+
+      introVanta = window.VANTA.WAVES({
+        el: vantaEl,
+        mouseControls: true,
+        touchControls: true,
+        gyroControls: false,
+        color: 0x080808,
+        shininess: 35,
+        waveHeight: 22,
+        waveSpeed: 1,
+        zoom: 0.85
+      });
+    };
+
+    const destroyIntroVanta = () => {
+      if (introVanta && typeof introVanta.destroy === "function") {
+        introVanta.destroy();
+        introVanta = null;
+      }
+    };
+
+    initIntroVanta();
 
     const playHorn = () => {
       hornAudio.currentTime = 0;
@@ -619,6 +652,7 @@
 
       setTimeout(() => {
         intro.classList.add("hide");
+        window.setTimeout(destroyIntroVanta, 1100);
         preprogramacao.classList.add("active");
         preprogramacao.setAttribute("aria-hidden", "false");
 
